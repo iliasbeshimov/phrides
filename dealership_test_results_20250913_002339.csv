@@ -1,0 +1,34 @@
+dealership,url,brand,timestamp,success,form_detected,fields_filled_count,page_loaded,error
+Honda of Downtown LA,https://www.hondadowntownla.com/contact-us/,Honda,2025-09-13T00:22:06.961452,False,False,0,False,"Page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hondadowntownla.com/contact-us/
+Call log:
+navigating to ""https://www.hondadowntownla.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Toyota of Hollywood,https://www.toyotaofhollywood.com/contact-us/,Toyota,2025-09-13T00:22:08.115255,True,True,2,True,
+Universal City Nissan,https://www.universalcitynissan.com/contact-us/,Nissan,2025-09-13T00:22:52.405837,False,False,0,True,No suitable form detected
+Galpin Ford,https://www.galpin.com/contact-us/,Ford,2025-09-13T00:22:53.382930,False,False,0,True,No suitable form detected
+Mercedes-Benz of Beverly Hills,https://www.mbofbeverlyhills.com/contact-us/,Mercedes,2025-09-13T00:22:55.731991,False,False,0,True,No suitable form detected
+BMW of Santa Monica,https://www.bmwofsantamonica.com/contact-us/,BMW,2025-09-13T00:22:56.683058,False,False,0,False,"Page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bmwofsantamonica.com/contact-us/
+Call log:
+navigating to ""https://www.bmwofsantamonica.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Audi Glendale,https://www.audiglendale.com/contact-us/,Audi,2025-09-13T00:22:57.067668,False,False,0,False,"Page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.audiglendale.com/contact-us/
+Call log:
+navigating to ""https://www.audiglendale.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Lexus of Glendale,https://www.lexusofglendale.com/contact-us/,Lexus,2025-09-13T00:22:57.705896,False,False,0,True,No suitable form detected
+Infiniti of Van Nuys,https://www.infinitivannuys.com/contact-us/,Infiniti,2025-09-13T00:23:00.108532,False,False,0,True,No suitable form detected
+Acura of Pasadena,https://www.acuraofpasadena.com/contact-us/,Acura,2025-09-13T00:23:07.232700,False,False,0,False,"Page load failed: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://www.acuraofpasadena.com/contact-us/
+Call log:
+navigating to ""https://www.acuraofpasadena.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Hyundai of Glendale,https://www.hyundaiofglendale.com/contact-us/,Hyundai,2025-09-13T00:23:07.859910,False,False,0,False,"Page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hyundaiofglendale.com/contact-us/
+Call log:
+navigating to ""https://www.hyundaiofglendale.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Kia of West Covina,https://www.kiaofwestcovina.com/contact-us/,Kia,2025-09-13T00:23:08.283781,False,False,0,False,"Page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.kiaofwestcovina.com/contact-us/
+Call log:
+navigating to ""https://www.kiaofwestcovina.com/contact-us/"", waiting until ""domcontentloaded""
+"
+Mazda of Lodi,https://www.mazdaoflodi.com/contact-us/,Mazda,2025-09-13T00:23:08.772327,False,False,0,True,No suitable form detected
+Subaru of Glendale,https://www.subaruofglendale.com/contact-us/,Subaru,2025-09-13T00:23:09.897312,False,False,0,True,No suitable form detected
+Test Form Site,https://httpbin.org/forms/post,Test,2025-09-13T00:23:13.558019,True,True,3,True,

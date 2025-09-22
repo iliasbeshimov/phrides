@@ -1,0 +1,9 @@
+dealer_name,website,final_url,city,state,success,contact_url,forms_found,screenshot_path,discovery_method,test_duration,failure_reason
+"V & H Automotive, Inc",https://www.vhauto.com,https://www.vhauto.com/,Clintonville,WI,False,,0,,,11.631035804748535,No dropdown or modal contact forms found
+Vaden Chrysler Dodge Jeep Ram Savannah,https://www.vadencdjrsavannah.com,https://www.vadencdjrsavannah.com/lander,Savannah,GA,False,,0,,,11.980270862579346,No dropdown or modal contact forms found
+Quality Chrysler Dodge Jeep Ram,https://www.qualityinjerseyville.com,https://www.qualityinjerseyville.com/,Jerseyville,IL,False,,0,,,15.420938968658447,No dropdown or modal contact forms found
+Dodge Chrysler Jeep Ram FIAT of Winter Haven,https://www.dodgeofwinterhaven.net,https://www.dodgeofwinterhaven.net/,Winter Haven,FL,False,,0,,,10.59498119354248,No dropdown or modal contact forms found
+Cutter Chrysler Jeep Dodge of Pearl City,https://www.cutterdodgechryslerjeepofpearlcity.com,https://www.cutterdodgechryslerjeepofpearlcity.com/,Pearl City,HI,False,,0,,,49.383920192718506,No dropdown or modal contact forms found
+Frontier Motor Co,https://www.frontiermotor.net,https://www.frontiermotor.net/,El Reno,OK,False,,0,,,10.14120602607727,No dropdown or modal contact forms found
+Salmon River Motors Inc,https://www.salmonrivermotors.net,https://www.salmonrivermotors.net/,Salmon,ID,False,,0,,,12.265502214431763,No dropdown or modal contact forms found
+Park Maple City Chrysler Dodge Jeep Ram,https://www.parkmaplecitycjdr.com,https://www.parkmaplecitycjdr.com/,Hornell,NY,False,,0,,,0.24455690383911133,Could not load site

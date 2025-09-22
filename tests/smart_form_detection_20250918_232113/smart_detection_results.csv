@@ -1,0 +1,20 @@
+dealer_index,dealer_name,website,status,forms_detected,best_form_score,timestamp,screenshot_path,best_form_inputs,best_form_emails
+1,Don Davis Chrysler Dodge Jeep,https://www.dondavischryslerdodge.com,forms_detected,1,0,2025-09-18T23:21:30.719915,tests/smart_form_detection_20250918_232113/screenshots/Don_Davis_Chrysler_D_form1_score0.png,0.0,0.0
+2,Winnie Chrysler Dodge Jeep Ram,https://www.winniedodge.com,forms_detected,1,0,2025-09-18T23:21:49.948373,tests/smart_form_detection_20250918_232113/screenshots/Winnie_Chrysler_Dodg_form1_score0.png,0.0,0.0
+3,Beaver Motors Chrysler Dodge Jeep Ram,https://www.beavermotors.net,forms_detected,2,10,2025-09-18T23:22:09.440510,tests/smart_form_detection_20250918_232113/screenshots/Beaver_Motors_Chrysl_form1_score10.png,0.0,0.0
+4,Ramey Chrysler Dodge Jeep Ram FIAT,https://www.rameymotors.net,no_forms_found,0,0,2025-09-18T23:22:30.445325,,,
+5,"Rod Hatfield Chrysler Dodge Jeep Ram, LLC",https://www.rodhatfieldcdj.com,forms_detected,1,0,2025-09-18T23:22:49.372153,tests/smart_form_detection_20250918_232113/screenshots/Rod_Hatfield_Chrysle_form1_score0.png,0.0,0.0
+6,Chrysler Dodge Jeep Ram of Seattle,https://www.seattlejeep.com/,forms_detected,1,20,2025-09-18T23:23:10.809833,tests/smart_form_detection_20250918_232113/screenshots/Chrysler_Dodge_Jeep__form1_score20.png,0.0,0.0
+7,Joe Cooper Chrysler Dodge Jeep Ram of Yukon,https://www.joecooperchryslerdodgejeepramyukon.net/,no_forms_found,0,0,2025-09-18T23:23:30.240800,,,
+8,Sarchione Chrysler Dodge Jeep Ram,https://cdjrdrivesohio.com/,forms_detected,1,10,2025-09-18T23:23:49.102698,tests/smart_form_detection_20250918_232113/screenshots/Sarchione_Chrysler_D_form1_score10.png,0.0,0.0
+9,Riverhead Chrysler Dodge Jeep Ram,https://www.riverheaddodge.com,no_forms_found,0,0,2025-09-18T23:24:08.446236,,,
+10,Jeep Portsmouth,https://www.jeepportsmouth.com,no_forms_found,0,0,2025-09-18T23:24:27.691706,,,
+11,Key Chrysler Dodge Jeep Ram of Rochester,https://www.keycdjrofrochester.com,no_forms_found,0,0,2025-09-18T23:24:46.848793,,,
+12,Liberty Chrysler Dodge Jeep Ram FIAT,https://www.libertychryslercenter.com,forms_detected,1,10,2025-09-18T23:25:07.112668,tests/smart_form_detection_20250918_232113/screenshots/Liberty_Chrysler_Dod_form1_score10.png,0.0,0.0
+14,Thomas Garage Inc,https://www.thomasautocenters.com,forms_detected,1,0,2025-09-18T23:25:26.443275,tests/smart_form_detection_20250918_232113/screenshots/Thomas_Garage_Inc_form1_score0.png,0.0,0.0
+15,Autonation Chrysler Dodge Jeep Ram Southwest,https://www.autonationchryslerdodgejeepramsouthwest.com,no_forms_found,0,0,2025-09-18T23:25:45.973538,,,
+16,Thomson Chrysler Dodge Jeep Ram FIAT,https://www.jeepcheap.com,forms_detected,2,0,2025-09-18T23:26:05.425991,tests/smart_form_detection_20250918_232113/screenshots/Thomson_Chrysler_Dod_form1_score0.png,0.0,0.0
+17,Hobson Chrysler Dodge Jeep Ram,https://www.hobsoncdjr.com,forms_detected,1,20,2025-09-18T23:26:25.694811,tests/smart_form_detection_20250918_232113/screenshots/Hobson_Chrysler_Dodg_form1_score20.png,0.0,0.0
+18,Circle Chrysler Dodge Jeep Ram,https://www.CircleJeep.com,no_forms_found,0,0,2025-09-18T23:26:45.880478,,,
+19,Shepherd's Chrysler Dodge Jeep Ram,https://www.shepherdscdjr.com,forms_detected,1,0,2025-09-18T23:27:05.405089,tests/smart_form_detection_20250918_232113/screenshots/Shepherd's_Chrysler__form1_score0.png,0.0,0.0
+20,Steele Chrysler Jeep Dodge Ram Lockhart,https://www.steelechryslerlockhart.com,forms_detected,1,10,2025-09-18T23:27:24.717437,tests/smart_form_detection_20250918_232113/screenshots/Steele_Chrysler_Jeep_form1_score10.png,0.0,0.0

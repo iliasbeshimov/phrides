@@ -1,0 +1,32 @@
+dealer_name,website,city,state,success,contact_url,forms_found,screenshot_path,pattern_used,detection_bypassed,failure_reason,test_duration
+Sam Leman Chrysler-Jeep-Dodge Peoria,https://www.samlemanchryslerjeep.com,Peoria,IL,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.samlemanchryslerjeep.com/
+Call log:
+navigating to ""https://www.samlemanchryslerjeep.com/"", waiting until ""domcontentloaded""
+",0.05261802673339844
+Frank C Videon Inc,https://www.videonchryslerdodge.com,Newville,PA,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.videonchryslerdodge.com/
+Call log:
+navigating to ""https://www.videonchryslerdodge.com/"", waiting until ""domcontentloaded""
+",0.03803110122680664
+"V & H Automotive, Inc",https://www.vhauto.com,Clintonville,WI,False,,0,,,True,No contact forms found after comprehensive stealth search,77.46817088127136
+Bemidji Chrysler Center LLC,https://www.bemidjicc.com,Bemidji,MN,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bemidjicc.com/
+Call log:
+navigating to ""https://www.bemidjicc.com/"", waiting until ""domcontentloaded""
+",0.006973981857299805
+Abernethy Chry-Jeep-Dodge Inc,https://www.abernethycjd.com,Cherryville,NC,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.abernethycjd.com/
+Call log:
+navigating to ""https://www.abernethycjd.com/"", waiting until ""domcontentloaded""
+",0.0077397823333740234
+Larry H. Miller Chrysler Jeep Dodge Ram Sandy,https://www.lhmdodgeram.com,Sandy,UT,False,,0,,,False,"Error: Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://www.lhmdodgeram.com/
+Call log:
+navigating to ""https://www.lhmdodgeram.com/"", waiting until ""domcontentloaded""
+",0.13701605796813965
+Homan Auto Sales Inc,https://www.homanautosales.com,Waupun,WI,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.homanautosales.com/
+Call log:
+navigating to ""https://www.homanautosales.com/"", waiting until ""domcontentloaded""
+",0.0066831111907958984
+"Hoblit Chrysler Jeep Dodge, Inc.",https://www.hoblitchryslerjeep.com,Woodland,CA,False,,0,,,False,"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hoblitchryslerjeep.com/
+Call log:
+navigating to ""https://www.hoblitchryslerjeep.com/"", waiting until ""domcontentloaded""
+",0.008305788040161133
+Vaden Chrysler Dodge Jeep Ram Savannah,https://www.vadencdjrsavannah.com,Savannah,GA,False,,0,,,True,No contact forms found after comprehensive stealth search,76.33360195159912
+Thayer Chrysler Dodge Jeep Ram,https://www.thayercdjr.com,Bowling Green,OH,True,https://www.thayercdjr.com/contact.htm,2,Tests/remaining_10_sites_20250915_103710/screenshots/thayercdjr_com_contact_htm.png,/contact.htm,True,,17.311420917510986

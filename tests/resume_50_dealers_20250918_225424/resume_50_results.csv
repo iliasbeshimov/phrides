@@ -1,0 +1,50 @@
+dealer_index,dealer_name,website,status,confidence_score,timestamp,forms_found,inputs_found
+1,Don Davis Chrysler Dodge Jeep,https://www.dondavischryslerdodge.com,already_completed,100.0,2025-09-18T22:54:24.885178,,
+2,Winnie Chrysler Dodge Jeep Ram,https://www.winniedodge.com,no_forms_detected,40.0,2025-09-18T22:54:37.733974,2.0,0.0
+3,Beaver Motors Chrysler Dodge Jeep Ram,https://www.beavermotors.net,already_completed,100.0,2025-09-18T22:54:39.750768,,
+4,Ramey Chrysler Dodge Jeep Ram FIAT,https://www.rameymotors.net,no_forms_detected,0.0,2025-09-18T22:55:04.009919,0.0,0.0
+5,"Rod Hatfield Chrysler Dodge Jeep Ram, LLC",https://www.rodhatfieldcdj.com,no_forms_detected,40.0,2025-09-18T22:55:17.260796,2.0,0.0
+6,Chrysler Dodge Jeep Ram of Seattle,https://www.seattlejeep.com/,form_submission_failed,70.0,2025-09-18T22:55:31.972246,2.0,2.0
+7,Joe Cooper Chrysler Dodge Jeep Ram of Yukon,https://www.joecooperchryslerdodgejeepramyukon.net/,no_forms_detected,40.0,2025-09-18T22:55:45.292520,1.0,0.0
+8,Sarchione Chrysler Dodge Jeep Ram,https://cdjrdrivesohio.com/,no_forms_detected,40.0,2025-09-18T22:55:58.542888,2.0,0.0
+9,Riverhead Chrysler Dodge Jeep Ram,https://www.riverheaddodge.com,no_forms_detected,0.0,2025-09-18T22:56:21.682559,0.0,0.0
+10,Jeep Portsmouth,https://www.jeepportsmouth.com,no_forms_detected,0.0,2025-09-18T22:56:45.907368,0.0,0.0
+11,Key Chrysler Dodge Jeep Ram of Rochester,https://www.keycdjrofrochester.com,no_forms_detected,0.0,2025-09-18T22:57:08.877788,0.0,0.0
+12,Liberty Chrysler Dodge Jeep Ram FIAT,https://www.libertychryslercenter.com,no_forms_detected,40.0,2025-09-18T22:57:22.682951,1.0,0.0
+14,Thomas Garage Inc,https://www.thomasautocenters.com,already_completed,100.0,2025-09-18T22:57:24.693204,,
+15,Autonation Chrysler Dodge Jeep Ram Southwest,https://www.autonationchryslerdodgejeepramsouthwest.com,already_completed,100.0,2025-09-18T22:57:26.702430,,
+16,Thomson Chrysler Dodge Jeep Ram FIAT,https://www.jeepcheap.com,already_completed,100.0,2025-09-18T22:57:28.706130,,
+17,Hobson Chrysler Dodge Jeep Ram,https://www.hobsoncdjr.com,no_forms_detected,40.0,2025-09-18T22:57:42.137996,1.0,0.0
+18,Circle Chrysler Dodge Jeep Ram,https://www.CircleJeep.com,already_completed,100.0,2025-09-18T22:57:44.151560,,
+19,Shepherd's Chrysler Dodge Jeep Ram,https://www.shepherdscdjr.com,already_completed,100.0,2025-09-18T22:57:46.158253,,
+20,Steele Chrysler Jeep Dodge Ram Lockhart,https://www.steelechryslerlockhart.com,already_completed,100.0,2025-09-18T22:57:48.171301,,
+21,Tilleman Motor Co.,https://www.tillemanmotor.net,no_forms_detected,40.0,2025-09-18T22:58:01.321801,5.0,0.0
+22,Rairdon's Chrysler Jeep Dodge of Kirkland,https://www.dodgechryslerjeepofkirkland.com,no_forms_detected,40.0,2025-09-18T22:58:14.278176,4.0,0.0
+23,Janssen Chrysler Jeep Dodge,https://www.janssenchryslerjeepdodge.com,already_completed,100.0,2025-09-18T22:58:16.287665,,
+24,Karl Chrysler Dodge Jeep Ram,https://www.karlcdjr.com,no_forms_detected,0.0,2025-09-18T22:58:39.682297,0.0,0.0
+25,Fredonia Chrysler Dodge Jeep Ram,https://www.fredoniachryslerdodgejeepram.com,already_completed,100.0,2025-09-18T22:58:41.695125,,
+26,Tasca Chrysler Dodge Jeep Ram White Plains,https://www.tascacdjrwhiteplains.com,already_completed,100.0,2025-09-18T22:58:43.698856,,
+27,Downtown Auto Group Inc,https://www.buydowntown.com,already_completed,100.0,2025-09-18T22:58:45.704945,,
+28,Johnson & Sons Co Inc,https://www.johnsonsons.com,no_forms_detected,40.0,2025-09-18T22:58:59.244019,1.0,0.0
+29,Deveny Chrysler Jeep Dodge Ram,https://www.devenychryslerjeepdodge.com,no_forms_detected,40.0,2025-09-18T22:59:12.621711,1.0,1.0
+30,Williams Chrysler Dodge Jeep,https://www.williamschryslerdodgejeep.com,no_forms_detected,40.0,2025-09-18T22:59:26.303327,1.0,0.0
+31,Tony Domiano Chrysler Dodge Jeep,https://www.tonydomianochryslerdodgejeep.com,no_forms_detected,0.0,2025-09-18T22:59:49.085003,0.0,0.0
+32,Capital City Cdjr,https://www.CapCityCDJR.com,no_forms_detected,40.0,2025-09-18T23:00:01.747933,4.0,0.0
+33,Jerry Ulm Chrysler Dodge Jeep Ram,https://www.jerryulmchryslerdodgejeepram.com,no_forms_detected,40.0,2025-09-18T23:00:14.747493,1.0,1.0
+34,Premier Chrysler Dodge Jeep Ram of Lamesa,https://www.trucktowntexas.com,already_completed,100.0,2025-09-18T23:00:16.758662,,
+35,Elgin Chrysler Dodge Jeep Ram,https://www.elgincdjr.com,no_forms_detected,40.0,2025-09-18T23:00:29.755618,1.0,0.0
+36,Parks Chrysler Dodge Jeep Ram Gastonia,https://www.gastoniadodge.com,no_forms_detected,40.0,2025-09-18T23:00:42.650266,6.0,1.0
+37,Expressway Dodge Inc,https://www.expresswaydodge.net,already_completed,100.0,2025-09-18T23:00:44.664990,,
+38,Pischke Motors Incorporated,https://www.pischkemotors.net,no_forms_detected,40.0,2025-09-18T23:00:57.483197,1.0,0.0
+39,New Direct Chrysler Dodge Jeep Ram,https://www.newdirectchryslerdodgejeep.com,no_forms_detected,40.0,2025-09-18T23:01:10.633920,1.0,0.0
+40,Kuntz Motor Company,https://www.kuntzmotor.com,already_completed,100.0,2025-09-18T23:01:12.649550,,
+41,Moss Bros. Chrysler Dodge Jeep Ram FIAT Riverside,https://www.mossbroscjdrriverside.com,no_forms_detected,40.0,2025-09-18T23:01:25.594888,2.0,0.0
+42,Lithia Chrysler Dodge Jeep Ram FIAT of Eugene,https://www.lithiadodgeeugene.com,already_completed,100.0,2025-09-18T23:01:27.616165,,
+43,"Ryburn Motor Company, Inc.",https://www.ryburnmotor.com,no_forms_detected,0.0,2025-09-18T23:01:50.776270,0.0,0.0
+44,Abernethy Chry-Jeep-Dodge Inc,https://www.abernethychryslerjeepdodge.com,no_forms_detected,40.0,2025-09-18T23:02:04.549385,1.0,1.0
+45,Freeland Chrysler Dodge Jeep Ram,https://www.freelandcdjr.com,no_forms_detected,0.0,2025-09-18T23:02:27.782069,0.0,0.0
+46,Friendly Cdjr of Rome,https://www.friendlycdjrrome.com,already_completed,100.0,2025-09-18T23:02:29.798525,,
+47,St. Helens Chrysler Dodge Jeep Ram,https://www.sthelenschryslerdodgejeepram.com,already_completed,100.0,2025-09-18T23:02:31.806947,,
+48,Autostar Chrysler Dodge Jeep Ram of Silverthorne,https://www.autostarcdjrofsilverthorne.com,no_forms_detected,40.0,2025-09-18T23:02:45.884466,1.0,1.0
+49,Akins Chrysler Dodge Jeep Ram,https://www.akinsjeepram.com,no_forms_detected,40.0,2025-09-18T23:02:58.606458,1.0,0.0
+50,All American Chrysler Dodge Jeep Ram of Odessa,https://www.allamericanchryslerodessa.com,no_forms_detected,40.0,2025-09-18T23:03:11.495567,2.0,0.0

@@ -1,0 +1,6 @@
+dealer_name,website,status,forms_detected,best_form_score,best_form_context,best_form_inputs,screenshot_path
+Autonation Chrysler,https://www.autonationchryslerdodgejeepramsouthwest.com,enhanced_failed,0,,,,
+Capital City Cdjr,https://www.CapCityCDJR.com,enhanced_failed,0,,,,
+Thomas Garage Inc,https://www.thomasautocenters.com,enhanced_success,1,0.0,Standard,0.0,tests/enhanced_detection_20250919_201722/screenshots/Thomas_Garage_Inc_enhanced.png
+Rairdon's Chrysler,https://www.dodgechryslerjeepofkirkland.com,enhanced_success,1,0.0,Standard,0.0,tests/enhanced_detection_20250919_201722/screenshots/Rairdon's_Chrysler_enhanced.png
+Jerry Ulm Chrysler,https://www.jerryulmchryslerdodgejeepram.com,enhanced_failed,0,,,,

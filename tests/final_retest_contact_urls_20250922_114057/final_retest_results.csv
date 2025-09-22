@@ -1,0 +1,12 @@
+dealer_name,contact_url,original_status,final_retest_status,contact_score,form_type,total_inputs,email_fields,name_fields,message_fields,screenshot_path
+Thomas Garage Inc,https://www.thomasautocenters.com/contact-us/,failed,success,95.0,gravity_forms,6.0,1.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Thomas_Garage_Inc_success.png
+Autonation Chrysler Southwest,https://www.autonationchryslerdodgejeepramsouthwest.com/contact-us/,failed,still_failed,,,,,,,
+Thomson Chrysler (Jeep Cheap),https://www.jeepcheap.com/contact-us/,failed,success,100.0,gravity_forms,7.0,1.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Thomson_Chrysler_(Jeep_Cheap)_success.png
+Tilleman Motor Co,https://www.tillemanmotor.net/contact-us/,failed,success,100.0,gravity_forms,7.0,2.0,2.0,2.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Tilleman_Motor_Co_success.png
+Rairdons Chrysler Kirkland,https://www.dodgechryslerjeepofkirkland.com/contact-us/,failed,success,100.0,gravity_forms,8.0,2.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Rairdons_Chrysler_Kirkland_success.png
+Tasca Chrysler White Plains,https://www.tascacdjrwhiteplains.com/contact-us/,failed,success,95.0,gravity_forms,6.0,1.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Tasca_Chrysler_White_Plains_success.png
+Downtown Auto Group,https://www.buydowntown.com/contact-us/,failed,success,95.0,gravity_forms,6.0,1.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Downtown_Auto_Group_success.png
+Capital City Cdjr,https://www.CapCityCDJR.com/contact-us/,failed,success,100.0,gravity_forms,8.0,1.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Capital_City_Cdjr_success.png
+Premier Chrysler Lamesa,https://www.trucktowntexas.com/contact-us/,failed,success,100.0,gravity_forms,6.0,2.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Premier_Chrysler_Lamesa_success.png
+Shepherds Chrysler,https://www.shepherdscdjr.com/contact-us/,failed,success,100.0,gravity_forms,6.0,2.0,2.0,1.0,tests/final_retest_contact_urls_20250922_114057/screenshots/Shepherds_Chrysler_success.png
+Steele Chrysler Lockhart,https://www.steelechryslerlockhart.com/contact-us/,failed,still_failed,,,,,,,

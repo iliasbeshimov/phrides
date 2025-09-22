@@ -1,0 +1,46 @@
+dealer_index,dealer_name,website,status,contact_links_found,total_forms_detected,best_form_score,best_form_page,timestamp,best_form_inputs,best_form_emails,screenshot_path,error
+1,Don Davis Chrysler Dodge Jeep,https://www.dondavischryslerdodge.com,forms_detected,6.0,3.0,90.0,Contact,2025-09-19T07:36:10.548253,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Don_Davis_Chrys_Contact_form1_score90.png,
+2,Winnie Chrysler Dodge Jeep Ram,https://www.winniedodge.com,forms_detected,7.0,3.0,90.0,Contact,2025-09-19T07:36:47.128183,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Winnie_Chrysler_Contact_form1_score90.png,
+3,Beaver Motors Chrysler Dodge Jeep Ram,https://www.beavermotors.net,forms_detected,6.0,3.0,90.0,Contact,2025-09-19T07:37:34.454805,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Beaver_Motors_C_Contact_form1_score90.png,
+4,Ramey Chrysler Dodge Jeep Ram FIAT,https://www.rameymotors.net,forms_detected,12.0,5.0,100.0,Contact Us,2025-09-19T07:38:16.793317,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Ramey_Chrysler__Contact_Us_form1_score100.png,
+5,"Rod Hatfield Chrysler Dodge Jeep Ram, LLC",https://www.rodhatfieldcdj.com,forms_detected,5.0,3.0,90.0,Contact,2025-09-19T07:39:04.017734,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Rod_Hatfield_Ch_Contact_form1_score90.png,
+6,Chrysler Dodge Jeep Ram of Seattle,https://www.seattlejeep.com/,forms_detected,7.0,4.0,100.0,Contact Us,2025-09-19T07:39:52.419908,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Chrysler_Dodge__Contact_Us_form1_score100.png,
+7,Joe Cooper Chrysler Dodge Jeep Ram of Yukon,https://www.joecooperchryslerdodgejeepramyukon.net/,forms_detected,12.0,2.0,90.0,Contact,2025-09-19T07:40:32.370215,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Joe_Cooper_Chry_Contact_form1_score90.png,
+8,Sarchione Chrysler Dodge Jeep Ram,https://cdjrdrivesohio.com/,forms_detected,6.0,3.0,90.0,Contact Us,2025-09-19T07:41:21.424194,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Sarchione_Chrys_Contact_Us_form1_score90.png,
+9,Riverhead Chrysler Dodge Jeep Ram,https://www.riverheaddodge.com,forms_detected,8.0,5.0,100.0,Contact Us,2025-09-19T07:42:00.446035,11.0,3.0,tests/contact_page_detection_20250919_073523/screenshots/Riverhead_Chrys_Contact_Us_form1_score100.png,
+10,Jeep Portsmouth,https://www.jeepportsmouth.com,forms_detected,6.0,3.0,100.0,Contact Us,2025-09-19T07:42:53.468542,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Jeep_Portsmouth_Contact_Us_form1_score100.png,
+11,Key Chrysler Dodge Jeep Ram of Rochester,https://www.keycdjrofrochester.com,forms_detected,7.0,3.0,100.0,Contact & Directions,2025-09-19T07:43:32.611272,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Key_Chrysler_Do_Contact_&__form1_score100.png,
+12,Liberty Chrysler Dodge Jeep Ram FIAT,https://www.libertychryslercenter.com,forms_detected,9.0,6.0,100.0,Contact Us,2025-09-19T07:44:14.775968,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Liberty_Chrysle_Contact_Us_form1_score100.png,
+14,Thomas Garage Inc,https://www.thomasautocenters.com,forms_detected,11.0,1.0,10.0,Homepage,2025-09-19T07:44:38.120356,0.0,0.0,,
+15,Autonation Chrysler Dodge Jeep Ram Southwest,https://www.autonationchryslerdodgejeepramsouthwest.com,no_forms_found,6.0,0.0,0.0,,2025-09-19T07:45:13.707036,,,,
+16,Thomson Chrysler Dodge Jeep Ram FIAT,https://www.jeepcheap.com,forms_detected,10.0,2.0,0.0,Homepage,2025-09-19T07:45:47.847138,0.0,0.0,,
+17,Hobson Chrysler Dodge Jeep Ram,https://www.hobsoncdjr.com,forms_detected,5.0,4.0,100.0,Contact & Directions,2025-09-19T07:46:27.399003,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Hobson_Chrysler_Contact_&__form1_score100.png,
+18,Circle Chrysler Dodge Jeep Ram,https://www.CircleJeep.com,forms_detected,6.0,3.0,100.0,Contact Us,2025-09-19T07:47:08.653126,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Circle_Chrysler_Contact_Us_form1_score100.png,
+19,Shepherd's Chrysler Dodge Jeep Ram,https://www.shepherdscdjr.com,error,,,,,2025-09-19T07:47:28.873664,,,,"Page.goto: net::ERR_TIMED_OUT at https://www.shepherdscdjr.com/
+Call log:
+navigating to ""https://www.shepherdscdjr.com/"", waiting until ""domcontentloaded""
+"
+20,Steele Chrysler Jeep Dodge Ram Lockhart,https://www.steelechryslerlockhart.com,error,,,,,2025-09-19T07:47:49.856191,,,,"Page.goto: net::ERR_TIMED_OUT at https://www.steelechryslerlockhart.com/
+Call log:
+navigating to ""https://www.steelechryslerlockhart.com/"", waiting until ""domcontentloaded""
+"
+21,Tilleman Motor Co.,https://www.tillemanmotor.net,forms_detected,11.0,2.0,0.0,Homepage,2025-09-19T07:48:23.491069,0.0,0.0,,
+22,Rairdon's Chrysler Jeep Dodge of Kirkland,https://www.dodgechryslerjeepofkirkland.com,forms_detected,12.0,1.0,0.0,Homepage,2025-09-19T07:48:46.806203,0.0,0.0,,
+23,Janssen Chrysler Jeep Dodge,https://www.janssenchryslerjeepdodge.com,forms_detected,6.0,4.0,90.0,Contact,2025-09-19T07:49:23.779390,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Janssen_Chrysle_Contact_form1_score90.png,
+24,Karl Chrysler Dodge Jeep Ram,https://www.karlcdjr.com,forms_detected,7.0,5.0,100.0,Contact Us,2025-09-19T07:50:04.700766,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Karl_Chrysler_D_Contact_Us_form1_score100.png,
+25,Fredonia Chrysler Dodge Jeep Ram,https://www.fredoniachryslerdodgejeepram.com,forms_detected,7.0,3.0,100.0,Contact Us,2025-09-19T07:50:46.557537,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Fredonia_Chrysl_Contact_Us_form1_score100.png,
+26,Tasca Chrysler Dodge Jeep Ram White Plains,https://www.tascacdjrwhiteplains.com,forms_detected,9.0,1.0,0.0,Homepage,2025-09-19T07:51:10.116200,0.0,0.0,,
+27,Downtown Auto Group Inc,https://www.buydowntown.com,forms_detected,12.0,3.0,0.0,Homepage,2025-09-19T07:51:33.422544,0.0,0.0,,
+28,Johnson & Sons Co Inc,https://www.johnsonsons.com,forms_detected,4.0,7.0,100.0,Contact Us And Directions,2025-09-19T07:52:13.346834,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Johnson_and_Son_Contact_Us_form1_score100.png,
+29,Deveny Chrysler Jeep Dodge Ram,https://www.devenychryslerjeepdodge.com,forms_detected,11.0,3.0,100.0,Contact Us,2025-09-19T07:52:56.485758,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Deveny_Chrysler_Contact_Us_form1_score100.png,
+30,Williams Chrysler Dodge Jeep,https://www.williamschryslerdodgejeep.com,forms_detected,4.0,6.0,100.0,Contact & Find Us,2025-09-19T07:53:46.495636,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Williams_Chrysl_Contact_&__form1_score100.png,
+31,Tony Domiano Chrysler Dodge Jeep,https://www.tonydomianochryslerdodgejeep.com,forms_detected,5.0,8.0,100.0,Contact Us,2025-09-19T07:54:36.516359,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Tony_Domiano_Ch_Contact_Us_form1_score100.png,
+32,Capital City Cdjr,https://www.CapCityCDJR.com,no_forms_found,9.0,0.0,0.0,,2025-09-19T07:54:59.814687,,,,
+33,Jerry Ulm Chrysler Dodge Jeep Ram,https://www.jerryulmchryslerdodgejeepram.com,forms_detected,9.0,3.0,75.0,"Sales : 2966 N Dale Mabry Hwy, Tampa, Fl 33607",2025-09-19T07:55:48.634718,1.0,1.0,tests/contact_page_detection_20250919_073523/screenshots/Jerry_Ulm_Chrys_Sales_:_29_form2_score75.png,
+34,Premier Chrysler Dodge Jeep Ram of Lamesa,https://www.trucktowntexas.com,forms_detected,10.0,1.0,0.0,Homepage,2025-09-19T07:56:12.132061,0.0,0.0,,
+35,Elgin Chrysler Dodge Jeep Ram,https://www.elgincdjr.com,forms_detected,13.0,4.0,100.0,Contact Us,2025-09-19T07:57:03.886179,11.0,3.0,tests/contact_page_detection_20250919_073523/screenshots/Elgin_Chrysler__Contact_Us_form1_score100.png,
+36,Parks Chrysler Dodge Jeep Ram Gastonia,https://www.gastoniadodge.com,forms_detected,12.0,4.0,65.0,Contact Us,2025-09-19T07:57:29.454289,1.0,1.0,tests/contact_page_detection_20250919_073523/screenshots/Parks_Chrysler__Contact_Us_form2_score65.png,
+37,Expressway Dodge Inc,https://www.expresswaydodge.net,forms_detected,6.0,1.0,90.0,Contact,2025-09-19T07:58:07.418749,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Expressway_Dodg_Contact_form1_score90.png,
+38,Pischke Motors Incorporated,https://www.pischkemotors.net,forms_detected,8.0,2.0,90.0,Contact,2025-09-19T07:58:54.728953,8.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Pischke_Motors__Contact_form1_score90.png,
+39,New Direct Chrysler Dodge Jeep Ram,https://www.newdirectchryslerdodgejeep.com,forms_detected,8.0,6.0,100.0,Contact Us,2025-09-19T07:59:34.033159,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/New_Direct_Chry_Contact_Us_form1_score100.png,
+40,Kuntz Motor Company,https://www.kuntzmotor.com,forms_detected,8.0,4.0,100.0,Contact Us,2025-09-19T08:00:09.773611,10.0,2.0,tests/contact_page_detection_20250919_073523/screenshots/Kuntz_Motor_Com_Contact_Us_form1_score100.png,
