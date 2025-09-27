@@ -1,0 +1,41 @@
+{
+  "dealer_slug": "capital_city_cdjr",
+  "contact_url": "https://www.capcitycdjr.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/capital_city_cdjr/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/capital_city_cdjr.png",
+  "last_verified_at": "2025-09-27T21:43:23.027260+00:00",
+  "expected_fields": {
+    "email": {
+      "selectors": [
+        "input[type='email']"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    },
+    "phone": {
+      "selectors": [
+        "input[type='tel']"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true,
+      "format": "unknown",
+      "segments": []
+    },
+    "message": {
+      "selectors": [
+        "textarea"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}

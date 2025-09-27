@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "generated_by": "setup_dataset.py",
+  "entries": [
+    {
+      "slug": "thomas_garage_inc",
+      "dealer_name": "Thomas Garage Inc",
+      "contact_url": "https://www.thomasautocenters.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Baseline Gravity Forms success case"
+    },
+    {
+      "slug": "thomson_chrysler",
+      "dealer_name": "Thomson Chrysler (Jeep Cheap)",
+      "contact_url": "https://www.jeepcheap.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Gravity Forms with expanded input set"
+    },
+    {
+      "slug": "tilleman_motor_co",
+      "dealer_name": "Tilleman Motor Co",
+      "contact_url": "https://www.tillemanmotor.net/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Gravity Forms variant with multiple message fields"
+    },
+    {
+      "slug": "rairdons_chrysler_kirkland",
+      "dealer_name": "Rairdons Chrysler Kirkland",
+      "contact_url": "https://www.dodgechryslerjeepofkirkland.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Gravity Forms with conditional dropdowns"
+    },
+    {
+      "slug": "tasca_chrysler_white_plains",
+      "dealer_name": "Tasca Chrysler White Plains",
+      "contact_url": "https://www.tascacdjrwhiteplains.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Gravity Forms - include segmented phone check"
+    },
+    {
+      "slug": "downtown_auto_group",
+      "dealer_name": "Downtown Auto Group",
+      "contact_url": "https://www.buydowntown.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "success",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Gravity Forms urban dealership"
+    },
+    {
+      "slug": "capital_city_cdjr",
+      "dealer_name": "Capital City Cdjr",
+      "contact_url": "https://www.capcitycdjr.com/contact-us/",
+      "platform_hint": "gravity_forms",
+      "status": "failure",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Reported failure; validate against snapshot"
+    },
+    {
+      "slug": "hanania_cdjr",
+      "dealer_name": "Hanania Chrysler Dodge Jeep Ram",
+      "contact_url": "https://www.hananiacdjr.com/contact-us/",
+      "platform_hint": "standard_html",
+      "status": "success",
+      "source_csv": "tests/final_validation_third_set_20250917_003245/final_validation_results.csv",
+      "notes": "Standard HTML multi-column contact form"
+    },
+    {
+      "slug": "five_star_cdjr",
+      "dealer_name": "Five Star Chrysler Dodge Jeep Ram",
+      "contact_url": "https://www.fivestarclearfield.com/contactus.aspx",
+      "platform_hint": "standard_html",
+      "status": "success",
+      "source_csv": "tests/final_validation_third_set_20250917_003245/final_validation_results.csv",
+      "notes": "Standard HTML with dropdowns + checkboxes"
+    },
+    {
+      "slug": "max_curnow_cdjr",
+      "dealer_name": "Max Curnow Chrysler Dodge Jeep Ram",
+      "contact_url": "https://www.maxcurnowcdjr.com/contact-us/",
+      "platform_hint": "standard_html",
+      "status": "success",
+      "source_csv": "tests/final_validation_third_set_20250917_003245/final_validation_results.csv",
+      "notes": "Standard HTML with freeform text area"
+    },
+    {
+      "slug": "autonation_cdjr_southwest",
+      "dealer_name": "Autonation Chrysler Southwest",
+      "contact_url": "https://www.autonationchryslerdodgejeepramsouthwest.com/contact-us/",
+      "platform_hint": "unknown",
+      "status": "failure",
+      "source_csv": "tests/final_retest_contact_urls_20250922_114057/final_retest_results.csv",
+      "notes": "Persistent detection failure for benchmarking"
+    },
+    {
+      "slug": "larry_h_miller_sandy",
+      "dealer_name": "Larry H. Miller Chrysler Jeep Dodge Ram Sandy",
+      "contact_url": "https://www.lhmchryslerdodgeramfiatdenver.com/contact.htm",
+      "platform_hint": "legacy_html",
+      "status": "pending",
+      "source_csv": "tests/redirect_aware_recovery_20250915_113242/redirect_aware_recovery_results.csv",
+      "notes": "Legacy .htm structure with potential multi-field phone"
+    }
+  ]
+}

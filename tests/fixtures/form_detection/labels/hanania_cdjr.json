@@ -1,0 +1,14 @@
+{
+  "dealer_slug": "hanania_cdjr",
+  "contact_url": "https://www.hananiacdjr.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/hanania_cdjr/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/hanania_cdjr.png",
+  "last_verified_at": "2025-09-27T21:44:57.735235+00:00",
+  "expected_fields": {},
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}

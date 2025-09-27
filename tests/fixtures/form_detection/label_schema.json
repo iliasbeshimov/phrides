@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DealerFormLabel",
+  "type": "object",
+  "required": ["dealer_slug", "contact_url", "expected_fields"],
+  "properties": {
+    "dealer_slug": {"type": "string"},
+    "contact_url": {"type": "string", "format": "uri"},
+    "platform_hint": {"type": ["string", "null"]},
+    "snapshot_path": {"type": "string"},
+    "screenshot_path": {"type": "string"},
+    "last_verified_at": {"type": "string", "format": "date-time"},
+    "expected_fields": {
+      "type": "object",
+      "properties": {
+        "first_name": {"$ref": "#/definitions/fieldSpec"},
+        "last_name": {"$ref": "#/definitions/fieldSpec"},
+        "email": {"$ref": "#/definitions/fieldSpec"},
+        "phone": {"$ref": "#/definitions/phoneSpec"},
+        "message": {"$ref": "#/definitions/fieldSpec"},
+        "vehicle_interest": {"$ref": "#/definitions/fieldSpec"},
+        "consent": {"$ref": "#/definitions/fieldSpec"},
+        "newsletter": {"$ref": "#/definitions/fieldSpec"}
+      },
+      "additionalProperties": {"$ref": "#/definitions/fieldSpec"}
+    },
+    "form_metadata": {
+      "type": "object",
+      "properties": {
+        "form_selector": {"type": "string"},
+        "submit_selector": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "definitions": {
+    "fieldSpec": {
+      "type": "object",
+      "required": ["selectors"],
+      "properties": {
+        "selectors": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "label_text": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "input_type": {"type": ["string", "null"]},
+        "required": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    },
+    "phoneSpec": {
+      "allOf": [
+        {"$ref": "#/definitions/fieldSpec"},
+        {
+          "properties": {
+            "format": {"type": "string", "enum": ["single_field", "triple_split", "double_split", "extension_option", "unknown"]},
+            "segments": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/segmentSpec"}
+            }
+          }
+        }
+      ]
+    },
+    "segmentSpec": {
+      "type": "object",
+      "required": ["selectors", "order"],
+      "properties": {
+        "selectors": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "order": {"type": "integer", "minimum": 1},
+        "length_hint": {"type": ["integer", "null"]}
+      }
+    }
+  }
+}

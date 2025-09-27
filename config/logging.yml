@@ -1,0 +1,159 @@
+# Logging Configuration
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  json:
+    class: pythonjsonlogger.jsonlogger.JsonFormatter
+    format: "%(asctime)s %(name)s %(levelname)s %(message)s %(pathname)s %(lineno)d %(funcName)s"
+    
+  human:
+    format: "%(asctime)s [%(levelname)8s] %(name)s:%(lineno)d - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+    
+  structured:
+    class: src.utils.logging.StructuredFormatter
+    format: "%(asctime)s %(levelname)s %(name)s %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: human
+    stream: ext://sys.stdout
+    
+  file_json:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: logs/application.json
+    maxBytes: 104857600  # 100MB
+    backupCount: 10
+    
+  file_debug:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: structured
+    filename: logs/debug.log
+    maxBytes: 52428800   # 50MB
+    backupCount: 5
+    
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: json
+    filename: logs/errors.json
+    maxBytes: 52428800   # 50MB
+    backupCount: 20
+    
+  database:
+    class: src.utils.logging.DatabaseHandler
+    level: INFO
+    formatter: json
+    
+  elasticsearch:
+    class: src.utils.logging.ElasticsearchHandler
+    level: INFO
+    formatter: json
+    index_pattern: "dealership-automation-{date}"
+    enabled: false  # Enable in production
+
+loggers:
+  # Root logger
+  "":
+    level: INFO
+    handlers: [console, file_json, error_file]
+    propagate: false
+    
+  # Application modules
+  src:
+    level: DEBUG
+    handlers: [console, file_debug, database]
+    propagate: false
+    
+  src.automation:
+    level: DEBUG
+    handlers: [console, file_json, database]
+    propagate: false
+    
+  src.interfaces.api:
+    level: INFO
+    handlers: [console, file_json, database]
+    propagate: false
+    
+  src.core.database:
+    level: INFO
+    handlers: [file_json, database]
+    propagate: false
+    
+  # External libraries
+  sqlalchemy.engine:
+    level: WARN
+    handlers: [file_json]
+    propagate: false
+    
+  playwright:
+    level: WARN
+    handlers: [file_json]
+    propagate: false
+    
+  celery:
+    level: INFO
+    handlers: [file_json, database]
+    propagate: false
+    
+  uvicorn:
+    level: INFO
+    handlers: [console, file_json]
+    propagate: false
+
+# Environment-specific overrides
+environments:
+  development:
+    handlers:
+      console:
+        level: DEBUG
+        formatter: human
+    loggers:
+      "":
+        level: DEBUG
+        
+  staging:
+    handlers:
+      console:
+        level: INFO
+      elasticsearch:
+        enabled: true
+    loggers:
+      "":
+        level: INFO
+        
+  production:
+    handlers:
+      console:
+        level: ERROR  # Minimal console output
+      elasticsearch:
+        enabled: true
+      database:
+        level: WARN  # Reduce database log volume
+    loggers:
+      "":
+        level: INFO
+      src.automation:
+        level: INFO  # Reduce debug noise
+        
+# Log retention policies
+retention:
+  local_files:
+    days: 30
+  database:
+    days: 90
+  elasticsearch:
+    days: 365
+    
+# Performance settings
+performance:
+  async_logging: true
+  buffer_size: 1000
+  flush_interval: 5  # seconds
+  max_queue_size: 10000

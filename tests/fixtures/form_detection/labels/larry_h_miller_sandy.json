@@ -1,0 +1,47 @@
+{
+  "dealer_slug": "larry_h_miller_sandy",
+  "contact_url": "https://www.lhmchryslerdodgeramfiatdenver.com/contact.htm",
+  "platform_hint": "legacy_html",
+  "snapshot_path": "tests/fixtures/form_detection/pages/larry_h_miller_sandy/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/larry_h_miller_sandy.png",
+  "last_verified_at": "2025-09-27T22:03:13.927503+00:00",
+  "expected_fields": {
+    "first_name": {
+      "selectors": ["input[name='contact.firstName']"],
+      "label_text": ["First Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "last_name": {
+      "selectors": ["input[name='contact.lastName']"],
+      "label_text": ["Last Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "email": {
+      "selectors": ["input[name='contact.email.sep']"],
+      "label_text": ["Email"],
+      "input_type": "input[type=email]",
+      "required": true
+    },
+    "phone": {
+      "selectors": ["input[name='contact.phone.sep']"],
+      "label_text": ["Phone"],
+      "input_type": "input[type=tel]",
+      "required": false,
+      "format": "single_field",
+      "segments": []
+    },
+    "message": {
+      "selectors": ["textarea[name='comments']"],
+      "label_text": ["Message"],
+      "input_type": "textarea",
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "form[data-form-tracking-name='contact']",
+    "submit_selector": "button[type='submit']",
+    "notes": "Legacy DDC form with hashed element IDs; target stable name attributes instead."
+  }
+}

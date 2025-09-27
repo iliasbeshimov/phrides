@@ -1,0 +1,31 @@
+{
+  "dealer_slug": "tilleman_motor_co",
+  "contact_url": "https://www.tillemanmotor.net/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/tilleman_motor_co/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/tilleman_motor_co.png",
+  "last_verified_at": "2025-09-25T16:56:57.780117+00:00",
+  "expected_fields": {
+    "email": {
+      "selectors": [
+        "input[type='email']"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    },
+    "message": {
+      "selectors": [
+        "textarea"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}

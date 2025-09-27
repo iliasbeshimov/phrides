@@ -1,0 +1,39 @@
+{
+  "dealer_slug": "thomas_garage_inc",
+  "contact_url": "https://www.thomasautocenters.com/contact-us/",
+  "platform_hint": "gravity_forms",
+  "snapshot_path": "tests/fixtures/form_detection/pages/thomas_garage_inc/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/thomas_garage_inc.png",
+  "last_verified_at": "2025-09-25T16:50:59.871421+00:00",
+  "expected_fields": {
+    "first_name": {
+      "selectors": ["#input_3_1", "input[name='input_1']"],
+      "label_text": ["First Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "last_name": {
+      "selectors": ["#input_3_2", "input[name='input_2']"],
+      "label_text": ["Last Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "email": {
+      "selectors": ["#input_3_3", "input[name='input_3']"],
+      "label_text": ["Email"],
+      "input_type": "input[type=email]",
+      "required": true
+    },
+    "message": {
+      "selectors": ["#input_3_4", "textarea[name='input_4']"],
+      "label_text": ["Message"],
+      "input_type": "textarea",
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "form#gform_3",
+    "submit_selector": "#gform_submit_button_3",
+    "notes": "Gravity Forms contact widget without phone field; includes hidden honeypot input_5."
+  }
+}

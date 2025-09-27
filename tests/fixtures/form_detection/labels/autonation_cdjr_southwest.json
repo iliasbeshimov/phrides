@@ -1,0 +1,14 @@
+{
+  "dealer_slug": "autonation_cdjr_southwest",
+  "contact_url": "https://www.autonationchryslerdodgejeepramsouthwest.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/autonation_cdjr_southwest/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/autonation_cdjr_southwest.png",
+  "last_verified_at": "2025-09-27T21:49:31.608641+00:00",
+  "expected_fields": {},
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}

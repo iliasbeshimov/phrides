@@ -1,0 +1,37 @@
+{
+  "/contact-us": {
+    "success_count": 2,
+    "total_attempts": 24,
+    "confidence": 0.08333333333333333
+  },
+  "/forms/post": {
+    "success_count": 1,
+    "total_attempts": 12,
+    "confidence": 0.08333333333333333
+  },
+  "/get-quote": {
+    "success_count": 1,
+    "total_attempts": 12,
+    "confidence": 0.08333333333333333
+  },
+  "/contact": {
+    "success_count": 1,
+    "total_attempts": 12,
+    "confidence": 0.08333333333333333
+  },
+  "/": {
+    "success_count": 0,
+    "total_attempts": 11,
+    "confidence": 0.0
+  },
+  "/request-quote": {
+    "success_count": 0,
+    "total_attempts": 11,
+    "confidence": 0.0
+  },
+  "/schedule-service": {
+    "success_count": 0,
+    "total_attempts": 10,
+    "confidence": 0.0
+  }
+}

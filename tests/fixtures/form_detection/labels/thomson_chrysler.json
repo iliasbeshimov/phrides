@@ -1,0 +1,53 @@
+{
+  "dealer_slug": "thomson_chrysler",
+  "contact_url": "https://www.jeepcheap.com/contact-us/",
+  "platform_hint": "gravity_forms",
+  "snapshot_path": "tests/fixtures/form_detection/pages/thomson_chrysler/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/thomson_chrysler.png",
+  "last_verified_at": "2025-09-25T16:51:38.402979+00:00",
+  "expected_fields": {
+    "first_name": {
+      "selectors": ["#input_3_1", "input[name='input_1']"],
+      "label_text": ["First Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "last_name": {
+      "selectors": ["#input_3_2", "input[name='input_2']"],
+      "label_text": ["Last Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "email": {
+      "selectors": ["#input_3_3", "input[name='input_3']"],
+      "label_text": ["Email"],
+      "input_type": "input[type=email]",
+      "required": true
+    },
+    "phone": {
+      "selectors": ["#input_3_1338", "input[name='input_1338']"],
+      "label_text": ["Phone"],
+      "input_type": "input[type=tel]",
+      "required": false,
+      "format": "single_field",
+      "segments": []
+    },
+    "zip": {
+      "selectors": ["#input_3_5", "input[name='input_5']"],
+      "label_text": ["Zip Code"],
+      "input_type": "input[type=text]",
+      "required": false
+    },
+    "message": {
+      "selectors": ["#input_3_4", "textarea[name='input_4']"],
+      "label_text": ["Message"],
+      "input_type": "textarea",
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "form#gform_3",
+    "submit_selector": "#gform_submit_button_3",
+    "notes": "Gravity Forms layout with discrete first/last name inputs and optional zip field."
+  }
+}

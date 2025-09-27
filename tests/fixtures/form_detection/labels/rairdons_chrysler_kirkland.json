@@ -1,0 +1,41 @@
+{
+  "dealer_slug": "rairdons_chrysler_kirkland",
+  "contact_url": "https://www.dodgechryslerjeepofkirkland.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/rairdons_chrysler_kirkland/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/rairdons_chrysler_kirkland.png",
+  "last_verified_at": "2025-09-27T21:39:27.182863+00:00",
+  "expected_fields": {
+    "email": {
+      "selectors": [
+        "input[type='email']"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    },
+    "phone": {
+      "selectors": [
+        "input[type='tel']"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true,
+      "format": "unknown",
+      "segments": []
+    },
+    "message": {
+      "selectors": [
+        "textarea"
+      ],
+      "label_text": [],
+      "input_type": null,
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "dealer_slug": "sample_dealer",
+  "contact_url": "https://www.example.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/sample_dealer/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/sample_dealer.png",
+  "last_verified_at": "2025-09-22T00:00:00Z",
+  "expected_fields": {
+    "first_name": {
+      "selectors": ["input[name='firstName']"],
+      "label_text": ["First Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "last_name": {
+      "selectors": ["input[name='lastName']"],
+      "label_text": ["Last Name"],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "email": {
+      "selectors": ["input[type='email']"],
+      "label_text": ["Email"],
+      "input_type": "input[type=email]",
+      "required": true
+    },
+    "phone": {
+      "selectors": ["input[name='phone']"],
+      "label_text": ["Phone"],
+      "input_type": "input[type=tel]",
+      "required": true,
+      "format": "unknown",
+      "segments": []
+    },
+    "message": {
+      "selectors": ["textarea[name='message']"],
+      "label_text": ["Message"],
+      "input_type": "textarea",
+      "required": true
+    }
+  },
+  "form_metadata": {
+    "form_selector": "form#contact",
+    "submit_selector": "button[type='submit']",
+    "notes": "Replace selectors and add optional fields as needed."
+  }
+}

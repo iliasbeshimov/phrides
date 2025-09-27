@@ -1,0 +1,95 @@
+{
+  "dealer_slug": "five_star_cdjr",
+  "contact_url": "https://www.fivestarclearfield.com/contactus.aspx",
+  "platform_hint": "standard_html",
+  "snapshot_path": "tests/fixtures/form_detection/pages/five_star_cdjr/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/five_star_cdjr.png",
+  "last_verified_at": "2025-09-27T21:46:19.762130+00:00",
+  "expected_fields": {
+    "first_name": {
+      "selectors": [
+        "#txtfirst_name",
+        "input[name='FirstName']"
+      ],
+      "label_text": [
+        "First Name"
+      ],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "last_name": {
+      "selectors": [
+        "#txtlast_name",
+        "input[name='LastName']"
+      ],
+      "label_text": [
+        "Last Name"
+      ],
+      "input_type": "input[type=text]",
+      "required": true
+    },
+    "email": {
+      "selectors": [
+        "#txtEmail",
+        "input[type='email']"
+      ],
+      "label_text": [
+        "Email"
+      ],
+      "input_type": "input[type=email]",
+      "required": true
+    },
+    "phone": {
+      "selectors": [
+        "#txtPhone",
+        "input[name='Phone']"
+      ],
+      "label_text": [
+        "Phone Number"
+      ],
+      "input_type": "input[type=tel]",
+      "required": true,
+      "format": "single_field",
+      "segments": []
+    },
+    "zip": {
+      "selectors": [
+        "#ZipCodeContactUs",
+        "input[name='Zip']"
+      ],
+      "label_text": [
+        "ZIP Code"
+      ],
+      "input_type": "input[type=tel]",
+      "required": true
+    },
+    "message": {
+      "selectors": [
+        "#txtComments",
+        "textarea[name='Comments']"
+      ],
+      "label_text": [
+        "Message"
+      ],
+      "input_type": "textarea",
+      "required": true
+    },
+    "consent": {
+      "selectors": [
+        "#optInTcpa",
+        "input[name='TCPA_Consent_Generic']"
+      ],
+      "label_text": [
+        "I agree"
+      ],
+      "input_type": "input[type=checkbox]",
+      "required": false,
+      "notes": "TCPA opt-in checkbox"
+    }
+  },
+  "form_metadata": {
+    "form_selector": "form#contactusForm",
+    "submit_selector": "#submit",
+    "notes": "Single column contact form with mandatory TCPA consent checkbox."
+  }
+}

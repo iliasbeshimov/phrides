@@ -1,0 +1,14 @@
+{
+  "dealer_slug": "max_curnow_cdjr",
+  "contact_url": "https://www.maxcurnowcdjr.com/contact-us/",
+  "platform_hint": null,
+  "snapshot_path": "tests/fixtures/form_detection/pages/max_curnow_cdjr/contact.html",
+  "screenshot_path": "tests/fixtures/form_detection/screenshots/max_curnow_cdjr.png",
+  "last_verified_at": "2025-09-27T21:47:59.288211+00:00",
+  "expected_fields": {},
+  "form_metadata": {
+    "form_selector": "",
+    "submit_selector": "",
+    "notes": "Populate selectors, labels, and optional fields before validating."
+  }
+}
