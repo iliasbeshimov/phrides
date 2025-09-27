@@ -51,8 +51,31 @@ logs/
 
 # Sensitive data (if any)
 .env
+.env.*
+!.env.example
 secrets/
 config/local.py
+
+# API Keys and Tokens - CRITICAL SECURITY
+*.key
+*.pem
+*.p12
+*.pfx
+**/*api_key*
+**/*secret*
+**/*token*
+**/*credential*
+
+# Google API Keys (starts with AIzaSy)
+**/AIzaSy*
+
+# Mapbox Tokens (starts with sk.ey or pk.ey)
+**/sk.ey*
+**/pk.ey*
+
+# AWS Credentials
+.aws/credentials
+aws-exports.js
 
 # Large test result directories (keep structure but not screenshots)
 tests/*/screenshots/
