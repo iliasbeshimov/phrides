@@ -109,6 +109,15 @@
       "status": "pending",
       "source_csv": "tests/redirect_aware_recovery_20250915_113242/redirect_aware_recovery_results.csv",
       "notes": "Legacy .htm structure with potential multi-field phone"
+    },
+    {
+      "slug": "anchorage_chrysler_center",
+      "dealer_name": "Anchorage Chrysler Center Inc",
+      "contact_url": "https://www.anchoragechryslercenter.com/contact-us/",
+      "platform_hint": "unknown",
+      "status": "failed_detection",
+      "source_csv": "scripts/analyze_random_dealers.py run",
+      "notes": "Detection failed; captured for anti-bot analysis"
     }
   ]
 }
