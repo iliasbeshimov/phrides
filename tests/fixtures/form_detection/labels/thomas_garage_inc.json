@@ -7,28 +7,59 @@
   "last_verified_at": "2025-09-25T16:50:59.871421+00:00",
   "expected_fields": {
     "first_name": {
-      "selectors": ["#input_3_1", "input[name='input_1']"],
-      "label_text": ["First Name"],
+      "selectors": [
+        "#input_3_1",
+        "input[name='input_1']"
+      ],
+      "label_text": [
+        "First Name"
+      ],
       "input_type": "input[type=text]",
       "required": true
     },
     "last_name": {
-      "selectors": ["#input_3_2", "input[name='input_2']"],
-      "label_text": ["Last Name"],
+      "selectors": [
+        "#input_3_2",
+        "input[name='input_2']"
+      ],
+      "label_text": [
+        "Last Name"
+      ],
       "input_type": "input[type=text]",
       "required": true
     },
     "email": {
-      "selectors": ["#input_3_3", "input[name='input_3']"],
-      "label_text": ["Email"],
+      "selectors": [
+        "#input_3_3",
+        "input[name='input_3']"
+      ],
+      "label_text": [
+        "Email"
+      ],
       "input_type": "input[type=email]",
       "required": true
     },
     "message": {
-      "selectors": ["#input_3_4", "textarea[name='input_4']"],
-      "label_text": ["Message"],
+      "selectors": [
+        "#input_3_4",
+        "textarea[name='input_4']"
+      ],
+      "label_text": [
+        "Message"
+      ],
       "input_type": "textarea",
       "required": true
+    },
+    "zip": {
+      "selectors": [
+        "#input_3_6",
+        "input[name='input_6']"
+      ],
+      "label_text": [
+        "Zip Code"
+      ],
+      "input_type": "input[type=text]",
+      "required": false
     }
   },
   "form_metadata": {

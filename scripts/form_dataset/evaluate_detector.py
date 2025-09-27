@@ -68,7 +68,7 @@ async def evaluate_slug(detector: EnhancedFormDetector, slug: str, dealer_meta: 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
-        await page.goto(uri, wait_until="load")
+        await page.goto(uri, wait_until="domcontentloaded")
         result = await detector.detect_contact_form(page)
         await browser.close()
 
