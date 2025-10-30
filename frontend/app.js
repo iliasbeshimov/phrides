@@ -98,7 +98,9 @@ const app = createApp({
                     // Normalize Google Sheets format to match expected format
                     if (source.isGoogleSheets) {
                         console.log('Normalizing Google Sheets data format...');
+                        console.log('Sample raw data (first dealership):', dealerships[0]);
                         dealerships = dealerships.map(d => this.normalizeGoogleSheetsData(d));
+                        console.log('Sample normalized data (first dealership):', dealerships[0]);
                     }
 
                     // Validate required fields (relaxed validation for Google Sheets)
@@ -151,7 +153,7 @@ const app = createApp({
 
             return {
                 // Basic info
-                make: dealer.make || 'Mercedes-Benz',  // Default to Mercedes-Benz
+                make: (dealer.make && dealer.make !== 'Unknown') ? dealer.make : 'Mercedes-Benz',  // Default to Mercedes-Benz
                 dealer_name: dealer.dealerName || dealer.dealer_name,
                 state: dealer.state,
                 city: addressParts.city || '',

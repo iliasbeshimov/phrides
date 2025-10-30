@@ -36,10 +36,12 @@ https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J
 
 ## Google Sheets Structure
 
-### Current Columns:
+### Current Columns (CSV Export):
 ```csv
 state,dealerName,address,phone,websiteLink,inventoryLink,serviceLink
 ```
+
+**Note:** The Google Sheet contains additional columns (like `make`, `lat`, `long`, `contactPageLink`) that are NOT currently exported in the CSV. The CSV export only includes the first 7 visible columns.
 
 ### Column Descriptions:
 
@@ -53,14 +55,20 @@ state,dealerName,address,phone,websiteLink,inventoryLink,serviceLink
 | `inventoryLink` | Inventory page URL | "https://www.mbusa.com/en/inventory/..." |
 | `serviceLink` | Service page URL | "http://www.mbofmobile.com/service/..." |
 
-### Columns to Add (Future):
+### Columns to Add to CSV Export:
 
-| Column | Purpose | Populated By |
-|--------|---------|--------------|
-| `make` | Vehicle make | Manual (default: "Mercedes-Benz") |
-| `contactPageLink` | Contact form URL | Automation (when detected) |
-| `lat` | Latitude | Geocoding script |
-| `long` | Longitude | Geocoding script |
+**Current Issue:** The Google Sheet has these columns, but they're not included in the CSV export:
+
+| Column | Purpose | Status | Populated By |
+|--------|---------|--------|--------------|
+| `make` | Vehicle make | Exists in sheet, NOT in CSV export | Manual (default: "Mercedes-Benz") |
+| `contactPageLink` | Contact form URL | Exists in sheet, NOT in CSV export | Automation (when detected) |
+| `lat` | Latitude | Exists in sheet, NOT in CSV export | Geocoding script |
+| `long` | Longitude | Exists in sheet, NOT in CSV export | Geocoding script |
+
+**Solution:** Reorder columns in Google Sheets so that `make`, `lat`, `long`, and `contactPageLink` are in the first 7 columns (columns A-G), OR move them before the export cutoff point.
+
+**Temporary Fix Applied:** The frontend now defaults to 'Mercedes-Benz' when `make` column is missing or set to 'Unknown' (see `app.js:156`).
 
 ---
 
@@ -315,14 +323,42 @@ if (contactPageUrl):
 - Update `parseAddress()` regex if needed
 - Add manual overrides for non-standard addresses
 
+### Issue: "Unknown" in Vehicle Make dropdown
+
+**Cause:** `make` column exists in Google Sheet but not included in CSV export
+
+**Root Cause:**
+1. Google Sheets CSV export only includes first 7 visible columns
+2. `make` column is positioned after column G (serviceLink)
+3. CSV parser sets missing makes to 'Unknown'
+
+**Solution Options:**
+
+**Option A: Reorder Google Sheets columns (Recommended)**
+1. Open Google Sheet
+2. Move `make` column to position A (before `state`)
+3. Reorder as: `make, state, dealerName, address, phone, websiteLink, inventoryLink`
+4. CSV export will now include make
+
+**Option B: Use existing default (Already Applied)**
+- Frontend now automatically converts 'Unknown' to 'Mercedes-Benz'
+- No Google Sheet changes needed
+- Works for single-make datasets
+
+**Verification:**
+```bash
+# Check if make column is in CSV export
+curl -sL "https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k/export?format=csv&gid=0" | head -1
+```
+
 ### Issue: "No makes available"
 
-**Cause:** `make` column empty or missing
+**Cause:** All dealerships filtered out or `make` field is null
 
 **Solution:**
+- Check browser console for validation errors
+- Verify `make` field is being set in normalization
 - Defaults to "Mercedes-Benz" if not present
-- Add `make` column to Google Sheet
-- Populate with vehicle make
 
 ---
 
