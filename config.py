@@ -47,7 +47,16 @@ class Config:
 
     @classmethod
     def validate_required_keys(cls):
-        """Validate that required API keys are present"""
+        """
+        Validate that required API keys are present.
+
+        Note: This method uses a two-tier validation approach:
+        1. Optional keys get warnings (printed but don't block startup)
+        2. Required keys raise exceptions when accessed via getters
+
+        This allows the application to start without all keys, but will
+        fail fast when a feature requiring a missing key is actually used.
+        """
         missing_keys = []
 
         # Only validate keys that are actually needed
