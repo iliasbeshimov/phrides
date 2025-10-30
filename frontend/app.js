@@ -44,7 +44,6 @@ const app = createApp({
             // WebSocket Integration
             websocketClient: null,
             websocketStatus: 'disconnected', // 'disconnected', 'connecting', 'connected'
-            websocketUrl: this.getWebSocketUrl(),
 
             // Screenshot Modal
             showScreenshotModal: false,
@@ -61,18 +60,6 @@ const app = createApp({
     },
 
     methods: {
-        getWebSocketUrl() {
-            // In production, use same host as page
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                return 'ws://localhost:8001/ws/contact';
-            } else {
-                // Production: use wss:// for secure connection
-                const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-                const host = window.location.host;
-                return `${protocol}//${host}/ws/contact`;
-            }
-        },
-
         async loadInitialData() {
             // Try both possible CSV file locations
             const possiblePaths = ['./Dealerships.csv', '../Dealerships.csv', '../Dealerships - Jeep.csv'];
@@ -1138,6 +1125,18 @@ const app = createApp({
     },
 
     computed: {
+        websocketUrl() {
+            // Computed property ensures methods are available when called
+            // In production, use same host as page
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                return 'ws://localhost:8001/ws/contact';
+            } else {
+                // Production: use wss:// for secure connection
+                const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                const host = window.location.host;
+                return `${protocol}//${host}/ws/contact`;
+            }
+        },
         websocketStatusText() {
             const statusMap = {
                 'disconnected': 'Disconnected from automation server',
