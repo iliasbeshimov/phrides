@@ -1,6 +1,6 @@
 {
   "name": "dealership-contact-automation-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Frontend UI for dealership contact automation system - CDN-based Vue 3 application",
   "scripts": {
