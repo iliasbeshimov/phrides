@@ -1,0 +1,24 @@
+{
+  "dealer": "Anchorage Chrysler Center",
+  "url": "https://www.anchoragechryslercenter.com/contactus",
+  "status": "error",
+  "fields_filled": [
+    "first_name",
+    "last_name",
+    "email",
+    "zip",
+    "message",
+    "phone"
+  ],
+  "missing_fields": [],
+  "dropdown_choices": {},
+  "checkboxes_checked": [],
+  "confirmation_text": null,
+  "artifacts": {
+    "detected": "artifacts/20250928T032131Z/anchorage_chrysler_center/detected.png",
+    "log": "artifacts/20250928T032131Z/anchorage_chrysler_center/run.log"
+  },
+  "errors": [
+    "Page.evaluate: TypeError: Cannot read properties of undefined (reading 'querySelectorAll')\n    at eval (eval at evaluate (:234:30), <anonymous>:3:47)\n    at UtilityScript.evaluate (<anonymous>:241:19)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  ]
+}

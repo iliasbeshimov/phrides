@@ -1,0 +1,639 @@
+{
+  "test_date": "2025-10-05T11:28:01.973915",
+  "total_dealerships": 20,
+  "results": [
+    {
+      "dealer_name": "Liberty Chrysler Jeep Dodge Ram",
+      "website": "https://www.libertychryslerjeepdodgeram.com",
+      "city": "Pataskala",
+      "state": "OH",
+      "contact_url_found": true,
+      "contact_url": "https://www.libertychryslerjeepdodgeram.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Grieco Chrysler Jeep Dodge Ram",
+      "website": "https://www.griecochryslerjeepdodgeram.com",
+      "city": "Methuen",
+      "state": "MA",
+      "contact_url_found": false,
+      "contact_url": null,
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": false,
+      "form_field_count": 0,
+      "form_confidence": 0.0,
+      "complex_fields_detected": [],
+      "fields_filled": [],
+      "fields_skipped": [],
+      "honeypot_fields_detected": 0,
+      "fill_success": false,
+      "form_submitted": false,
+      "submission_method": null,
+      "submission_verification": null,
+      "blocker": null,
+      "error": "No contact page with valid form found"
+    },
+    {
+      "dealer_name": "Vaughn Chrysler-Jeep-Dodge, Inc",
+      "website": "https://www.vaughnchryslerjeepdodge.com",
+      "city": "Ottumwa",
+      "state": "IA",
+      "contact_url_found": true,
+      "contact_url": "https://www.vaughnchryslerjeepdodge.com/contact-us/",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 6,
+      "form_confidence": 1.2000000000000002,
+      "complex_fields_detected": [
+        "split_phone"
+      ],
+      "fields_filled": [
+        "phone_split",
+        "first_name",
+        "last_name",
+        "email",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "phone_complex"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Armory Chrysler Dodge Jeep Ram FIAT of Albany",
+      "website": "https://www.armoryauto.com",
+      "city": "Albany",
+      "state": "NY",
+      "contact_url_found": true,
+      "contact_url": "https://www.armoryauto.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Austin Chrysler Dodge Jeep Ram",
+      "website": "https://www.austinchryslerjeep.com",
+      "city": "Austin",
+      "state": "MN",
+      "contact_url_found": true,
+      "contact_url": "https://www.austinchryslerjeep.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Gordon Cdjr",
+      "website": "https://www.gordoncdjr.com",
+      "city": "Washington Court House",
+      "state": "OH",
+      "contact_url_found": true,
+      "contact_url": "https://www.gordoncdjr.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Trice Hughes Inc",
+      "website": "",
+      "city": "Princeton",
+      "state": "KY",
+      "contact_url_found": false,
+      "contact_url": null,
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": false,
+      "form_field_count": 0,
+      "form_confidence": 0.0,
+      "complex_fields_detected": [],
+      "fields_filled": [],
+      "fields_skipped": [],
+      "honeypot_fields_detected": 0,
+      "fill_success": false,
+      "form_submitted": false,
+      "submission_method": null,
+      "submission_verification": null,
+      "blocker": null,
+      "error": "No contact page with valid form found"
+    },
+    {
+      "dealer_name": "Colonial Dodge Chrysler Jeep",
+      "website": "https://www.colonialdodgechryslerjeep.com",
+      "city": "Hudson",
+      "state": "MA",
+      "contact_url_found": true,
+      "contact_url": "https://www.colonialdodgechryslerjeep.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Dayton Andrews Dodge Chrysler Jeep Ram",
+      "website": "https://www.daytonandrewsdodge.net",
+      "city": "St Petersburg",
+      "state": "FL",
+      "contact_url_found": false,
+      "contact_url": null,
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": false,
+      "form_field_count": 0,
+      "form_confidence": 0.0,
+      "complex_fields_detected": [],
+      "fields_filled": [],
+      "fields_skipped": [],
+      "honeypot_fields_detected": 0,
+      "fill_success": false,
+      "form_submitted": false,
+      "submission_method": null,
+      "submission_verification": null,
+      "blocker": null,
+      "error": "No contact page with valid form found"
+    },
+    {
+      "dealer_name": "Team Chrysler Dodge Jeep Ram",
+      "website": "https://www.teamchryslerdodgejeepram.com",
+      "city": "Denison",
+      "state": "IA",
+      "contact_url_found": true,
+      "contact_url": "https://www.teamchryslerdodgejeepram.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Classic Cdjrf of Arlington",
+      "website": "https://www.classiccdjrf.com",
+      "city": "Arlington",
+      "state": "TX",
+      "contact_url_found": true,
+      "contact_url": "https://www.classiccdjrf.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Yark Chrysler-Jeep-Dodge-Ram-FIAT",
+      "website": "https://www.yarkchryslerjeepdodgeram.com",
+      "city": "Toledo",
+      "state": "OH",
+      "contact_url_found": true,
+      "contact_url": "https://www.yarkchryslerjeepdodgeram.com/contactus",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "success_message",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Chapman Auto Center LLC",
+      "website": "https://www.paysondodge.com",
+      "city": "Payson",
+      "state": "AZ",
+      "contact_url_found": true,
+      "contact_url": "https://www.paysondodge.com/contact",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 4,
+      "form_confidence": 0.8,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "email",
+        "message",
+        "phone"
+      ],
+      "fields_skipped": [
+        "name_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": false,
+      "form_submitted": false,
+      "submission_method": "standard_click",
+      "submission_verification": "none",
+      "blocker": "SUBMISSION_FAILED",
+      "error": null
+    },
+    {
+      "dealer_name": "Tunkhannock Auto Mart Inc",
+      "website": "https://www.tunkhannockautomart.net",
+      "city": "Tunkhannock",
+      "state": "PA",
+      "contact_url_found": true,
+      "contact_url": "https://www.tunkhannockautomart.net/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Bice Chrysler Dodge Jeep Ram",
+      "website": "https://www.bicemotors.com",
+      "city": "Alexander City",
+      "state": "AL",
+      "contact_url_found": true,
+      "contact_url": "https://www.bicemotors.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "force_click",
+      "submission_verification": "none",
+      "blocker": "SUBMISSION_FAILED",
+      "error": null
+    },
+    {
+      "dealer_name": "Vicksburg Chrysler Dodge Jeep Ram",
+      "website": "https://www.vicksburgchryslerdodgejeepram.com",
+      "city": "Vicksburg",
+      "state": "MI",
+      "contact_url_found": true,
+      "contact_url": "https://www.vicksburgchryslerdodgejeepram.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Freedom Chrysler, Dodge, Jeep, And Ram",
+      "website": "https://www.freedomchryslerdodgejeeprambluffton.com",
+      "city": "Bluffton",
+      "state": "IN",
+      "contact_url_found": true,
+      "contact_url": "https://www.freedomchryslerdodgejeeprambluffton.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Vance Chrysler Dodge Jeep Ram",
+      "website": "https://www.vancechryslerdodgejeepram.com",
+      "city": "Miami",
+      "state": "OK",
+      "contact_url_found": true,
+      "contact_url": "https://www.vancechryslerdodgejeepram.com/contactus.aspx",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 8,
+      "form_confidence": 1.6,
+      "complex_fields_detected": [
+        "gravity_zip"
+      ],
+      "fields_filled": [
+        "zip_code",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_complex",
+        "consent_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": true,
+      "submission_method": "standard_click",
+      "submission_verification": "url_change",
+      "blocker": null,
+      "error": null
+    },
+    {
+      "dealer_name": "Pearman Motor Company",
+      "website": "https://www.pearmanmotor.com",
+      "city": "Alto",
+      "state": "TX",
+      "contact_url_found": true,
+      "contact_url": "https://www.pearmanmotor.com/contact.htm",
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": true,
+      "form_field_count": 7,
+      "form_confidence": 1.4000000000000001,
+      "complex_fields_detected": [],
+      "fields_filled": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "fields_skipped": [
+        "name_no_data",
+        "zip_no_data"
+      ],
+      "honeypot_fields_detected": 0,
+      "fill_success": true,
+      "form_submitted": false,
+      "submission_method": "none",
+      "submission_verification": null,
+      "blocker": "CAPTCHA_DETECTED",
+      "error": null
+    },
+    {
+      "dealer_name": "Branhaven Chrysler Jeep Dodge",
+      "website": "https://www.branhaven.com",
+      "city": "Branford",
+      "state": "CT",
+      "contact_url_found": false,
+      "contact_url": null,
+      "contact_url_source": null,
+      "urls_tried": 0,
+      "form_detected": false,
+      "form_field_count": 0,
+      "form_confidence": 0.0,
+      "complex_fields_detected": [],
+      "fields_filled": [],
+      "fields_skipped": [],
+      "honeypot_fields_detected": 0,
+      "fill_success": false,
+      "form_submitted": false,
+      "submission_method": null,
+      "submission_verification": null,
+      "blocker": null,
+      "error": "No contact page with valid form found"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnostic Test</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <h1>Script Loading Diagnostics</h1>
+    <div id="log"></div>
+
+    <script>
+        const log = document.getElementById('log');
+
+        function addLog(msg, isError = false) {
+            const p = document.createElement('p');
+            p.textContent = msg;
+            p.style.color = isError ? 'red' : 'green';
+            log.appendChild(p);
+        }
+
+        // Test 1: Vue loads
+        try {
+            const { createApp } = Vue;
+            addLog('✓ Vue loaded successfully');
+        } catch (e) {
+            addLog('✗ Vue failed to load: ' + e.message, true);
+        }
+
+        // Test 2: Load zip_coordinates.js
+        const script1 = document.createElement('script');
+        script1.src = 'zip_coordinates.js';
+        script1.onload = () => {
+            addLog('✓ zip_coordinates.js loaded');
+
+            // Test 3: Load websocket_client.js
+            const script2 = document.createElement('script');
+            script2.src = 'websocket_client.js';
+            script2.onload = () => {
+                addLog('✓ websocket_client.js loaded');
+                addLog('  - DealershipWebSocketClient: ' + (typeof DealershipWebSocketClient));
+
+                // Test 4: Load websocket_integration.js
+                const script3 = document.createElement('script');
+                script3.src = 'websocket_integration.js';
+                script3.onload = () => {
+                    addLog('✓ websocket_integration.js loaded');
+                    addLog('  - window.websocketMethods: ' + (typeof window.websocketMethods));
+
+                    // Test 5: Load app.js
+                    const script4 = document.createElement('script');
+                    script4.src = 'app.js';
+                    script4.onload = () => {
+                        addLog('✓ app.js loaded');
+                        setTimeout(() => {
+                            addLog('✓ All scripts loaded successfully!');
+                            addLog('If index.html still shows template syntax, check browser console for Vue mounting errors');
+                        }, 1000);
+                    };
+                    script4.onerror = (e) => {
+                        addLog('✗ app.js failed to load', true);
+                    };
+                    document.head.appendChild(script4);
+                };
+                script3.onerror = (e) => {
+                    addLog('✗ websocket_integration.js failed to load', true);
+                };
+                document.head.appendChild(script3);
+            };
+            script2.onerror = (e) => {
+                addLog('✗ websocket_client.js failed to load', true);
+            };
+            document.head.appendChild(script2);
+        };
+        script1.onerror = (e) => {
+            addLog('✗ zip_coordinates.js failed to load', true);
+        };
+        document.head.appendChild(script1);
+    </script>
+</body>
+</html>

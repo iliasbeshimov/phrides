@@ -1,97 +1,45 @@
-# Project Management Workflow
+# Project Workflow & Development Log
 
-## Project Lifecycle
+This document outlines the development process and key architectural decisions made during the creation of the Local Dealership Contact Management System.
 
-### 1. Project Creation
-- **Create New Project**: User enters project name and description
-- **Define Search Criteria**: Address/zip code, radius (default 150 miles), vehicle makes
-- **Enter User Information**: Name, email, phone, and additional contact details
-- **Set Custom Message**: Template or custom message for dealership forms
-- **Save as Draft**: Project saved with status "draft"
+## 1. Initial Goal
 
-### 2. Dealership Discovery
-- **Geographic Search**: Find all dealerships within specified radius
-- **Make Filtering**: Filter by selected vehicle makes
-- **Distance Calculation**: Calculate and store distance from search location
-- **Create ProjectDealership Records**: Link each dealership to project with "pending" status
-- **Project Status**: Update to "active" with dealership counts
+The initial request was to design and implement a browser-based UI for an existing automotive dealership contact automation system. The core requirements were to allow a user to define a search (make, location), find dealerships, and manage an automated contact process.
 
-### 3. Contact Automation Phase
-- **Batch Processing**: Process dealerships in batches (configurable size)
-- **Form Automation**: Attempt automated contact for each dealership
-- **Status Tracking**: Update contact_status for each attempt
-  - `pending` → `success` (form submitted successfully)
-  - `pending` → `failed` (automation failed)
-- **Error Handling**: Capture screenshots and error details for failed attempts
-- **Progress Updates**: Real-time updates of success/failure counts
+## 2. Security Interruption: API Key Removal
 
-### 4. Manual Review & Override
-- **Review Failed Attempts**: User reviews dealerships with failed automation
-- **Manual Contact**: User manually contacts dealerships outside the system
-- **Status Override**: Mark dealerships as manually contacted
-  - `failed` → `manual_override`
-  - `pending` → `manual_override`
-- **Add Notes**: Track manual contact details and outcomes
+Shortly after starting, a critical security alert was raised regarding exposed API keys in the project's git history. Development was paused to address this immediately.
 
-### 5. Project Management
-- **Edit Project**: Update name, description, or search criteria
-- **Retry Failed**: Re-attempt automation for failed dealerships
-- **Archive/Complete**: Mark project as completed or archived
-- **Delete Project**: Remove project and all associated data
-- **Duplicate Project**: Create new project based on existing one
+- **Identification:** Multiple Google Maps and Mapbox API keys were found in HTML test fixtures.
+- **Action:**
+    1.  All identified keys were scrubbed from the files and replaced with a `REMOVED_FOR_SECURITY` placeholder.
+    2.  The `.gitignore` file was significantly enhanced with patterns to prevent future accidental commits of `.env` files, API keys, and other secrets.
+    3.  A `pre-commit` git hook was implemented to scan staged files for API key patterns and block the commit if any are found.
+- **Resolution:** The repository was secured, and guidance was provided on revoking the exposed keys.
 
-## Contact Status Flow
+## 3. Specification Refinement
 
-```
-pending → automation_attempt → success ✓
-                             → failed → manual_review → manual_override ✓
-                                     → retry_automation → success ✓
-                                                       → failed (cycle)
-```
+With the security issue resolved, we returned to the application design. The initial specifications were critically analyzed to simplify development and increase robustness. This led to several key pivots:
 
-## UI User Flow
+- **From Server-Based to Local-First:** The architecture was changed from a Python backend (FastAPI) and React frontend to a **100% local, browser-based application** using vanilla JavaScript (with Vue.js for reactivity) and CSS. This eliminated the need for a server, database, and user authentication for the MVP.
+- **From External APIs to Local Data:** The dependency on live geocoding APIs was identified as a blocker for an offline-first app.
+    - **Action:** We located a downloadable zip code database from the US Census Bureau (ZCTA Gazetteer File).
+    - **Implementation:** A Python script (`scripts/process_zip_data.py`) was created to process this large text file into an efficient `zip_coordinates.js` file, which acts as a local database.
+- **From Complex to Simple Search:** The logic for handling search parameter changes was simplified. Instead of automatically detecting changes, we moved to an explicit "Update Search" button. The behavior was defined as purely additive to prevent accidental data loss.
+- **UI Unification:** Based on user feedback, the "Search Parameters" and "Customer Information" UI panels were merged into a single "Search & Contact Details" panel with a single, shared zip code field.
 
-### Dashboard
-- **Project List**: All projects with status summary
-- **Quick Stats**: Total projects, active projects, completion rates
-- **Recent Activity**: Latest contact attempts and status changes
+## 4. Final Implemented Architecture
 
-### Project Detail View
-- **Project Info**: Name, description, created date, search criteria
-- **Summary Stats**: Total/contacted/success/failed dealership counts
-- **Dealership Table**: Filterable list with contact status
-- **Action Buttons**: Start automation, retry failed, export results
+The final application lives in the `frontend/` directory and consists of:
 
-### Project Creation Flow
-1. **New Project Form**: Name, description
-2. **Search Setup**: Address/zip, radius, makes selection
-3. **User Info Form**: Contact details for form submission
-4. **Message Template**: Custom message or template selection
-5. **Review & Create**: Confirm details and create project
-6. **Dealership Discovery**: Automatic search and filtering
-7. **Ready to Contact**: Project ready for automation
+- **`index.html`**: The main application view, structured with semantic HTML.
+- **`style.css`**: The stylesheet for the application's layout and appearance.
+- **`zip_coordinates.js`**: An auto-generated local database mapping ~34,000 US zip codes to their latitude/longitude.
+- **`app.js`**: The core application logic, built with Vue.js 3. It handles:
+    - **Data Loading:** Fetches and parses `Dealerships.csv` and the local zip code database.
+    - **State Management:** Manages all UI and data state.
+    - **Persistence:** Automatically saves and loads the application state (current search, contact progress) to the browser's `localStorage`.
+    - **Search Logic:** Implements distance calculation (Haversine formula) and filtering.
+    - **Contact Simulation:** Contains a simulated loop to demonstrate the auto-contacting process.
 
-### Dealership Management
-- **Status Filtering**: View by status (all, pending, success, failed, manual)
-- **Bulk Actions**: Retry selected, mark as manual, export subset
-- **Individual Actions**: View attempt details, manual override, add notes
-- **Contact History**: Timeline of all contact attempts per dealership
-
-## Status Tracking Features
-
-### Real-time Updates
-- **WebSocket Connection**: Live updates during automation runs
-- **Progress Bar**: Visual progress indicator with ETA
-- **Live Logs**: Stream of contact attempts and results
-
-### Detailed Tracking
-- **Attempt Timeline**: Complete history of contact attempts
-- **Screenshot Gallery**: Visual confirmation of successful submissions
-- **Error Analysis**: Categorized failure reasons with suggested fixes
-- **Performance Metrics**: Success rates, average completion time
-
-### Reporting
-- **Project Summary**: Completion rates, geographic distribution
-- **Export Options**: CSV/Excel export of results
-- **Custom Reports**: Filterable data exports
-- **Analytics Dashboard**: Success rate trends, common failure patterns
+This iterative process of design, security hardening, simplification, and implementation resulted in a robust, offline-capable application that meets the user's core requirements.

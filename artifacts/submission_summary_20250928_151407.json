@@ -1,0 +1,88 @@
+[
+  {
+    "dealer": "Autonation Chrysler Southwest",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Autonation Chrysler Southwest"
+  },
+  {
+    "dealer": "Thomson Chrysler (Jeep Cheap)",
+    "url": "https://www.jeepcheap.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T151240Z/thomson_chrysler_jeep_cheap/blocked.png"
+    },
+    "errors": [
+      "Encountered security block page"
+    ]
+  },
+  {
+    "dealer": "Thomas Garage Inc",
+    "url": "https://www.thomasautocenters.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T151314Z/thomas_garage_inc/blocked.png"
+    },
+    "errors": [
+      "Encountered security block page"
+    ]
+  },
+  {
+    "dealer": "Tasca Chrysler White Plains",
+    "url": "https://www.tascacdjrwhiteplains.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T151332Z/tasca_chrysler_white_plains/blocked.png"
+    },
+    "errors": [
+      "Encountered security block page"
+    ]
+  },
+  {
+    "dealer": "Rairdons Chrysler Kirkland",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Rairdons Chrysler Kirkland"
+  },
+  {
+    "dealer": "Five Star Chrysler Dodge Jeep Ram",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Five Star Chrysler Dodge Jeep Ram"
+  },
+  {
+    "dealer": "Larry H. Miller Chrysler Jeep Dodge Ram Sandy",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Larry H. Miller Chrysler Jeep Dodge Ram Sandy"
+  },
+  {
+    "dealer": "Downtown Auto Group",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Downtown Auto Group"
+  },
+  {
+    "dealer": "Anchorage Chrysler Center Inc",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Anchorage Chrysler Center Inc"
+  },
+  {
+    "dealer": "Max Curnow Chrysler Dodge Jeep Ram",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Max Curnow Chrysler Dodge Jeep Ram"
+  }
+]

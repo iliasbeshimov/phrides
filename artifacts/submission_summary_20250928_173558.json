@@ -1,0 +1,32 @@
+[
+  {
+    "dealer": "Anchorage Chrysler Center Inc",
+    "url": "https://www.anchoragechryslercenter.com/service",
+    "status": "submission_success",
+    "contact_resolution_source": "discovery",
+    "fields_filled": [
+      "first_name",
+      "last_name",
+      "email",
+      "zip",
+      "message",
+      "phone"
+    ],
+    "missing_fields": [],
+    "dropdown_choices": {
+      "Preferred Contact Method": "Text"
+    },
+    "checkboxes_checked": [
+      "I consent to receive marketing text messages from Anchorage Chrysler Center. Consent is not a condition of purchase. Msg and data rates may apply. Msg frequency depends on your activity. Unsubscribe at any time by replying STOP. For more information at any time reply HELP.\nPrivacy Policy | Terms of Service"
+    ],
+    "confirmation_text": "thank you",
+    "artifacts": {
+      "detected": "artifacts/20250928T173255Z/anchorage_chrysler_center_inc/detected.png",
+      "filled": "artifacts/20250928T173255Z/anchorage_chrysler_center_inc/filled.png",
+      "submitted": "artifacts/20250928T173255Z/anchorage_chrysler_center_inc/submitted.png",
+      "log": "artifacts/20250928T173255Z/anchorage_chrysler_center_inc/run.log",
+      "status": "artifacts/20250928T173255Z/anchorage_chrysler_center_inc/status.json"
+    },
+    "errors": []
+  }
+]

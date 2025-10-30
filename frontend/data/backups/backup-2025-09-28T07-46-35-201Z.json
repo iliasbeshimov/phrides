@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-09-28T07-46-35-201Z",
+  "searches": [],
+  "state": {
+    "currentView": "search-list",
+    "customerInfo": {
+      "firstName": "Ilias",
+      "lastName": "Beshimov",
+      "email": "ilias.beshimov@gmail.com",
+      "phone": "415-340-4828",
+      "zipcode": "",
+      "message": ""
+    },
+    "searchParams": {
+      "title": "",
+      "make": "",
+      "distance": "100",
+      "customDistance": ""
+    },
+    "lastSaved": "2025-09-28T07:46:33.732Z"
+  },
+  "version": "1.0"
+}

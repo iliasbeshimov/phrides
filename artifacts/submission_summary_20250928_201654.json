@@ -1,0 +1,34 @@
+[
+  {
+    "dealer": "Dearth Chrysler Dodge Jeep Ram",
+    "url": "https://www.dearthchryslerdodgejeepram.com/contact.htm",
+    "status": "submission_failed",
+    "contact_resolution_source": "discovery",
+    "fields_filled": [],
+    "missing_fields": [
+      "first_name",
+      "last_name",
+      "email",
+      "zip",
+      "message",
+      "phone"
+    ],
+    "dropdown_choices": {
+      "Contact Me by*": "Phone"
+    },
+    "checkboxes_checked": [
+      "I consent to receive marketing text messages from Dearth Chrysler Dodge Jeep Ram. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency depends on your activity. Unsubscribe at any time by replying STOP. For more information at any time reply HELP. Privacy Policy | Terms of Service"
+    ],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T201539Z/dearth_chrysler_dodge_jeep_ram/detected.png",
+      "filled": "artifacts/20250928T201539Z/dearth_chrysler_dodge_jeep_ram/filled.png",
+      "submitted": "artifacts/20250928T201539Z/dearth_chrysler_dodge_jeep_ram/submitted.png",
+      "log": "artifacts/20250928T201539Z/dearth_chrysler_dodge_jeep_ram/run.log",
+      "status": "artifacts/20250928T201539Z/dearth_chrysler_dodge_jeep_ram/status.json"
+    },
+    "errors": [
+      ""
+    ]
+  }
+]

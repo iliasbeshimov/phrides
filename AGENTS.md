@@ -1,42 +1,43 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Core Playwright automation flows live in `src/automation/` (detectors inside `forms/`), domain schemas in `src/models/`, and shared helpers in `src/utils/`.
-- Root scripts like `final_retest_with_contact_urls.py` orchestrate batches; generated metrics land in timestamped folders under `tests/` and `logs/`.
-- The frontend dashboard lives in `frontend/` (Vite + React), with architectural docs and run books in `docs/` and curated `*.md` files at the root.
-- Configuration starts with `config/logging.yml`; secrets stay in a local `.env`.
+- `src/automation/` hosts Playwright flows; detectors sit in `forms/`, support helpers in `src/utils/`, and domain schemas in `src/models/`.
+- Batch scripts such as `final_retest_with_contact_urls.py` live at the root and drop metrics plus screenshots into timestamped folders under `tests/` and `logs/`.
+- The frontend dashboard runs from `frontend/` (Vite + React); long-form guides stay in `docs/` and curated `*.md` references at the root.
+- Configuration loads from `config/logging.yml` and a local `.env`; never hard-code secrets in scripts.
 
 ## Build, Test, and Development Commands
-```bash
+```
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m playwright install chromium
-python final_retest_with_contact_urls.py   # batch automation
-pytest                                     # Python checks
+pytest --maxfail=1
+python final_retest_with_contact_urls.py
 ```
-```bash
+```
 cd frontend
 npm install
-npm run dev        # Vite server
-npm run build      # production bundle
-npm run test       # Vitest + RTL
+npm run dev
+npm run test
+npm run build
 ```
+- Use the first block to prep the automation environment; `pytest --maxfail=1` acts as the pre-push gate.
+- Run the second block for UI work; `npm run test` executes Vitest + React Testing Library.
 
 ## Coding Style & Naming Conventions
-- Format Python with Black (88 cols) and isort; enforce type hints, 4-space indentation, and snake_case for functions and modules.
-- Detector classes and service objects are PascalCase; async helpers end with `_async`, constants use SCREAMING_SNAKE_CASE.
-- Run `flake8`, `mypy`, and `black --check` before committing Python changes; rely on ESLint/Prettier defaults in `frontend/` and keep React components PascalCase with colocated `.test.tsx` files.
+- Auto-format Python with Black (88 cols) and isort; keep 4-space indentation, snake_case modules/functions, PascalCase detectors/services, `_async` suffix for coroutines, and SCREAMING_SNAKE_CASE constants.
+- Lint backend with `flake8` and `mypy`; JavaScript/TypeScript relies on ESLint + Prettier defaults, with React components in PascalCase and colocated `.test.tsx` files.
 
 ## Testing Guidelines
-- House quick unit coverage in `tests/unit/` and workflow scenarios in `tests/integration/`; keep persisted batch outputs in timestamped folders to preserve historical baselines.
-- Follow PyTest discovery (`test_*.py`, `Test*`, `test_*`) and reuse fixtures from `tests/fixtures/` for Playwright setup.
-- Execute `pytest -k <keyword>` during development, then `pytest --maxfail=1` before pushing; run `npm run test` or `npm run test:coverage` when touching the dashboard.
+- Place fast unit specs in `tests/unit/` and workflow or Playwright scenarios in `tests/integration/`; reuse fixtures from `tests/fixtures/`.
+- Persist batch outputs under timestamped folders inside `tests/` or `logs/` to preserve regression history.
+- Filter suites during development via `pytest -k "<keyword>"`; run `npm run test:coverage` when touching dashboard data pipelines.
 
 ## Commit & Pull Request Guidelines
-- Write imperative commit subjects under 72 chars (e.g., `Tighten gravity form fallback`) and keep unrelated changes separate.
-- Mention impacted scripts or data sources in the body (`Affects: src/automation/forms/form_detector.py`) and note any manual steps taken.
-- Pull requests must include a scenario summary, linked issue, relevant screenshots/metrics, and the exact commands executed; ping the automation or frontend owner depending on the surface touched.
+- Write imperative subjects under 72 chars (e.g., `Tighten gravity form fallback`) and keep unrelated changes separate.
+- Reference impacted files in the body (`Affects: src/automation/forms/form_detector.py`) and list manual steps or data touched.
+- PRs must cite the scenario, linked issue, screenshots or metrics, and commands executed; ping automation or frontend owners as appropriate.
 
 ## Security & Configuration Tips
-- Never commit `.env` files or raw dealership CSVs from `data/`; scrub URLs or VINs before sharing logs.
-- Update `config/logging.yml` instead of hard-coding handlers, and rotate stealth headers or API keys during deploys.
+- Never commit `.env` files or raw dealership CSVs from `data/`; scrub URLs and VINs before sharing artifacts.
+- Extend logging through `config/logging.yml` instead of inline handlers, and rotate stealth headers or API keys every deploy.

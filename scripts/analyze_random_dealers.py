@@ -10,7 +10,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 
@@ -294,66 +294,170 @@ def summarize_checkboxes(checkboxes: List[CheckboxDecision]) -> List[str]:
     ]
 
 
+async def _find_contact_fallback(page, original_url: str) -> Optional[str]:
+    """Try to locate an alternative contact link from the homepage."""
+
+    parsed = urlparse(original_url)
+    if not parsed.scheme or not parsed.netloc:
+        return None
+
+    home_url = f"{parsed.scheme}://{parsed.netloc}/"
+
+    try:
+        await page.goto(home_url, wait_until="domcontentloaded", timeout=60000)
+        await asyncio.sleep(2)
+    except PlaywrightTimeoutError:
+        return None
+
+    try:
+        contact_href = await page.evaluate(
+            """
+            () => {
+                const anchors = Array.from(document.querySelectorAll('a[href]'));
+                for (const anchor of anchors) {
+                    const text = (anchor.textContent || '').toLowerCase();
+                    const href = anchor.getAttribute('href') || '';
+                    if (text.includes('contact') || href.toLowerCase().includes('contact')) {
+                        return anchor.href;
+                    }
+                }
+                return null;
+            }
+            """
+        )
+        if contact_href and contact_href != original_url:
+            return contact_href
+    except Exception:
+        return None
+
+    return None
+
+
 async def analyze_dealer(detector: EnhancedFormDetector, manager: EnhancedStealthBrowserManager, dealer: DealerRecord) -> Dict[str, object]:
     async with async_playwright() as playwright_instance:
-        browser = await manager.create_enhanced_stealth_browser(playwright_instance)
-        context = await manager.create_enhanced_stealth_context(browser)
+        browser, context = await manager.open_context(playwright_instance)
         page = await manager.create_enhanced_stealth_page(context)
 
+        async def detect(url: str) -> Dict[str, object]:
+            try:
+                response = await page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                status = response.status if response else None
+                await asyncio.sleep(2)
+            except PlaywrightTimeoutError:
+                return {"status": "timeout", "result": None}
+
+            detection = await detector.detect_contact_form(page)
+            success = detection.success and detection.form_element is not None
+            if success:
+                return {"status": "success", "result": detection}
+
+            # Flag 404 or empty responses for fallback consideration
+            if status == 404 or status == 410:
+                return {"status": "not_found", "result": None}
+
+            return {"status": "no_form", "result": detection}
+
         try:
-            await page.goto(dealer.contact_url, wait_until="domcontentloaded", timeout=60000)
-            await asyncio.sleep(2)
-        except PlaywrightTimeoutError:
-            await context.close()
-            await browser.close()
+            primary_detection = await detect(dealer.contact_url)
+
+            if primary_detection["status"] == "success":
+                detection = primary_detection["result"]
+                final_url = dealer.contact_url
+            elif primary_detection["status"] in {"timeout", "no_form"}:
+                fallback_url = await _find_contact_fallback(page, dealer.contact_url)
+                if fallback_url:
+                    fallback_detection = await detect(fallback_url)
+                    if fallback_detection["status"] == "success":
+                        detection = fallback_detection["result"]
+                        final_url = fallback_url
+                    else:
+                        return {
+                            "dealer": dealer.name,
+                            "url": fallback_url,
+                            "status": fallback_detection["status"],
+                            "fields": [],
+                            "dropdowns": [],
+                            "checkboxes": [],
+                        }
+                else:
+                    return {
+                        "dealer": dealer.name,
+                        "url": dealer.contact_url,
+                        "status": primary_detection["status"],
+                        "fields": [],
+                        "dropdowns": [],
+                        "checkboxes": [],
+                    }
+            elif primary_detection["status"] == "not_found":
+                fallback_url = await _find_contact_fallback(page, dealer.contact_url)
+                if fallback_url:
+                    fallback_detection = await detect(fallback_url)
+                    if fallback_detection["status"] == "success":
+                        detection = fallback_detection["result"]
+                        final_url = fallback_url
+                    else:
+                        return {
+                            "dealer": dealer.name,
+                            "url": fallback_url,
+                            "status": fallback_detection["status"],
+                            "fields": [],
+                            "dropdowns": [],
+                            "checkboxes": [],
+                        }
+                else:
+                    return {
+                        "dealer": dealer.name,
+                        "url": dealer.contact_url,
+                        "status": "not_found",
+                        "fields": [],
+                        "dropdowns": [],
+                        "checkboxes": [],
+                    }
+            else:
+                return {
+                    "dealer": dealer.name,
+                    "url": dealer.contact_url,
+                    "status": primary_detection["status"],
+                    "fields": [],
+                    "dropdowns": [],
+                    "checkboxes": [],
+                }
+
+            dropdown_raw = await collect_dropdowns(detection.form_element)
+            dropdowns = [classify_dropdown(entry) for entry in dropdown_raw]
+
+            checkbox_raw = await collect_checkboxes(detection.form_element)
+            checkbox_decisions: List[CheckboxDecision] = []
+            for entry in checkbox_raw:
+                selector = ""
+                if entry.get("id"):
+                    selector = f"#{entry['id']}"
+                elif entry.get("name"):
+                    selector = f"input[name='{entry['name']}']"
+                checkbox_decisions.append(
+                    CheckboxDecision(label=entry.get("label") or "(unlabeled)", selector=selector or "(unknown selector)")
+                )
+
+            return {
+                "dealer": dealer.name,
+                "url": final_url,
+                "status": "success",
+                "fields": summarize_fields(detection.fields),
+                "dropdowns": summarize_dropdowns(dropdowns),
+                "checkboxes": summarize_checkboxes(checkbox_decisions),
+            }
+        except Exception:
             return {
                 "dealer": dealer.name,
                 "url": dealer.contact_url,
-                "status": "timeout",
+                "status": "error",
                 "fields": [],
                 "dropdowns": [],
                 "checkboxes": [],
             }
-
-        result = await detector.detect_contact_form(page)
-        if not result.success or not result.form_element:
-            await context.close()
-            await browser.close()
-            return {
-                "dealer": dealer.name,
-                "url": dealer.contact_url,
-                "status": "no_form_detected",
-                "fields": [],
-                "dropdowns": [],
-                "checkboxes": [],
-            }
-
-        dropdown_raw = await collect_dropdowns(result.form_element)
-        dropdowns = [classify_dropdown(entry) for entry in dropdown_raw]
-
-        checkbox_raw = await collect_checkboxes(result.form_element)
-        checkbox_decisions: List[CheckboxDecision] = []
-        for entry in checkbox_raw:
-            selector = ""
-            if entry.get("id"):
-                selector = f"#{entry['id']}"
-            elif entry.get("name"):
-                selector = f"input[name='{entry['name']}']"
-            checkbox_decisions.append(
-                CheckboxDecision(label=entry.get("label") or "(unlabeled)", selector=selector or "(unknown selector)")
-            )
-
-        await context.close()
-        await browser.close()
-
-        return {
-            "dealer": dealer.name,
-            "url": dealer.contact_url,
-            "status": "success",
-            "fields": summarize_fields(result.fields),
-            "dropdowns": summarize_dropdowns(dropdowns),
-            "checkboxes": summarize_checkboxes(checkbox_decisions),
-        }
+        finally:
+            await page.close()
+            await manager.close_context(browser, context)
 
 
 async def main(limit: int, seed: int) -> None:

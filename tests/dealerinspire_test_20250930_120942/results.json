@@ -1,0 +1,43 @@
+{
+  "test_date": "2025-09-30T12:11:23.510537",
+  "total_sites": 3,
+  "success_count": 3,
+  "results": [
+    {
+      "dealer_name": "Downtown Auto Group Inc",
+      "contact_url": "https://www.buydowntown.com/contact-us/",
+      "timestamp": "2025-09-30T12:10:16.381543",
+      "status": "success",
+      "is_dealerinspire": true,
+      "cloudflare_detected": false,
+      "forms_found": 6,
+      "gravity_forms_found": 1,
+      "error": null,
+      "screenshot_path": "tests/dealerinspire_test_20250930_120942/downtown_auto_group_inc.png"
+    },
+    {
+      "dealer_name": "Miracle Chrysler Dodge Jeep Ram",
+      "contact_url": "https://www.miraclecdjrofaiken.com/contact-us/",
+      "timestamp": "2025-09-30T12:10:39.023141",
+      "status": "success",
+      "is_dealerinspire": true,
+      "cloudflare_detected": false,
+      "forms_found": 5,
+      "gravity_forms_found": 1,
+      "error": null,
+      "screenshot_path": "tests/dealerinspire_test_20250930_120942/miracle_chrysler_dodge_jeep_ram.png"
+    },
+    {
+      "dealer_name": "Swope Chrysler Dodge Jeep",
+      "contact_url": "https://www.swopechryslerdodgejeep.com/contact-us/",
+      "timestamp": "2025-09-30T12:11:00.960408",
+      "status": "success",
+      "is_dealerinspire": true,
+      "cloudflare_detected": false,
+      "forms_found": 5,
+      "gravity_forms_found": 1,
+      "error": null,
+      "screenshot_path": "tests/dealerinspire_test_20250930_120942/swope_chrysler_dodge_jeep.png"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "currentView": "search-details",
+  "currentSearch": null,
+  "customerInfo": {
+    "firstName": "Ilias",
+    "lastName": "Beshimov",
+    "email": "ilias.beshimov@gmail.com",
+    "phone": "6503320719",
+    "message": "Hello dealerships",
+    "zipcode": ""
+  },
+  "searchParams": {
+    "title": "Moonlit Dodge Daytona Search",
+    "make": "",
+    "distance": "100",
+    "customDistance": ""
+  },
+  "lastSaved": "2025-09-29T04:25:02.531Z"
+}

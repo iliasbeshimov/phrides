@@ -9,9 +9,28 @@ import asyncio
 import pandas as pd
 import os
 from datetime import datetime
-from playwright.async_api import async_playwright
+from playwright.async_api import BrowserContext, async_playwright
 from enhanced_stealth_browser_config import EnhancedStealthBrowserManager
 import numpy as np
+
+# Import DealerInspire bypass
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent / "src" / "automation" / "browser"))
+try:
+    from src.automation.browser.dealerinspire_bypass import DealerInspireBypass, apply_dealerinspire_bypass
+except:
+    # Fallback if import fails
+    class DealerInspireBypass:
+        @staticmethod
+        async def detect_dealerinspire(page):
+            content = await page.content()
+            return 'dealerinspire' in content.lower()
+
+    async def apply_dealerinspire_bypass(page, url):
+        await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+        await asyncio.sleep(5)
+        return True
 
 class ContactPageDetector:
     """Advanced detector that finds contact pages and their forms"""
@@ -155,8 +174,30 @@ class ContactPageDetector:
         detected_forms = []
 
         try:
-            # Wait for page to load
-            await page.wait_for_timeout(10000)  # 10 seconds
+            # Check if this is a DealerInspire site
+            is_dealerinspire = await DealerInspireBypass.detect_dealerinspire(page)
+
+            if is_dealerinspire:
+                print(f"         🔍 DealerInspire detected - applying bypass")
+                # Wait longer for Cloudflare clearance
+                await asyncio.sleep(3)
+
+                # Check for Cloudflare block
+                is_blocked = await DealerInspireBypass.detect_and_handle_cloudflare_block(page)
+                if is_blocked:
+                    print(f"         ⚠️  Cloudflare block detected, waiting for clearance...")
+                    await DealerInspireBypass.wait_for_cloudflare_clearance(page, max_wait=20)
+
+            # Smart waiting: Wait for actual forms to load
+            try:
+                await page.wait_for_selector('form, .gform_wrapper, .contact-form', timeout=15000)
+            except:
+                # Fallback: wait for network idle if forms load via JS
+                await page.wait_for_load_state('networkidle', timeout=15000)
+
+            # Extra wait for DealerInspire sites (lazy-loaded content)
+            if is_dealerinspire:
+                await asyncio.sleep(2)
 
             # Find all forms using different patterns
             all_forms = []
@@ -169,7 +210,7 @@ class ContactPageDetector:
                 except Exception:
                     continue
 
-            # Remove duplicates by tracking form positions
+            # Remove duplicates by tracking form positions (fuzzy matching)
             unique_forms = []
             seen_positions = set()
 
@@ -177,7 +218,9 @@ class ContactPageDetector:
                 try:
                     bbox = await form.bounding_box()
                     if bbox:
-                        position = (int(bbox['x']), int(bbox['y']))
+                        # Round to nearest 10 pixels for fuzzy matching
+                        # This handles sub-pixel positioning and iframes
+                        position = (int(bbox['x'] // 10), int(bbox['y'] // 10))
                         if position not in seen_positions:
                             seen_positions.add(position)
                             unique_forms.append(form)
@@ -235,6 +278,7 @@ class ContactPageDetector:
                         'name_inputs': name_inputs,
                         'phone_inputs': phone_inputs,
                         'textareas': textareas,
+                        'form_type': 'discovered',
                         'form_text_preview': form_text[:200] if form_text else "",
                         'form_attributes': form_attributes,
                         'bbox': bbox,
@@ -285,14 +329,13 @@ class ContactPageDetectionTest:
         self.detector = ContactPageDetector()
         self.browser_manager = EnhancedStealthBrowserManager()
 
-    async def test_single_dealer(self, browser, dealer_index, dealer_name, website):
+    async def test_single_dealer(self, context: BrowserContext, dealer_index, dealer_name, website):
         """Test contact page detection on a single dealership website"""
 
         print(f"\n🏪 #{dealer_index:02d}: {dealer_name}")
         print(f"🌐 URL: {website}")
 
-        context = await self.browser_manager.create_enhanced_stealth_context(browser)
-        page = await context.new_page()
+        page = await self.browser_manager.create_enhanced_stealth_page(context)
 
         all_detected_forms = []
         best_form = None
@@ -300,7 +343,13 @@ class ContactPageDetectionTest:
         try:
             # Navigate to main page
             print(f"   🚀 Navigating to homepage...")
-            await page.goto(website, wait_until='domcontentloaded', timeout=30000)
+
+            # Check if URL looks like DealerInspire before navigating
+            if 'dealerinspire' in website.lower():
+                print(f"      🔍 DealerInspire URL detected - using bypass")
+                await apply_dealerinspire_bypass(page, website)
+            else:
+                await page.goto(website, wait_until='domcontentloaded', timeout=30000)
 
             # Check for forms on homepage first
             homepage_forms = await self.detector.detect_forms_on_page(page, "Homepage", website)
@@ -326,8 +375,12 @@ class ContactPageDetectionTest:
 
                     print(f"      🔗 Visiting: {link_text} ({full_url})")
 
-                    # Navigate to contact page
-                    await page.goto(full_url, wait_until='domcontentloaded', timeout=20000)
+                    # Navigate to contact page with DealerInspire bypass if needed
+                    if 'dealerinspire' in full_url.lower():
+                        print(f"         🔍 DealerInspire URL detected - using bypass")
+                        await apply_dealerinspire_bypass(page, full_url)
+                    else:
+                        await page.goto(full_url, wait_until='domcontentloaded', timeout=20000)
 
                     # Detect forms on this page
                     contact_forms = await self.detector.detect_forms_on_page(page, link_text.title(), full_url)
@@ -347,7 +400,10 @@ class ContactPageDetectionTest:
                 if best_form['relevance_score'] > 30:  # Only screenshot promising forms
                     # Navigate back to the page with the best form
                     if best_form['page_url'] != page.url:
-                        await page.goto(best_form['page_url'], wait_until='domcontentloaded', timeout=20000)
+                        if 'dealerinspire' in best_form['page_url'].lower():
+                            await apply_dealerinspire_bypass(page, best_form['page_url'])
+                        else:
+                            await page.goto(best_form['page_url'], wait_until='domcontentloaded', timeout=20000)
                         await asyncio.sleep(3)
 
                     screenshot_path = await self.detector.take_form_screenshot(
@@ -396,7 +452,7 @@ class ContactPageDetectionTest:
                 'timestamp': datetime.now().isoformat()
             }
         finally:
-            await context.close()
+            await page.close()
 
     async def run_contact_detection_test(self, test_count=10):
         """Run contact page detection test on sample dealerships"""
@@ -420,28 +476,29 @@ class ContactPageDetectionTest:
         selected_dealers = df.sample(n=test_count, random_state=42).reset_index(drop=True)
 
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser, context = await self.browser_manager.open_context(p)
 
-            for index, row in selected_dealers.iterrows():
-                dealer_index = index + 1
-                dealer_name = row['dealer_name']
-                website = row['website']
+            try:
+                for index, row in selected_dealers.iterrows():
+                    dealer_index = index + 1
+                    dealer_name = row['dealer_name']
+                    website = row['website']
 
-                if not pd.isna(website) and website.startswith('http'):
-                    result = await self.test_single_dealer(browser, dealer_index, dealer_name, website)
-                    self.results.append(result)
+                    if not pd.isna(website) and website.startswith('http'):
+                        result = await self.test_single_dealer(context, dealer_index, dealer_name, website)
+                        self.results.append(result)
 
-                    # Save results after each dealer
-                    results_df = pd.DataFrame(self.results)
-                    results_df.to_csv(os.path.join(self.output_dir, f"contact_detection_results.csv"), index=False)
+                        # Save results after each dealer
+                        results_df = pd.DataFrame(self.results)
+                        results_df.to_csv(os.path.join(self.output_dir, f"contact_detection_results.csv"), index=False)
 
-                    # Short pause between dealers
-                    await asyncio.sleep(2)
-                else:
-                    print(f"\n🏪 #{dealer_index:02d}: {dealer_name}")
-                    print(f"   ⚠️ No valid website")
-
-            await browser.close()
+                        # Short pause between dealers
+                        await asyncio.sleep(2)
+                    else:
+                        print(f"\n🏪 #{dealer_index:02d}: {dealer_name}")
+                        print(f"   ⚠️ No valid website")
+            finally:
+                await self.browser_manager.close_context(browser, context)
 
         # Final summary
         forms_found = len([r for r in self.results if r['status'] == 'forms_detected'])

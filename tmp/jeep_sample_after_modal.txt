@@ -1,0 +1,122 @@
+#1 Shepherds Chrysler
+Contact URL: https://www.shepherdscdjr.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - name: #input_3_1339
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - none detected
+------------------------------------------------------------
+#2 Downtown Auto Group
+Contact URL: https://www.buydowntown.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - phone: #input_3_7
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - none detected
+------------------------------------------------------------
+#3 Tasca Chrysler White Plains
+Contact URL: https://www.tascacdjrwhiteplains.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - zip: #input_3_6
+Dropdowns:
+  - none detected
+Checkboxes:
+  - none detected
+------------------------------------------------------------
+#4 Capital City Cdjr
+Contact URL: https://www.CapCityCDJR.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - consent: #choice_3_1339_1
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - name: #input_3_1341
+  - phone: #input_3_1338
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - I Agree: check (selector: #choice_3_1339_1)
+------------------------------------------------------------
+#5 Thomson Chrysler (Jeep Cheap)
+Contact URL: https://www.jeepcheap.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - name: #input_3_1339
+  - phone: #input_3_1338
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - none detected
+------------------------------------------------------------
+#6 Tilleman Motor Co
+Contact URL: https://www.tillemanmotor.net/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - By checking this box, I hereby consent to receive emails, calls and text messages at the telephone number provided, which may include the use of automated dialing equipment or artificial or prerecorded voices, from [Your Company Name] for the purpose of marketing, I understand that my consent is not a condition of making a purchase or receiving services from [Your Company Name], and I may revoke this consent at any time by replying "STOP".: check (selector: #choice_3_1339_1)
+------------------------------------------------------------
+#7 Premier Chrysler Lamesa
+Contact URL: https://www.trucktowntexas.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - phone: #input_3_5
+  - zip: #input_3_6
+Dropdowns:
+  - none detected
+Checkboxes:
+  - none detected
+------------------------------------------------------------
+#8 Rairdons Chrysler Kirkland
+Contact URL: https://www.dodgechryslerjeepofkirkland.com/contact-us/
+Detection Status: success
+Detected Fields:
+  - consent: #choice_3_1340_1
+  - email: #input_3_3
+  - first_name: #input_3_1
+  - last_name: #input_3_2
+  - message: #input_3_4
+  - phone: #input_3_1341
+  - zip: #input_3_5
+Dropdowns:
+  - none detected
+Checkboxes:
+  - I Agree: check (selector: #choice_3_1340_1)
+------------------------------------------------------------

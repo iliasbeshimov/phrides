@@ -86,11 +86,11 @@
     {
       "slug": "max_curnow_cdjr",
       "dealer_name": "Max Curnow Chrysler Dodge Jeep Ram",
-      "contact_url": "https://www.maxcurnowcdjr.com/contact-us/",
+      "contact_url": "https://www.maxcurnowcdjr.com/contact.htm",
       "platform_hint": "standard_html",
       "status": "success",
       "source_csv": "tests/final_validation_third_set_20250917_003245/final_validation_results.csv",
-      "notes": "Standard HTML with freeform text area"
+      "notes": "Primary contact form on /contact.htm with Dealer.com markup"
     },
     {
       "slug": "autonation_cdjr_southwest",
@@ -117,7 +117,10 @@
       "platform_hint": "unknown",
       "status": "failed_detection",
       "source_csv": "scripts/analyze_random_dealers.py run",
-      "notes": "Detection failed; captured for anti-bot analysis"
+      "notes": "Requires clicking 'Send Us A Message' then selecting Sales to reveal form",
+      "snapshot_path": "tests/fixtures/form_detection/pages/anchorage_chrysler_center/contact.html",
+      "screenshot_path": "tests/fixtures/form_detection/screenshots/anchorage_chrysler_center_form.png",
+      "flow_hint": "cta_modal_sales"
     }
   ]
 }

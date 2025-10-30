@@ -1,0 +1,28 @@
+{
+  "dealer": "Larry H. Miller Chrysler Jeep Dodge Ram Sandy",
+  "url": "https://www.lhmchryslerdodgeramfiatdenver.com/contact.htm",
+  "status": "submission_failed",
+  "contact_resolution_source": "preferred",
+  "fields_filled": [
+    "first_name",
+    "last_name",
+    "email",
+    "message",
+    "phone"
+  ],
+  "missing_fields": [
+    "zip"
+  ],
+  "dropdown_choices": {},
+  "checkboxes_checked": [],
+  "confirmation_text": null,
+  "artifacts": {
+    "detected": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/detected.png",
+    "filled": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/filled.png",
+    "submitted": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/submitted.png",
+    "log": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/run.log"
+  },
+  "errors": [
+    "Sorry! Unfortunately, we were unable to process your request at this time. Please try again later or contact us directly at 8559741652."
+  ]
+}

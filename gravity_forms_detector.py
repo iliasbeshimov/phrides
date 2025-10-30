@@ -28,18 +28,24 @@ class GravityFormsDetector:
         print(f"🔍 Testing {len(test_sites)} sites with Gravity Forms")
 
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser, context = await self.browser_manager.open_context(p)
 
-            for i, site in enumerate(test_sites):
-                print(f"\n🏪 #{i+1}: {site['name']}")
-                print(f"🌐 URL: {site['url']}")
+            try:
+                for i, site in enumerate(test_sites):
+                    print(f"\n🏪 #{i+1}: {site['name']}")
+                    print(f"🌐 URL: {site['url']}")
 
-                context = await self.browser_manager.create_enhanced_stealth_context(browser)
-                page = await context.new_page()
+                    page = await self.browser_manager.create_enhanced_stealth_page(context)
 
-                try:
-                    await page.goto(site['url'], wait_until='domcontentloaded', timeout=30000)
-                    await page.wait_for_timeout(5000)
+                    try:
+                        await page.goto(site['url'], wait_until='domcontentloaded', timeout=30000)
+
+                        # Smart waiting: Wait for actual content, not arbitrary time
+                        try:
+                            await page.wait_for_selector('.gform_wrapper, form', timeout=10000)
+                        except:
+                            # Fallback: wait for network idle if no forms immediately visible
+                            await page.wait_for_load_state('networkidle', timeout=15000)
 
                     # Simple Gravity Forms detection
                     gforms = await page.locator('.gform_wrapper').count()
@@ -72,12 +78,13 @@ class GravityFormsDetector:
                     else:
                         print(f"   ❌ No Gravity Forms found")
 
-                except Exception as e:
-                    print(f"   ❌ Error: {e}")
-                finally:
-                    await context.close()
+                    except Exception as e:
+                        print(f"   ❌ Error: {e}")
+                    finally:
+                        await page.close()
 
-            await browser.close()
+            finally:
+                await self.browser_manager.close_context(browser, context)
 
 if __name__ == "__main__":
     detector = GravityFormsDetector()

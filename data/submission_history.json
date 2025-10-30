@@ -1,0 +1,67 @@
+[
+  {
+    "last_attempt": "2025-09-28T19:35:54.455538+00:00",
+    "last_status": "submission_success",
+    "slug": "five_star_cdjr"
+  },
+  {
+    "last_attempt": "2025-09-28T19:36:44.499375+00:00",
+    "last_status": "blocked",
+    "slug": "tilleman_motor_co"
+  },
+  {
+    "last_attempt": "2025-09-28T19:39:07.465301+00:00",
+    "last_status": "resolver_failed",
+    "slug": "autonation_cdjr_southwest"
+  },
+  {
+    "last_attempt": "2025-09-28T19:39:22.615983+00:00",
+    "last_status": "blocked",
+    "slug": "thomson_chrysler"
+  },
+  {
+    "last_attempt": "2025-09-28T19:49:52.875594+00:00",
+    "last_status": "resolver_failed",
+    "slug": "summit_chrysler_dodge_jeep_ram_fond_du_lac_wi_54937"
+  },
+  {
+    "last_attempt": "2025-09-28T19:50:21.447560+00:00",
+    "last_status": "error",
+    "slug": "k_j_chrysler_dodge_jeep_ram_breese_il_622303408"
+  },
+  {
+    "last_attempt": "2025-09-28T20:13:36.337023+00:00",
+    "last_status": "resolver_failed",
+    "slug": "bob_howard_chrysler_jeep_dodge_ram_oklahoma_city_ok_731142247"
+  },
+  {
+    "last_attempt": "2025-09-28T20:14:43.775127+00:00",
+    "last_status": "submission_failed",
+    "slug": "ourisman_chrysler_dodge_jeep_ram_clarksville_md_210292200"
+  },
+  {
+    "last_attempt": "2025-09-28T20:16:54.877499+00:00",
+    "last_status": "submission_failed",
+    "slug": "dearth_chrysler_dodge_jeep_ram_monroe_wi_535661057"
+  },
+  {
+    "last_attempt": "2025-09-28T20:18:34.885487+00:00",
+    "last_status": "detection_failed",
+    "slug": "mclarty_daniel_chrysler_dodge_jeep_ram_bentonville_ar_727123751"
+  },
+  {
+    "last_attempt": "2025-09-28T20:29:56.271695+00:00",
+    "last_status": "submission_failed",
+    "slug": "crown_chrysler_dodge_jeep_ram_washington_pa_153015855"
+  },
+  {
+    "last_attempt": "2025-09-28T20:31:38.635661+00:00",
+    "last_status": "submission_failed",
+    "slug": "united_chrysler_dodge_jeep_ram_brooklyn_ny_112095901"
+  },
+  {
+    "last_attempt": "2025-09-28T20:32:35.937440+00:00",
+    "last_status": "resolver_failed",
+    "slug": "rainbow_chrysler_dodge_jeep_llc_covington_la_704337008"
+  }
+]

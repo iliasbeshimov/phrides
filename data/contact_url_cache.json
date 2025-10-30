@@ -1,0 +1,831 @@
+{
+  "entries": [
+    {
+      "website": "https://www.pilsonchryslerdodgejeep.com",
+      "contact_url": "https://www.pilsonchryslerdodgejeep.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:42:38",
+      "last_verified": "2025-10-03 11:42:38",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.floydcdjr.com",
+      "contact_url": "https://www.floydcdjr.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-03 11:43:36",
+      "last_verified": "2025-10-20 11:43:35",
+      "success_count": 2,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.slimans.net",
+      "contact_url": "https://www.slimans.net/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:44:30",
+      "last_verified": "2025-10-03 11:44:30",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.meadorauto.com",
+      "contact_url": "https://www.meadorauto.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:45:20",
+      "last_verified": "2025-10-03 11:45:20",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.nylemaxwellcjd.com",
+      "contact_url": "https://www.nylemaxwellcjd.com/contact-us/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:50:22",
+      "last_verified": "2025-10-03 11:50:22",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.jackcdjr.net",
+      "contact_url": "https://www.jackcdjr.net/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:51:16",
+      "last_verified": "2025-10-03 11:51:16",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.stiverscdjr.net",
+      "contact_url": "https://www.stiverscdjr.net/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-03 11:52:04",
+      "last_verified": "2025-10-03 11:52:04",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.teamchryslerdodgejeepram.com",
+      "contact_url": "https://www.teamchryslerdodgejeepram.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:53:43",
+      "last_verified": "2025-10-05 11:18:40",
+      "success_count": 2,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.yorkgaryautoplex.net",
+      "contact_url": "https://www.yorkgaryautoplex.net/contact-form.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:54:30",
+      "last_verified": "2025-10-03 11:54:30",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.allamericanchryslerodessa.com",
+      "contact_url": "https://www.allamericanchryslerodessa.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:55:25",
+      "last_verified": "2025-10-03 11:55:25",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.drivebrown.com",
+      "contact_url": "https://www.drivebrown.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:56:10",
+      "last_verified": "2025-10-03 11:56:10",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.brighamgillmotorcars.com",
+      "contact_url": "https://www.brighamgillmotorcars.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:57:53",
+      "last_verified": "2025-10-03 11:57:53",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.kellycarchrysler.com",
+      "contact_url": "https://www.kellycarchrysler.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:58:42",
+      "last_verified": "2025-10-03 11:58:42",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.route1usa.com",
+      "contact_url": "https://www.route1usa.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-03 11:59:36",
+      "last_verified": "2025-10-03 11:59:36",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.libertychryslerjeepdodgeram.com",
+      "contact_url": "https://www.libertychryslerjeepdodgeram.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:11:31",
+      "last_verified": "2025-10-05 11:11:31",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.vaughnchryslerjeepdodge.com",
+      "contact_url": "https://www.vaughnchryslerjeepdodge.com/contact-us/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:13:36",
+      "last_verified": "2025-10-05 11:13:36",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.armoryauto.com",
+      "contact_url": "https://www.armoryauto.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:14:34",
+      "last_verified": "2025-10-05 11:14:34",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.austinchryslerjeep.com",
+      "contact_url": "https://www.austinchryslerjeep.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:15:24",
+      "last_verified": "2025-10-05 11:15:24",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.gordoncdjr.com",
+      "contact_url": "https://www.gordoncdjr.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:16:13",
+      "last_verified": "2025-10-05 11:16:13",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.colonialdodgechryslerjeep.com",
+      "contact_url": "https://www.colonialdodgechryslerjeep.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:17:11",
+      "last_verified": "2025-10-05 11:17:11",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.classiccdjrf.com",
+      "contact_url": "https://www.classiccdjrf.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:19:34",
+      "last_verified": "2025-10-05 11:19:34",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.yarkchryslerjeepdodgeram.com",
+      "contact_url": "https://www.yarkchryslerjeepdodgeram.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:20:41",
+      "last_verified": "2025-10-05 11:20:41",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.paysondodge.com",
+      "contact_url": "https://www.paysondodge.com/contact",
+      "has_form": true,
+      "field_count": 4,
+      "field_types": [
+        "email",
+        "message",
+        "name",
+        "phone"
+      ],
+      "discovered_date": "2025-10-05 11:21:31",
+      "last_verified": "2025-10-05 11:21:31",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.tunkhannockautomart.net",
+      "contact_url": "https://www.tunkhannockautomart.net/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:22:23",
+      "last_verified": "2025-10-05 11:22:23",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.bicemotors.com",
+      "contact_url": "https://www.bicemotors.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:23:16",
+      "last_verified": "2025-10-05 11:23:16",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.vicksburgchryslerdodgejeepram.com",
+      "contact_url": "https://www.vicksburgchryslerdodgejeepram.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:24:25",
+      "last_verified": "2025-10-05 11:24:25",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.freedomchryslerdodgejeeprambluffton.com",
+      "contact_url": "https://www.freedomchryslerdodgejeeprambluffton.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:25:06",
+      "last_verified": "2025-10-05 11:25:06",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.vancechryslerdodgejeepram.com",
+      "contact_url": "https://www.vancechryslerdodgejeepram.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-05 11:25:54",
+      "last_verified": "2025-10-05 11:25:54",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.pearmanmotor.com",
+      "contact_url": "https://www.pearmanmotor.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-05 11:26:43",
+      "last_verified": "2025-10-05 11:26:43",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.freedomcdjroflexington.com",
+      "contact_url": "https://www.freedomcdjroflexington.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:42:08",
+      "last_verified": "2025-10-20 11:42:08",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.jbchryslerjeepdodgeram.com",
+      "contact_url": "https://www.jbchryslerjeepdodgeram.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:44:28",
+      "last_verified": "2025-10-20 11:44:28",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.portervillecjd.com",
+      "contact_url": "https://www.portervillecjd.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:45:29",
+      "last_verified": "2025-10-20 11:45:29",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.mcclanemotor.com",
+      "contact_url": "https://www.mcclanemotor.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:46:18",
+      "last_verified": "2025-10-20 11:46:18",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.sunnyvalecdjr.com",
+      "contact_url": "https://www.sunnyvalecdjr.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:47:10",
+      "last_verified": "2025-10-20 11:47:10",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.holidaygrahamcdjr.net",
+      "contact_url": "https://www.holidaygrahamcdjr.net/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-20 11:49:43",
+      "last_verified": "2025-10-20 11:49:43",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.pelletierchryslerdodgejeepram.com",
+      "contact_url": "https://www.pelletierchryslerdodgejeepram.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:50:25",
+      "last_verified": "2025-10-20 11:50:25",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.bluebonnetmotors.net",
+      "contact_url": "https://www.bluebonnetmotors.net/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-20 11:51:16",
+      "last_verified": "2025-10-20 11:51:16",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.jimshorkeynorthhillschryslerdodgejeepram.com",
+      "contact_url": "https://www.jimshorkeynorthhillschryslerdodgejeepram.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-20 11:52:03",
+      "last_verified": "2025-10-20 11:52:03",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.monroevillechryslerjeep.com",
+      "contact_url": "https://www.monroevillechryslerjeep.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-20 11:53:46",
+      "last_verified": "2025-10-20 11:53:46",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.cherryhilljeep.com",
+      "contact_url": "https://www.cherryhilljeep.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "vehicle_interest"
+      ],
+      "discovered_date": "2025-10-20 11:54:54",
+      "last_verified": "2025-10-20 11:54:54",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.McCarthyJeepRAM.com",
+      "contact_url": "https://www.McCarthyJeepRAM.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:57:40",
+      "last_verified": "2025-10-20 11:57:40",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.taylorstlouis.com",
+      "contact_url": "https://www.taylorstlouis.com/contact-us/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:58:48",
+      "last_verified": "2025-10-20 11:58:48",
+      "success_count": 1,
+      "form_type": "standard"
+    },
+    {
+      "website": "https://www.herpolsheimers.net",
+      "contact_url": "https://www.herpolsheimers.net/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-20 11:59:48",
+      "last_verified": "2025-10-20 11:59:48",
+      "success_count": 1,
+      "form_type": "standard"
+    }
+  ],
+  "stats": {
+    "total": 43
+  }
+}

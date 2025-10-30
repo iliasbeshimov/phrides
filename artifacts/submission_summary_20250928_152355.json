@@ -1,0 +1,19 @@
+[
+  {
+    "dealer": "Capital City Cdjr",
+    "url": "https://www.capcitycdjr.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T152335Z/capital_city_cdjr/blocked.png"
+    },
+    "errors": [
+      "Encountered security block page"
+    ]
+  }
+]

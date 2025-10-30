@@ -1,0 +1,17 @@
+{
+  "dealer": "K & J Chrysler Dodge Jeep Ram",
+  "url": "https://www.kandjchryslerjeep.com/contactus.aspx",
+  "status": "error",
+  "contact_resolution_source": "discovery",
+  "fields_filled": [],
+  "missing_fields": [],
+  "dropdown_choices": {},
+  "checkboxes_checked": [],
+  "confirmation_text": null,
+  "artifacts": {
+    "log": "artifacts/20250928T194952Z/k_j_chrysler_dodge_jeep_ram/run.log"
+  },
+  "errors": [
+    "Page.inner_text: Target page, context or browser has been closed"
+  ]
+}

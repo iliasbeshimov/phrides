@@ -1,0 +1,58 @@
+{
+  "timestamp": "20250928T145552Z",
+  "total_tests": 5,
+  "successful_submissions": 0,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "dealer": "Orr Chrysler Dodge Jeep Ram of Russellville",
+      "url": "https://www.orrchryslerdodgejeepramofrussellville.com/contact-us/",
+      "status": "error",
+      "fields_filled": 0,
+      "confirmation_text": "none",
+      "errors": [
+        "'FormSubmissionRunner' object has no attribute 'submit_contact_form'"
+      ]
+    },
+    {
+      "dealer": "Huffines Chrysler Jeep Dodge Ram Plano",
+      "url": "https://www.huffineschryslerjeepdodgeramplano.com/contact-us/",
+      "status": "error",
+      "fields_filled": 0,
+      "confirmation_text": "none",
+      "errors": [
+        "'FormSubmissionRunner' object has no attribute 'submit_contact_form'"
+      ]
+    },
+    {
+      "dealer": "White Chrysler Jeep Dodge Ram",
+      "url": "https://www.whitechryslerjeepdodge.com/contact-us/",
+      "status": "error",
+      "fields_filled": 0,
+      "confirmation_text": "none",
+      "errors": [
+        "'FormSubmissionRunner' object has no attribute 'submit_contact_form'"
+      ]
+    },
+    {
+      "dealer": "Prostrollo Motor Company",
+      "url": "https://www.prostrollomotorcompany.com/contact-us/",
+      "status": "error",
+      "fields_filled": 0,
+      "confirmation_text": "none",
+      "errors": [
+        "'FormSubmissionRunner' object has no attribute 'submit_contact_form'"
+      ]
+    },
+    {
+      "dealer": "Sharp Motor Company Inc",
+      "url": "https://www.sharpchryslerdodgejeepram.com/contact-us/",
+      "status": "error",
+      "fields_filled": 0,
+      "confirmation_text": "none",
+      "errors": [
+        "'FormSubmissionRunner' object has no attribute 'submit_contact_form'"
+      ]
+    }
+  ]
+}

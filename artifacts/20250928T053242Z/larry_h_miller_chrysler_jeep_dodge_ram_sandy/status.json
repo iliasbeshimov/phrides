@@ -1,0 +1,26 @@
+{
+  "dealer": "Larry H. Miller Chrysler Jeep Dodge Ram Sandy",
+  "url": "https://www.lhmchryslerdodgeramfiatdenver.com/contact.htm",
+  "status": "submission_failed",
+  "fields_filled": [],
+  "missing_fields": [
+    "first_name",
+    "last_name",
+    "email",
+    "zip",
+    "message",
+    "phone"
+  ],
+  "dropdown_choices": {},
+  "checkboxes_checked": [],
+  "confirmation_text": null,
+  "artifacts": {
+    "detected": "artifacts/20250928T053242Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/detected.png",
+    "filled": "artifacts/20250928T053242Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/filled.png",
+    "submitted": "artifacts/20250928T053242Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/submitted.png",
+    "log": "artifacts/20250928T053242Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/run.log"
+  },
+  "errors": [
+    ""
+  ]
+}

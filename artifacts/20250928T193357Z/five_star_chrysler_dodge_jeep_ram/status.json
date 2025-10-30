@@ -1,0 +1,27 @@
+{
+  "dealer": "Five Star Chrysler Dodge Jeep Ram",
+  "url": "https://www.fivestarclearfield.com/contactus.aspx",
+  "status": "submission_success",
+  "contact_resolution_source": "preferred",
+  "fields_filled": [
+    "first_name",
+    "last_name",
+    "email",
+    "zip",
+    "message",
+    "phone"
+  ],
+  "missing_fields": [],
+  "dropdown_choices": {},
+  "checkboxes_checked": [
+    "By clicking this box, I agree to receive in-person or automated telemarketing calls and texts from Five Star Clearfield CDJR at the number I entered. I understand that my consent is not required for purchase."
+  ],
+  "confirmation_text": "thank you",
+  "artifacts": {
+    "detected": "artifacts/20250928T193357Z/five_star_chrysler_dodge_jeep_ram/detected.png",
+    "filled": "artifacts/20250928T193357Z/five_star_chrysler_dodge_jeep_ram/filled.png",
+    "submitted": "artifacts/20250928T193357Z/five_star_chrysler_dodge_jeep_ram/submitted.png",
+    "log": "artifacts/20250928T193357Z/five_star_chrysler_dodge_jeep_ram/run.log"
+  },
+  "errors": []
+}

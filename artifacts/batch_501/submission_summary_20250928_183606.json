@@ -1,0 +1,83 @@
+[
+  {
+    "dealer": "Autonation Chrysler Southwest",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Autonation Chrysler Southwest"
+  },
+  {
+    "dealer": "Tasca Chrysler White Plains",
+    "url": "https://www.tascacdjrwhiteplains.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {},
+    "errors": [
+      "Cloudflare navigation failed"
+    ]
+  },
+  {
+    "dealer": "Anchorage Chrysler Center Inc",
+    "url": "https://www.anchoragechryslercenter.com/service",
+    "status": "submission_success",
+    "contact_resolution_source": "cache",
+    "fields_filled": [
+      "first_name",
+      "last_name",
+      "email",
+      "zip",
+      "message",
+      "phone"
+    ],
+    "missing_fields": [],
+    "dropdown_choices": {
+      "Preferred Contact Method": "Phone"
+    },
+    "checkboxes_checked": [
+      "I consent to receive marketing text messages from Anchorage Chrysler Center. Consent is not a condition of purchase. Msg and data rates may apply. Msg frequency depends on your activity. Unsubscribe at any time by replying STOP. For more information at any time reply HELP. Privacy Policy | Terms of Service",
+      "I consent to receive marketing text messages from Anchorage Chrysler Center. Consent is not a condition of purchase. Msg and data rates may apply. Msg frequency depends on your activity. Unsubscribe at any time by replying STOP. For more information at any time reply HELP.\nPrivacy Policy | Terms of Service"
+    ],
+    "confirmation_text": "thank you",
+    "artifacts": {
+      "detected": "artifacts/batch_501/20250928T183109Z/anchorage_chrysler_center_inc/detected.png",
+      "filled": "artifacts/batch_501/20250928T183109Z/anchorage_chrysler_center_inc/filled.png",
+      "submitted": "artifacts/batch_501/20250928T183109Z/anchorage_chrysler_center_inc/submitted.png",
+      "log": "artifacts/batch_501/20250928T183109Z/anchorage_chrysler_center_inc/run.log",
+      "status": "artifacts/batch_501/20250928T183109Z/anchorage_chrysler_center_inc/status.json"
+    },
+    "errors": []
+  },
+  {
+    "dealer": "Downtown Auto Group",
+    "url": "https://www.buydowntown.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {},
+    "errors": [
+      "Cloudflare navigation failed"
+    ]
+  },
+  {
+    "dealer": "Rairdons Chrysler Kirkland",
+    "url": "https://www.dodgechryslerjeepofkirkland.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {},
+    "errors": [
+      "Cloudflare navigation failed"
+    ]
+  }
+]

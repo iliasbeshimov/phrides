@@ -25,18 +25,18 @@ class DirectContactTester:
         print(f"Testing {len(direct_urls)} direct contact URLs")
 
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser, context = await self.browser_manager.open_context(p)
 
-            for i, site in enumerate(direct_urls):
-                print(f"\n🏪 #{i+1}: {site['name']}")
-                print(f"🌐 URL: {site['url']}")
+            try:
+                for i, site in enumerate(direct_urls):
+                    print(f"\n🏪 #{i+1}: {site['name']}")
+                    print(f"🌐 URL: {site['url']}")
 
-                context = await self.browser_manager.create_enhanced_stealth_context(browser)
-                page = await context.new_page()
+                    page = await self.browser_manager.create_enhanced_stealth_page(context)
 
-                try:
-                    await page.goto(site['url'], wait_until='domcontentloaded', timeout=30000)
-                    await page.wait_for_timeout(8000)
+                    try:
+                        await page.goto(site['url'], wait_until='domcontentloaded', timeout=30000)
+                        await page.wait_for_timeout(8000)
 
                     # Check basic page state
                     title = await page.title()
@@ -95,12 +95,13 @@ class DirectContactTester:
                         for j, form in enumerate(form_details):
                             print(f"      Form {j+1}: {form['id']}, visible: {form['visible']}, inputs: {form['inputCount']}")
 
-                except Exception as e:
-                    print(f"   ❌ Error: {e}")
-                finally:
-                    await context.close()
+                    except Exception as e:
+                        print(f"   ❌ Error: {e}")
+                    finally:
+                        await page.close()
 
-            await browser.close()
+            finally:
+                await self.browser_manager.close_context(browser, context)
 
 if __name__ == "__main__":
     tester = DirectContactTester()

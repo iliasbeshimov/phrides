@@ -1,0 +1,19 @@
+[
+  {
+    "dealer": "McLarty Daniel Chrysler Dodge Jeep Ram",
+    "url": "https://www.bentonvillecdjr.com",
+    "status": "detection_failed",
+    "contact_resolution_source": "discovery",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/20250928T201735Z/mclarty_daniel_chrysler_dodge_jeep_ram/detected.png"
+    },
+    "errors": [
+      "Form detection failed"
+    ]
+  }
+]

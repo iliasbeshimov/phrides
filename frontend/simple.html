@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership Contact Manager - Simple</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <p>If you see this text (not template syntax), Vue is working!</p>
+        <button @click="testClick">Click Me</button>
+    </div>
+
+    <script src="zip_coordinates.js"></script>
+    <script src="websocket_client.js"></script>
+    <script src="websocket_integration.js"></script>
+
+    <script>
+        console.log('Starting app initialization...');
+        console.log('Vue available:', typeof Vue);
+        console.log('websocketMethods available:', typeof window.websocketMethods);
+
+        try {
+            const { createApp } = Vue;
+
+            const app = createApp({
+                data() {
+                    return {
+                        message: 'Vue is WORKING!'
+                    }
+                },
+                methods: {
+                    testClick() {
+                        alert('Vue is working!');
+                    }
+                },
+                mounted() {
+                    console.log('Vue mounted successfully!');
+                }
+            });
+
+            app.mount('#app');
+            console.log('App mounted');
+
+        } catch (error) {
+            console.error('Error creating Vue app:', error);
+            document.body.innerHTML = '<h1 style="color: red">Error: ' + error.message + '</h1>';
+        }
+    </script>
+</body>
+</html>

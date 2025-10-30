@@ -1,0 +1,12 @@
+dealer_name,contact_url,contact_resolution_source,homepage_url,original_status,final_retest_status,contact_score,form_type,total_inputs,email_fields,name_fields,message_fields,screenshot_path,error
+Thomas Garage Inc,https://www.thomasautocenters.com/contact-us/,preferred,https://www.thomasautocenters.com/,failed,success,75.0,discovered,1.0,1.0,0.0,0.0,,
+Autonation Chrysler Southwest,https://www.autonationchryslerdodgejeepramsouthwest.com/contact-us/,,https://www.autonationchryslerdodgejeepramsouthwest.com/,failed,still_failed,,,,,,,,Unable to locate contact page for Autonation Chrysler Southwest
+Thomson Chrysler (Jeep Cheap),https://www.jeepcheap.com/contact-us/,preferred,https://www.jeepcheap.com/,failed,success,75.0,discovered,1.0,1.0,0.0,0.0,,
+Tilleman Motor Co,https://www.tillemanmotor.net/contact-us/,preferred,https://www.tillemanmotor.net/,failed,success,100.0,discovered,1.0,1.0,0.0,0.0,,
+Rairdons Chrysler Kirkland,https://www.dodgechryslerjeepofkirkland.com/contact-us/,preferred,https://www.dodgechryslerjeepofkirkland.com/,failed,success,100.0,discovered,1.0,1.0,0.0,0.0,,
+Tasca Chrysler White Plains,https://www.tascacdjrwhiteplains.com/contact-us/,preferred,https://www.tascacdjrwhiteplains.com/,failed,success,65.0,discovered,1.0,1.0,0.0,0.0,,
+Downtown Auto Group,https://www.buydowntown.com/contact-us/,preferred,https://www.buydowntown.com/,failed,success,65.0,discovered,1.0,1.0,0.0,0.0,,
+Capital City Cdjr,https://www.CapCityCDJR.com/contact-us/,preferred,https://www.capcitycdjr.com/,failed,success,75.0,discovered,1.0,1.0,0.0,0.0,,
+Premier Chrysler Lamesa,https://www.trucktowntexas.com/contact-us/,preferred,https://www.trucktowntexas.com/,failed,success,65.0,discovered,1.0,1.0,0.0,0.0,,
+Shepherds Chrysler,https://www.shepherdscdjr.com/contact-us/,preferred,https://www.shepherdscdjr.com/,failed,success,65.0,discovered,1.0,1.0,0.0,0.0,,
+Steele Chrysler Lockhart,https://www.steelechryslerlockhart.com/contactus.aspx,preferred,https://www.steelechryslerlockhart.com/,failed,success,90.0,discovered,8.0,2.0,6.0,0.0,,

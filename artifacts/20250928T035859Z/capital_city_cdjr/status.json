@@ -1,0 +1,28 @@
+{
+  "dealer": "Capital City CDJR",
+  "url": "https://www.capcitycdjr.com/contact-us/",
+  "status": "submission_failed",
+  "fields_filled": [
+    "first_name",
+    "last_name",
+    "email",
+    "zip",
+    "message",
+    "phone"
+  ],
+  "missing_fields": [],
+  "dropdown_choices": {},
+  "checkboxes_checked": [
+    "I Agree"
+  ],
+  "confirmation_text": null,
+  "artifacts": {
+    "detected": "artifacts/20250928T035859Z/capital_city_cdjr/detected.png",
+    "filled": "artifacts/20250928T035859Z/capital_city_cdjr/filled.png",
+    "submitted": "artifacts/20250928T035859Z/capital_city_cdjr/submitted.png",
+    "log": "artifacts/20250928T035859Z/capital_city_cdjr/run.log"
+  },
+  "errors": [
+    "No confirmation detected"
+  ]
+}

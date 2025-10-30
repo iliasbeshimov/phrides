@@ -35,6 +35,8 @@ class Config:
     # Browser automation settings
     HEADLESS_MODE: bool = os.getenv('HEADLESS_MODE', 'true').lower() == 'true'
     BROWSER_TIMEOUT: int = int(os.getenv('BROWSER_TIMEOUT', '30000'))
+    AUTO_CONTACT_USER_DATA_DIR: Optional[str] = os.getenv('AUTO_CONTACT_USER_DATA_DIR')
+    AUTO_CONTACT_BROWSER_CHANNEL: Optional[str] = os.getenv('AUTO_CONTACT_BROWSER_CHANNEL')
 
     # Database settings
     DATABASE_URL: str = os.getenv('DATABASE_URL', 'sqlite:///dealerships.db')

@@ -1,0 +1,239 @@
+{
+  "sites": [
+    {
+      "dealer_name": "Friendly Chrysler Dodge Jeep Ram of Hamilton",
+      "website": "https://www.friendlycdjrhamilton.com",
+      "contact_url": "https://www.friendlycdjrhamilton.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-01 10:50:20",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Miracle Chrysler Dodge Jeep Ram",
+      "website": "https://www.miraclecdjr.com",
+      "contact_url": "https://www.miraclecdjr.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-01 10:54:58",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Clinton Chrysler Dodge Jeep",
+      "website": "https://www.clintonchryslerdodgejeep.com",
+      "contact_url": "https://www.clintonchryslerdodgejeep.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-01 10:56:42",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Diehl Chrysler Dodge Jeep Ram of Moon",
+      "website": "https://www.diehlcdjrofmoon.com",
+      "contact_url": "https://www.diehlcdjrofmoon.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-01 10:57:41",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Sliman's Sales & Service Inc",
+      "website": "https://www.slimans.net",
+      "contact_url": "https://www.slimans.net/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:44:42",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Meador Chrysler Dodge Jeep Ram",
+      "website": "https://www.meadorauto.com",
+      "contact_url": "https://www.meadorauto.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:45:32",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Jack Cdjr",
+      "website": "https://www.jackcdjr.net",
+      "contact_url": "https://www.jackcdjr.net/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:51:28",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Team Chrysler Dodge Jeep Ram",
+      "website": "https://www.teamchryslerdodgejeepram.com",
+      "contact_url": "https://www.teamchryslerdodgejeepram.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:18:52",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Brown Chrysler, Dodge, Jeep, L.L.C.",
+      "website": "https://www.drivebrown.com",
+      "contact_url": "https://www.drivebrown.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:56:22",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Brigham-Gill Village Cdjr",
+      "website": "https://www.brighamgillmotorcars.com/",
+      "contact_url": "https://www.brighamgillmotorcars.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:58:05",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Kelly Chrysler Dodge Jeep",
+      "website": "https://www.kellycarchrysler.com",
+      "contact_url": "https://www.kellycarchrysler.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:58:54",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Route 1 Chrysler Dodge Jeep Ram of Lawrenceville",
+      "website": "https://www.route1usa.com",
+      "contact_url": "https://www.route1usa.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-03 11:59:48",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Liberty Chrysler Jeep Dodge Ram",
+      "website": "https://www.libertychryslerjeepdodgeram.com",
+      "contact_url": "https://www.libertychryslerjeepdodgeram.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:11:44",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Colonial Dodge Chrysler Jeep",
+      "website": "https://www.colonialdodgechryslerjeep.com",
+      "contact_url": "https://www.colonialdodgechryslerjeep.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:17:23",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Classic Cdjrf of Arlington",
+      "website": "https://www.classiccdjrf.com",
+      "contact_url": "https://www.classiccdjrf.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:19:46",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Freedom Chrysler, Dodge, Jeep, And Ram",
+      "website": "https://www.freedomchryslerdodgejeeprambluffton.com",
+      "contact_url": "https://www.freedomchryslerdodgejeeprambluffton.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:25:18",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Pearman Motor Company",
+      "website": "https://www.pearmanmotor.com",
+      "contact_url": "https://www.pearmanmotor.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-05 11:26:55",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Jimmy Britt Chrysler Jeep Dodge Ram",
+      "website": "https://www.jbchryslerjeepdodgeram.com/",
+      "contact_url": "https://www.jbchryslerjeepdodgeram.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 11:44:39",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Porterville Chrysler Jeep Dodge",
+      "website": "https://www.portervillecjd.com",
+      "contact_url": "https://www.portervillecjd.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 11:45:53",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "McClane Motor Sales Inc",
+      "website": "https://www.mcclanemotor.com",
+      "contact_url": "https://www.mcclanemotor.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 11:46:30",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Sunnyvale Chrysler Dodge Jeep Ram",
+      "website": "https://www.sunnyvalecdjr.com",
+      "contact_url": "https://www.sunnyvalecdjr.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 11:47:22",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Pelletier Chrysler Dodge Jeep Ram",
+      "website": "https://www.pelletierchryslerdodgejeepram.com",
+      "contact_url": "https://www.pelletierchryslerdodgejeepram.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 11:50:37",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    },
+    {
+      "dealer_name": "Herpolsheimer's",
+      "website": "https://www.herpolsheimers.net",
+      "contact_url": "https://www.herpolsheimers.net/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-20 12:00:00",
+      "status": "pending",
+      "notes": "Detected during automated submission",
+      "captcha_type": null
+    }
+  ],
+  "summary": {
+    "total": 23,
+    "pending": 23,
+    "completed": 0
+  }
+}

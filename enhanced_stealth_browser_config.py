@@ -6,17 +6,30 @@ Implements next-generation anti-detection measures with redirect-aware automatio
 
 import asyncio
 import random
-from playwright.async_api import Browser, BrowserContext, Page, async_playwright
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+from playwright.async_api import (
+    Browser,
+    BrowserContext,
+    Page,
+    async_playwright,
+)
 import urllib3
+
+from config import Config
 
 # Disable SSL warnings for certificate bypass
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class EnhancedStealthBrowserManager:
-    """Enhanced stealth browser manager with redirect and SSL handling"""
-    
-    def __init__(self):
+    """Enhanced stealth browser manager with redirect and SSL handling."""
+
+    def __init__(
+        self,
+        user_data_dir: Optional[str] = None,
+        browser_channel: Optional[str] = None,
+    ) -> None:
         self.user_agents = [
             # Recent Chrome user agents for various OS
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -33,68 +46,113 @@ class EnhancedStealthBrowserManager:
             {"width": 1440, "height": 900},
             {"width": 1280, "height": 720},
         ]
-    
-    async def create_enhanced_stealth_browser(self, playwright_instance) -> Browser:
-        """Create a browser instance with enhanced anti-detection and redirect handling"""
-        
-        # Launch with enhanced stealth arguments including SSL bypass
+        resolved_user_data = user_data_dir or Config.AUTO_CONTACT_USER_DATA_DIR
+        self.user_data_dir = Path(resolved_user_data).expanduser() if resolved_user_data else None
+        self.browser_channel = browser_channel or Config.AUTO_CONTACT_BROWSER_CHANNEL
+        self._persistent_context: Optional[BrowserContext] = None
+
+    @property
+    def launch_args(self) -> List[str]:
+        base_args = [
+            "--no-first-run",
+            "--no-default-browser-check",
+            "--disable-blink-features=AutomationControlled",
+            "--disable-features=VizDisplayCompositor",
+            "--disable-automation",
+            "--disable-infobars",
+            "--disable-dev-shm-usage",
+            "--ignore-ssl-errors",
+            "--ignore-certificate-errors",
+            "--ignore-certificate-errors-spki-list",
+            "--ignore-certificate-errors-spki-list-log",
+            "--ignore-ssl-errors-list",
+            "--allow-running-insecure-content",
+            "--disable-web-security",
+            "--ssl-version-fallback-min=tls1",
+            "--disable-ipc-flooding-protection",
+            "--disable-renderer-backgrounding",
+            "--disable-backgroundtimer-throttling",
+            "--disable-background-networking",
+            "--disable-hang-monitor",
+            "--disable-prompt-on-repost",
+            "--disable-client-side-phishing-detection",
+            "--disable-sync",
+            "--metrics-recording-only",
+            "--no-report-upload",
+            "--disable-crash-reporter",
+        ]
+
+        if not self.user_data_dir:
+            base_args.extend(
+                [
+                    "--no-sandbox",
+                    "--disable-extensions",
+                    # REMOVED: --disable-images (breaks forms, detectable)
+                    # REMOVED: --disable-webgl (breaks modern sites, detectable)
+                    # REMOVED: --disable-gpu (detectable bot flag)
+                    # REMOVED: --disable-gpu-sandbox (unnecessary without --disable-gpu)
+                    "--memory-pressure-off",
+                ]
+            )
+
+        return base_args
+
+    async def open_context(
+        self,
+        playwright_instance,
+        headless: Optional[bool] = None,
+    ) -> Tuple[Optional[Browser], BrowserContext]:
+        """Open a browser context, optionally using a persistent profile."""
+
+        resolved_headless = Config.HEADLESS_MODE if headless is None else headless
+
+        if self.user_data_dir:
+            if resolved_headless is not False:
+                resolved_headless = False
+
+            context = await playwright_instance.chromium.launch_persistent_context(
+                user_data_dir=str(self.user_data_dir),
+                headless=resolved_headless,
+                channel=self.browser_channel,
+                args=self.launch_args,
+            )
+            self._persistent_context = context
+            return None, context
+
+        # Handle headless parameter - must be boolean for Playwright
+        # "new" mode doesn't work in older Playwright versions
+        chromium_headless = bool(resolved_headless) if resolved_headless is not None else True
+
         browser = await playwright_instance.chromium.launch(
-            headless=True,  # Can be False for debugging
-            args=[
-                # Basic stealth
-                '--no-first-run',
-                '--no-default-browser-check',
-                '--no-sandbox',
-                '--disable-blink-features=AutomationControlled',
-                '--disable-features=VizDisplayCompositor',
-                
-                # Enhanced anti-detection
-                '--disable-automation',
-                '--disable-infobars',
-                '--disable-dev-shm-usage',
-                '--disable-extensions',
-                '--disable-plugins',
-                '--disable-images',  # Faster loading
-                
-                # SSL and certificate handling
-                '--ignore-ssl-errors',
-                '--ignore-certificate-errors',
-                '--ignore-certificate-errors-spki-list',
-                '--ignore-certificate-errors-spki-list-log',
-                '--ignore-ssl-errors-list',
-                '--allow-running-insecure-content',
-                '--disable-web-security',
-                '--disable-features=VizDisplayCompositor',
-                '--ssl-version-fallback-min=tls1',
-                '--disable-ipc-flooding-protection',
-                
-                # Memory and performance
-                '--memory-pressure-off',
-                '--disable-renderer-backgrounding',
-                '--disable-backgroundtimer-throttling',
-                '--disable-background-networking',
-                
-                # Enhanced fingerprinting resistance
-                '--disable-webgl',
-                '--disable-accelerated-2d-canvas',
-                '--disable-accelerated-jpeg-decoding',
-                '--disable-accelerated-mjpeg-decode',
-                '--disable-app-list-dismiss-on-blur',
-                '--disable-accelerated-video-decode',
-                '--disable-gpu',
-                '--disable-gpu-sandbox',
-                
-                # Redirect and navigation handling
-                '--disable-hang-monitor',
-                '--disable-prompt-on-repost',
-                '--disable-client-side-phishing-detection',
-                '--disable-sync',
-                '--metrics-recording-only',
-                '--no-report-upload',
-            ]
+            headless=chromium_headless,
+            channel=self.browser_channel,
+            args=self.launch_args,
         )
-        
-        return browser
+        context = await self.create_enhanced_stealth_context(browser)
+        return browser, context
+
+    async def close_context(
+        self,
+        browser: Optional[Browser],
+        context: Optional[BrowserContext],
+    ) -> None:
+        """Close context/browser helpers while tracking persistent sessions."""
+
+        if context:
+            try:
+                await context.close()
+            except Exception:
+                pass
+
+        if browser:
+            try:
+                if browser.is_connected():
+                    await browser.close()
+            except Exception:
+                pass
+
+        if self.user_data_dir:
+            self._persistent_context = None
     
     async def create_enhanced_stealth_context(self, browser: Browser) -> BrowserContext:
         """Create a browser context with enhanced fingerprint and redirect handling"""
@@ -103,12 +161,25 @@ class EnhancedStealthBrowserManager:
         user_agent = random.choice(self.user_agents)
         resolution = random.choice(self.screen_resolutions)
         
+        # Randomize realistic US city geolocations
+        us_cities = [
+            {"latitude": 34.0522, "longitude": -118.2437},  # Los Angeles
+            {"latitude": 40.7128, "longitude": -74.0060},   # New York
+            {"latitude": 41.8781, "longitude": -87.6298},   # Chicago
+            {"latitude": 29.7604, "longitude": -95.3698},   # Houston
+            {"latitude": 33.4484, "longitude": -112.0740},  # Phoenix
+            {"latitude": 39.7392, "longitude": -104.9903},  # Denver
+            {"latitude": 47.6062, "longitude": -122.3321},  # Seattle
+            {"latitude": 37.7749, "longitude": -122.4194},  # San Francisco
+        ]
+        geolocation = random.choice(us_cities)
+
         context = await browser.new_context(
             user_agent=user_agent,
             viewport=resolution,
-            
-            # Geolocation (random US location)
-            geolocation={"latitude": 39.8283, "longitude": -98.5795},
+
+            # Realistic geolocation (randomized US city)
+            geolocation=geolocation,
             permissions=["geolocation"],
             
             # Language and locale
@@ -265,27 +336,43 @@ class EnhancedStealthBrowserManager:
                 })
             });
         """)
-        
-        # Set random viewport size
-        resolution = random.choice(self.screen_resolutions)
-        await page.set_viewport_size(resolution)
-        
+
+        # REMOVED: Duplicate viewport setting (already set in context)
+        # Setting viewport twice is detectable behavior
+
         return page
     
     async def navigate_with_redirect_handling(self, page: Page, url: str, max_redirects: int = 5) -> Tuple[bool, str, List[str]]:
         """Navigate to a URL with comprehensive redirect tracking and handling"""
-        
+
         redirect_chain = []
+        visited_urls = set()  # Track visited URLs to detect circular redirects
         current_url = url
-        
+
         for attempt in range(max_redirects + 1):
+            # Detect circular redirects
+            if current_url in visited_urls:
+                print(f"         ⚠️  Circular redirect detected: {current_url}")
+                return True, current_url, redirect_chain
+            visited_urls.add(current_url)
             try:
                 print(f"      🔄 Navigation attempt {attempt + 1}: {current_url}")
-                
+
                 # Navigate with extended timeout for redirect handling
-                response = await page.goto(current_url, 
-                                         wait_until='domcontentloaded', 
-                                         timeout=60000)
+                try:
+                    response = await page.goto(current_url,
+                                             wait_until='domcontentloaded',
+                                             timeout=60000)
+                except TimeoutError:
+                    print(f"         ⚠️  Timeout loading page, retrying with reload...")
+                    await asyncio.sleep(2)
+                    response = await page.reload(wait_until='domcontentloaded', timeout=45000)
+                except Exception as nav_error:
+                    error_msg = str(nav_error)
+                    if "ERR_CONNECTION" in error_msg:
+                        print(f"         ❌ Connection error: Cannot reach server")
+                        return False, current_url, redirect_chain
+                    raise  # Re-raise other exceptions
                 
                 # Wait for potential JavaScript redirects
                 await self.human_like_delay(3000, 5000)
@@ -408,14 +495,13 @@ class EnhancedStealthBrowserManager:
             await asyncio.sleep(random.uniform(0.1, 0.4))
 
 # Enhanced convenience function for easy integration
-async def create_enhanced_stealth_session():
+async def create_enhanced_stealth_session(headless: Optional[bool] = None):
     """Create a complete enhanced stealth browser session with redirect handling"""
     manager = EnhancedStealthBrowserManager()
     playwright_instance = await async_playwright().start()
-    browser = await manager.create_enhanced_stealth_browser(playwright_instance)
-    context = await manager.create_enhanced_stealth_context(browser)
+    browser, context = await manager.open_context(playwright_instance, headless=headless)
     page = await manager.create_enhanced_stealth_page(context)
-    
+
     return playwright_instance, browser, context, page, manager
 
 # Test function to verify enhanced stealth measures
@@ -445,7 +531,7 @@ async def test_enhanced_stealth_with_redirects():
             print(f"❌ Redirect handling failed")
         
     finally:
-        await browser.close()
+        await manager.close_context(browser, context)
         await playwright_instance.stop()
 
 if __name__ == "__main__":

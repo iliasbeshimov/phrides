@@ -1,0 +1,94 @@
+[
+  {
+    "dealer": "Thomson Chrysler (Jeep Cheap)",
+    "url": "https://www.jeepcheap.com/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {},
+    "errors": [
+      "Cloudflare navigation failed"
+    ]
+  },
+  {
+    "dealer": "Larry H. Miller Chrysler Jeep Dodge Ram Sandy",
+    "url": "https://www.lhmchryslerdodgeramfiatdenver.com/contact.htm",
+    "status": "submission_failed",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [
+      "first_name",
+      "last_name",
+      "email",
+      "message",
+      "phone"
+    ],
+    "missing_fields": [
+      "zip"
+    ],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {
+      "detected": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/detected.png",
+      "filled": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/filled.png",
+      "submitted": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/submitted.png",
+      "log": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/run.log",
+      "status": "artifacts/new_batch/20250928T181155Z/larry_h_miller_chrysler_jeep_dodge_ram_sandy/status.json"
+    },
+    "errors": [
+      "Sorry! Unfortunately, we were unable to process your request at this time. Please try again later or contact us directly at 8559741652."
+    ]
+  },
+  {
+    "dealer": "Tilleman Motor Co",
+    "url": "https://www.tillemanmotor.net/contact-us/",
+    "status": "blocked",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [],
+    "confirmation_text": null,
+    "artifacts": {},
+    "errors": [
+      "Cloudflare navigation failed"
+    ]
+  },
+  {
+    "dealer": "Five Star Chrysler Dodge Jeep Ram",
+    "url": "https://www.fivestarclearfield.com/contactus.aspx",
+    "status": "submission_success",
+    "contact_resolution_source": "preferred",
+    "fields_filled": [
+      "first_name",
+      "last_name",
+      "email",
+      "zip",
+      "message",
+      "phone"
+    ],
+    "missing_fields": [],
+    "dropdown_choices": {},
+    "checkboxes_checked": [
+      "By clicking this box, I agree to receive in-person or automated telemarketing calls and texts from Five Star Clearfield CDJR at the number I entered. I understand that my consent is not required for purchase."
+    ],
+    "confirmation_text": "Thank You!\nAn experienced Internet Manager will contact you shortly",
+    "artifacts": {
+      "detected": "artifacts/new_batch/20250928T181412Z/five_star_chrysler_dodge_jeep_ram/detected.png",
+      "filled": "artifacts/new_batch/20250928T181412Z/five_star_chrysler_dodge_jeep_ram/filled.png",
+      "submitted": "artifacts/new_batch/20250928T181412Z/five_star_chrysler_dodge_jeep_ram/submitted.png",
+      "log": "artifacts/new_batch/20250928T181412Z/five_star_chrysler_dodge_jeep_ram/run.log",
+      "status": "artifacts/new_batch/20250928T181412Z/five_star_chrysler_dodge_jeep_ram/status.json"
+    },
+    "errors": []
+  },
+  {
+    "dealer": "Autonation Chrysler Southwest",
+    "status": "resolver_failed",
+    "error": "Unable to locate contact page for Autonation Chrysler Southwest"
+  }
+]

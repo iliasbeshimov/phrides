@@ -1,0 +1,396 @@
+{
+  "test_date": "2025-09-30T13:08:10.207821",
+  "total_dealerships": 20,
+  "results": [
+    {
+      "index": 1,
+      "dealer_name": "Houston Dodge Chrysler Jeep Ram",
+      "website": "https://www.houstondcjr.com/",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "message"
+      ],
+      "contact_url": "https://www.houstondcjr.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/houston_dodge_chrysler_jeep_ra_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/houston_dodge_chrysler_jeep_ra_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/houston_dodge_chrysler_jeep_ra_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 2,
+      "dealer_name": "Shawano Auto Sales Inc",
+      "website": "https://www.shawanoauto.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.shawanoauto.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/shawano_auto_sales_inc_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/shawano_auto_sales_inc_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/shawano_auto_sales_inc_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 3,
+      "dealer_name": "Faws Garage",
+      "website": "https://www.fawsgaragecdjr.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "message"
+      ],
+      "contact_url": "https://www.fawsgaragecdjr.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/faws_garage_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/faws_garage_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/faws_garage_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 4,
+      "dealer_name": "Lexington Park Chrysler Dodge Jeep Ram",
+      "website": "https://www.lexingtonparkcdjr.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": true,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.lexingtonparkcdjr.com/contactus.aspx",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/lexington_park_chrysler_dodge__1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/lexington_park_chrysler_dodge__2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/lexington_park_chrysler_dodge__3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 5,
+      "dealer_name": "Jimmy Britt Chrysler Jeep Dodge Ram",
+      "website": "https://www.jbchryslerjeepdodgeram.com/",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.jbchryslerjeepdodgeram.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/jimmy_britt_chrysler_jeep_dodg_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/jimmy_britt_chrysler_jeep_dodg_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/jimmy_britt_chrysler_jeep_dodg_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 6,
+      "dealer_name": "I-10 Chrysler Dodge Jeep Ram",
+      "website": "https://www.i10dodge.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.i10dodge.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/i-10_chrysler_dodge_jeep_ram_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/i-10_chrysler_dodge_jeep_ram_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/i-10_chrysler_dodge_jeep_ram_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 7,
+      "dealer_name": "Rouse Motor Company Inc",
+      "website": "https://www.rousemotor.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.rousemotor.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/rouse_motor_company_inc_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/rouse_motor_company_inc_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/rouse_motor_company_inc_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 8,
+      "dealer_name": "Jim Shorkey Chrysler Dodge Jeep Ram FIAT",
+      "website": "https://www.jimshorkeychryslerdodgejeepram.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": true,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.jimshorkeychryslerdodgejeepram.com/contactus.aspx",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/jim_shorkey_chrysler_dodge_jee_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/jim_shorkey_chrysler_dodge_jee_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/jim_shorkey_chrysler_dodge_jee_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 9,
+      "dealer_name": "McMinnville Chrysler Dodge Jeep Ram",
+      "website": "https://www.macjeepram.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.macjeepram.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/mcminnville_chrysler_dodge_jee_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/mcminnville_chrysler_dodge_jee_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/mcminnville_chrysler_dodge_jee_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 10,
+      "dealer_name": "Carson Chrysler Jeep Dodge",
+      "website": "https://www.carsonchryslerdodge.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.carsonchryslerdodge.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/carson_chrysler_jeep_dodge_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/carson_chrysler_jeep_dodge_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/carson_chrysler_jeep_dodge_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 11,
+      "dealer_name": "Helfman Dodge Chrysler Jeep Ram FIAT",
+      "website": "https://www.helfmandodge.net",
+      "form_detected": false,
+      "form_filled": false,
+      "form_submitted": false,
+      "fields_filled": [],
+      "contact_url": null,
+      "screenshot_detected": null,
+      "screenshot_filled": null,
+      "screenshot_submitted": null,
+      "error": "No contact form found"
+    },
+    {
+      "index": 12,
+      "dealer_name": "Fillback Chrysler, Dodge, Jeep & Ram",
+      "website": "https://www.fillbackprairieduchiencdjr.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.fillbackprairieduchiencdjr.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/fillback_chrysler,_dodge,_jeep_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/fillback_chrysler,_dodge,_jeep_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/fillback_chrysler,_dodge,_jeep_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 13,
+      "dealer_name": "Clement Chrysler Dodge Jeep Ram - Florissant",
+      "website": "https://www.clementchryslerdodgejeepramflorissant.com",
+      "form_detected": false,
+      "form_filled": false,
+      "form_submitted": false,
+      "fields_filled": [],
+      "contact_url": null,
+      "screenshot_detected": null,
+      "screenshot_filled": null,
+      "screenshot_submitted": null,
+      "error": "No contact form found"
+    },
+    {
+      "index": 14,
+      "dealer_name": "Payne Alice Chrysler Dodge Jeep Ram",
+      "website": "https://www.lovechryslerdodgejeep.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.paynealicechryslerdodgejeepram.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/payne_alice_chrysler_dodge_jee_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/payne_alice_chrysler_dodge_jee_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/payne_alice_chrysler_dodge_jee_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 15,
+      "dealer_name": "Bob Caldwell Chrysler Jeep Dodge",
+      "website": "https://www.caldwellchrysler.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.caldwellchrysler.com/contactus.aspx",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/bob_caldwell_chrysler_jeep_dod_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/bob_caldwell_chrysler_jeep_dod_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/bob_caldwell_chrysler_jeep_dod_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 16,
+      "dealer_name": "David Stanley Dodge LLC",
+      "website": "https://www.davidstanleychryslerjeepdodgeofoklahoma.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "message"
+      ],
+      "contact_url": "https://www.davidstanleychryslerjeepdodgeofoklahoma.com/contact-us/",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/david_stanley_dodge_llc_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/david_stanley_dodge_llc_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/david_stanley_dodge_llc_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 17,
+      "dealer_name": "Mountain Valley Chrysler Dodge Jeep Ram FIAT",
+      "website": "https://www.mountainvalleymotors.net",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.mountainvalleymotors.net/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/mountain_valley_chrysler_dodge_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/mountain_valley_chrysler_dodge_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/mountain_valley_chrysler_dodge_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 18,
+      "dealer_name": "Heritage Chrysler Dodge Jeep Ram Parkville",
+      "website": "https://www.heritagechryslerjeepmaryland.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.heritagechryslerjeepmaryland.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/heritage_chrysler_dodge_jeep_r_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/heritage_chrysler_dodge_jeep_r_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/heritage_chrysler_dodge_jeep_r_3_submitted.png",
+      "error": null
+    },
+    {
+      "index": 19,
+      "dealer_name": "Johnny Roberts Motors Inc",
+      "website": "https://www.johnnyrobertsmotors.net",
+      "form_detected": false,
+      "form_filled": false,
+      "form_submitted": false,
+      "fields_filled": [],
+      "contact_url": null,
+      "screenshot_detected": null,
+      "screenshot_filled": null,
+      "screenshot_submitted": null,
+      "error": "No contact form found"
+    },
+    {
+      "index": 20,
+      "dealer_name": "Key Chrysler Dodge Jeep Ram of Rochester",
+      "website": "https://www.keycdjrofrochester.com",
+      "form_detected": true,
+      "form_filled": true,
+      "form_submitted": false,
+      "fields_filled": [
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "zip_code",
+        "message"
+      ],
+      "contact_url": "https://www.keycdjrofrochester.com/contact.htm",
+      "screenshot_detected": "tests/fixed_test_20250930_130207/screenshots/key_chrysler_dodge_jeep_ram_of_1_form_detected.png",
+      "screenshot_filled": "tests/fixed_test_20250930_130207/screenshots/key_chrysler_dodge_jeep_ram_of_2_form_filled.png",
+      "screenshot_submitted": "tests/fixed_test_20250930_130207/screenshots/key_chrysler_dodge_jeep_ram_of_3_submitted.png",
+      "error": null
+    }
+  ]
+}

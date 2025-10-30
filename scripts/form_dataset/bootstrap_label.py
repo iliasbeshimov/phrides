@@ -41,21 +41,24 @@ def default_field_spec(selector: str) -> Dict[str, object]:
 async def capture_live(detector: EnhancedFormDetector, slug: str, url: str) -> Dict[str, object]:
     manager = EnhancedStealthBrowserManager()
     async with async_playwright() as playwright_instance:
-        browser = await manager.create_enhanced_stealth_browser(playwright_instance)
-        context = await manager.create_enhanced_stealth_context(browser)
+        browser, context = await manager.open_context(playwright_instance)
         page = await manager.create_enhanced_stealth_page(context)
+        result = None
 
-        await page.goto(url, wait_until="domcontentloaded", timeout=60000)
         try:
-            await page.wait_for_load_state("networkidle", timeout=60000)
-        except PlaywrightTimeoutError:
-            pass
+            await page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            try:
+                await page.wait_for_load_state("networkidle", timeout=60000)
+            except PlaywrightTimeoutError:
+                pass
 
-        result = await detector.detect_contact_form(page)
+            result = await detector.detect_contact_form(page)
+        finally:
+            await page.close()
+            await manager.close_context(browser, context)
 
-        await page.close()
-        await context.close()
-        await browser.close()
+    if result is None:
+        raise RuntimeError("Form detection did not complete")
 
     fields: Dict[str, object] = {}
     for field, info in result.fields.items():

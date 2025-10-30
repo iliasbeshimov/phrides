@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership Contact Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app" class="app">
+        <!-- Search List View -->
+        <div v-if="currentView === 'search-list'" class="search-list-view">
+            <!-- Header -->
+            <header class="modern-header">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <i class="fas fa-car"></i>
+                        <h1>Dealership Contact Manager</h1>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" @click="createServerBackup" title="Create persistent backup">
+                            <i class="fas fa-download"></i>
+                            Backup
+                        </button>
+                        <button class="btn btn-secondary" @click="refreshSearchList" title="Refresh list">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="btn btn-primary" @click="startNewSearch">
+                            <i class="fas fa-plus"></i>
+                            Start New Search
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Search Cards Grid -->
+            <main class="search-grid">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Your Searches</h2>
+                        <p class="search-count">{{savedSearches.length}} saved searches</p>
+                        <p v-if="savedSearches.length === 0" class="empty-state-text">
+                            No searches yet. Create your first search to get started!
+                        </p>
+                    </div>
+
+                    <div class="search-cards" v-if="savedSearches.length > 0">
+                        <div v-for="search in sortedSavedSearches" :key="search.id"
+                             class="search-card" @click="openSearch(search)">
+                            <div class="card-header">
+                                <h3>{{search.name}}</h3>
+                                <div class="card-actions">
+                                    <button class="btn-icon" @click.stop="duplicateSearch(search)"
+                                            title="Duplicate Search">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                    <button class="btn-icon btn-danger" @click.stop="deleteSearch(search.id)"
+                                            title="Delete Search">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <div class="search-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-car"></i>
+                                        <span>{{search.parameters.make}}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>{{search.parameters.zipcode}}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-route"></i>
+                                        <span>{{getDisplayDistance(search.parameters)}} miles</span>
+                                    </div>
+                                </div>
+
+                                <div class="search-stats">
+                                    <div class="stat-grid">
+                                        <div class="stat-item">
+                                            <span class="stat-number">{{search.dealerships ? search.dealerships.length : 0}}</span>
+                                            <span class="stat-label">Dealers</span>
+                                        </div>
+                                        <div class="stat-item success">
+                                            <span class="stat-number">{{getSearchSuccessCount(search)}}</span>
+                                            <span class="stat-label">Success</span>
+                                        </div>
+                                        <div class="stat-item failed">
+                                            <span class="stat-number">{{getSearchFailedCount(search)}}</span>
+                                            <span class="stat-label">Failed</span>
+                                        </div>
+                                        <div class="stat-item pending">
+                                            <span class="stat-number">{{getSearchPendingCount(search)}}</span>
+                                            <span class="stat-label">Pending</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"
+                                             :style="{width: getSearchProgress(search) + '%'}"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        {{getSearchProgress(search)}}% Complete
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="date-info">
+                                    <div class="created-date">
+                                        <i class="fas fa-plus-circle"></i>
+                                        Created: {{formatDateTime(search.createdAt)}}
+                                    </div>
+                                    <div class="last-updated">
+                                        <i class="fas fa-clock"></i>
+                                        Updated: {{formatDate(search.lastExpanded || search.createdAt)}}
+                                    </div>
+                                </div>
+                                <div class="quick-actions">
+                                    <!-- Export removed for simplicity -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Search Details View -->
+        <div v-if="currentView === 'search-details'" class="search-details-view">
+            <!-- Header -->
+            <header class="modern-header search-header">
+                <div class="header-content">
+                    <div class="back-section">
+                        <button class="btn btn-ghost" @click="backToSearchList">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Searches
+                        </button>
+                    </div>
+                    <div class="search-title">
+                        <h1>{{currentSearch ? currentSearch.name : 'New Search'}}</h1>
+                        <div class="search-meta" v-if="currentSearch">
+                            <span class="meta-item">
+                                <i class="fas fa-building"></i>
+                                {{totalDealerships}} dealerships
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-check-circle"></i>
+                                {{contactedCount}} contacted
+                            </span>
+                            <span class="meta-item" :class="contactState">
+                                <i class="fas" :class="contactState === 'running' ? 'fa-play' : 'fa-stop'"></i>
+                                {{getStatusDisplay()}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <!-- Simplified header - removed export and backup -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <main class="main-grid">
+                <!-- Left Panel: Search Parameters -->
+                <section class="search-panel modern-panel">
+                    <div class="panel-header">
+                        <h2>
+                            <i class="fas fa-search"></i>
+                            Search & Contact Details
+                        </h2>
+                        <button class="btn" :class="editMode ? 'btn-success' : 'btn-secondary'" @click="toggleEditMode">
+                            <i class="fas" :class="editMode ? 'fa-save' : 'fa-edit'"></i>
+                            {{editMode ? 'Save' : 'Edit'}}
+                        </button>
+                    </div>
+
+                    <form class="modern-form" @submit.prevent="updateSearch">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-tag"></i>
+                                Search Title
+                            </label>
+                            <input v-model="searchParams.title" :disabled="!editMode" placeholder="Enter a name for this search" required>
+                            <small class="form-hint">This name will appear in your searches list</small>
+                        </div>
+
+                        <div class="form-divider"></div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-user"></i>
+                                First Name
+                            </label>
+                            <input v-model="customerInfo.firstName" :disabled="!editMode" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-user"></i>
+                                Last Name
+                            </label>
+                            <input v-model="customerInfo.lastName" :disabled="!editMode" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-envelope"></i>
+                                Email
+                            </label>
+                            <input v-model="customerInfo.email" :disabled="!editMode" type="email" placeholder="Enter email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-phone"></i>
+                                Phone
+                            </label>
+                            <input v-model="customerInfo.phone" :disabled="!editMode" type="tel" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-map-marker-alt"></i>
+                                Your Zip Code
+                            </label>
+                            <input type="text" v-model="customerInfo.zipcode" :disabled="!editMode" pattern="[0-9]{5}" placeholder="90210" required>
+                        </div>
+
+                        <div class="form-divider"></div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-car"></i>
+                                Vehicle Make
+                            </label>
+                            <select v-model="searchParams.make" :disabled="!editMode" required>
+                                <option value="">Select Vehicle Make</option>
+                                <option v-for="make in availableMakes" :key="make" :value="make">
+                                    {{make}} ({{getDealershipCount(make)}} dealers)
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-route"></i>
+                                Search Distance
+                            </label>
+                            <select v-model="searchParams.distance" :disabled="!editMode" required @change="handleDistanceChange">
+                                <option value="50">50 miles</option>
+                                <option value="100">100 miles</option>
+                                <option value="150">150 miles</option>
+                                <option value="other">Other...</option>
+                            </select>
+                            <div v-if="searchParams.distance === 'other'" class="custom-distance-input">
+                                <input type="number" v-model="searchParams.customDistance" :disabled="!editMode" placeholder="Enter miles" min="1" max="500" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group message-section">
+                            <label>
+                                <i class="fas fa-comment"></i>
+                                Message
+                            </label>
+                            <textarea v-model="customerInfo.message" :disabled="!editMode" rows="4" placeholder="Your message to dealerships..."></textarea>
+                        </div>
+
+                        <div class="search-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-search"></i>
+                                Update Search
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Center Panel: Dealership List -->
+                <section class="dealership-panel modern-panel">
+                    <div class="panel-header">
+                        <h2>
+                            <i class="fas fa-building"></i>
+                            Dealerships
+                        </h2>
+                        <div class="list-controls">
+                            <!-- Bulk Selection -->
+                            <div class="bulk-controls">
+                                <button class="btn btn-sm" @click="selectAll">
+                                    <i class="fas fa-check-double"></i>
+                                    All
+                                </button>
+                                <button class="btn btn-sm" @click="selectNone">
+                                    <i class="far fa-square"></i>
+                                    None
+                                </button>
+                                <button class="btn btn-sm" @click="selectPending">
+                                    <i class="fas fa-clock"></i>
+                                    Pending
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dealership Cards -->
+                    <div class="dealership-list">
+                        <div v-for="(dealer, index) in sortedDealerships"
+                             :key="dealer.id"
+                             class="dealership-card compact-card"
+                             :class="'status-' + dealer.contactStatus">
+
+                            <!-- Compact Card Layout -->
+                            <div class="compact-header">
+                                <div class="dealer-selection">
+                                    <label class="modern-checkbox">
+                                        <input type="checkbox" v-model="dealer.selected">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <span class="contact-order" v-if="dealer.selected">
+                                        #{{getContactOrder(dealer)}}
+                                    </span>
+                                </div>
+
+                                <div class="dealer-main-info">
+                                    <div class="dealer-name-row">
+                                        <h4>{{dealer.dealer_name}}</h4>
+                                        <div class="status-indicator" :class="'status-' + dealer.contactStatus">
+                                            <i class="fas" :class="{
+                                                'fa-clock': dealer.contactStatus === 'pending',
+                                                'fa-check-circle': dealer.contactStatus === 'contacted',
+                                                'fa-times-circle': dealer.contactStatus === 'failed',
+                                                'fa-forward': dealer.contactStatus === 'skipped'
+                                            }"></i>
+                                        </div>
+                                    </div>
+                                    <div class="dealer-info-rows">
+                                        <div class="address-row">
+                                            <a :href="getGoogleMapsUrl(dealer)" target="_blank" class="address-link">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                {{getFullAddress(dealer)}}
+                                            </a>
+                                        </div>
+                                        <div class="distance-row">
+                                            <span class="distance-compact" title="Estimated driving distance (click address for exact directions)">
+                                                <i class="fas fa-route"></i>
+                                                ~{{dealer.distanceMiles}} miles
+                                            </span>
+                                        </div>
+                                        <div class="website-row" v-if="dealer.website">
+                                            <a :href="getContactPageUrl(dealer.website)" target="_blank" class="website-compact">
+                                                <i class="fas fa-globe"></i>
+                                                {{dealer.website}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Actions -->
+                            <div class="card-actions">
+                                <button v-if="dealer.contactStatus === 'pending'"
+                                        class="btn btn-primary btn-sm" @click="contactSingleDealer(dealer)">
+                                    <i class="fas fa-phone"></i>
+                                    Contact Now
+                                </button>
+                                <button v-if="dealer.contactStatus === 'failed'"
+                                        class="btn btn-warning btn-sm" @click="retryContact(dealer)">
+                                    <i class="fas fa-redo"></i>
+                                    Retry
+                                </button>
+                                <button class="btn btn-secondary btn-sm" @click="showManualOptions(dealer)">
+                                    <i class="fas fa-hand-paper"></i>
+                                    Manual
+                                </button>
+                                <button class="btn btn-outline btn-sm" @click="skipDealer(dealer)">
+                                    <i class="fas fa-forward"></i>
+                                    Skip
+                                </button>
+                            </div>
+
+                            <!-- Contact History (Expandable) -->
+                            <div class="contact-history" v-if="dealer.contactHistory && dealer.contactHistory.length > 0">
+                                <div class="history-toggle" @click="toggleHistory(dealer.id)">
+                                    <i class="fas" :class="showHistory[dealer.id] ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                                    <span>Contact History ({{dealer.contactHistory.length}})</span>
+                                </div>
+                                <div v-if="showHistory[dealer.id]" class="history-items">
+                                    <div v-for="attempt in dealer.contactHistory" class="history-item">
+                                        <div class="history-icon">
+                                            <i class="fas" :class="attempt.success ? 'fa-check-circle' : 'fa-times-circle'"></i>
+                                        </div>
+                                        <div class="history-content">
+                                            <div class="history-result" :class="attempt.success ? 'success' : 'failed'">
+                                                {{attempt.success ? 'Success' : 'Failed'}}
+                                            </div>
+                                            <div class="history-details">{{attempt.details}}</div>
+                                            <div class="history-time">{{formatTime(attempt.timestamp)}}</div>
+
+                                            <!-- Screenshots for this attempt -->
+                                            <div class="history-screenshots" v-if="attempt.screenshots && attempt.screenshots.length > 0">
+                                                <div class="screenshot-thumbnails">
+                                                    <img v-for="screenshot in attempt.screenshots"
+                                                         :key="screenshot"
+                                                         :src="getScreenshotUrl(screenshot)"
+                                                         class="screenshot-thumb"
+                                                         @click="viewScreenshot(screenshot, dealer, attempt)"
+                                                         :title="screenshot">
+                                                </div>
+                                            </div>
+
+                                            <!-- Contact URL for failed attempts -->
+                                            <div class="manual-contact-link" v-if="!attempt.success && attempt.contact_url">
+                                                <a :href="attempt.contact_url" target="_blank" class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                    Fill Manually
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Panel: Contact Status & Controls -->
+                <section class="status-panel modern-panel">
+                    <div class="panel-header">
+                        <h2>
+                            <i class="fas fa-tachometer-alt"></i>
+                            Contact Status
+                        </h2>
+                        <div class="status-badge" :class="'status-' + contactState">
+                            <i class="fas" :class="contactState === 'running' ? 'fa-play' : 'fa-stop'"></i>
+                            {{getStatusDisplay()}}
+                        </div>
+                    </div>
+
+                    <!-- Contact Controls -->
+                    <div class="contact-controls">
+                        <button v-if="contactState === 'stopped'"
+                                class="btn btn-success btn-large" @click="startContacting"
+                                :disabled="!hasSelectedDealerships">
+                            <i class="fas fa-play"></i>
+                            Start Contacting
+                            <small>{{selectedCount}} dealers (furthest first)</small>
+                        </button>
+
+                        <button v-if="contactState === 'running'"
+                                class="btn btn-danger btn-large" @click="stopContacting">
+                            <i class="fas fa-stop"></i>
+                            Stop Contacting
+                        </button>
+
+                        <button v-if="hasFailedContacts && contactState === 'stopped'"
+                                class="btn btn-warning" @click="retryFailedContacts">
+                            <i class="fas fa-redo"></i>
+                            Retry Failed ({{failedCount}})
+                        </button>
+                    </div>
+
+                    <!-- Current Activity (when running) -->
+                    <div class="current-activity" v-if="contactState === 'running' && currentDealer">
+                        <h3>
+                            <i class="fas fa-sync fa-spin"></i>
+                            Currently Contacting
+                        </h3>
+                        <div class="current-dealer">
+                            <div class="dealer-name">
+                                <i class="fas fa-building"></i>
+                                {{currentDealer.dealer_name}}
+                            </div>
+                            <div class="dealer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                {{currentDealer.address_line1}}, {{currentDealer.city}}
+                            </div>
+                            <div class="dealer-distance">
+                                <i class="fas fa-route"></i>
+                                {{currentDealer.distanceMiles}} miles away
+                            </div>
+                        </div>
+
+                        <div class="progress-display">
+                            <div class="progress-bar modern-progress">
+                                <div class="progress-fill" :style="{width: progressPercentage + '%'}"></div>
+                                <div class="progress-text">{{progressPercentage}}%</div>
+                            </div>
+                            <div class="progress-details">
+                                <div class="progress-stat">
+                                    <span class="stat-value">{{contactedCount + failedCount}}</span>
+                                    <span class="stat-label">of {{selectedCount}} completed</span>
+                                </div>
+                                <div class="time-estimate">
+                                    <i class="fas fa-clock"></i>
+                                    {{estimatedTimeRemaining}} remaining
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Summary -->
+                    <div class="results-summary">
+                        <h3>
+                            <i class="fas fa-chart-bar"></i>
+                            Contact Results
+                        </h3>
+                        <div class="stats-grid">
+                            <div class="stat-card success">
+                                <div class="stat-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">{{successCount}}</span>
+                                    <span class="stat-label">Successful</span>
+                                </div>
+                            </div>
+                            <div class="stat-card failed">
+                                <div class="stat-icon">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">{{failedCount}}</span>
+                                    <span class="stat-label">Failed</span>
+                                </div>
+                            </div>
+                            <div class="stat-card pending">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">{{pendingCount}}</span>
+                                    <span class="stat-label">Pending</span>
+                                </div>
+                            </div>
+                            <div class="stat-card rate">
+                                <div class="stat-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">{{successRate}}%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simplified controls - removed export and backup -->
+                </section>
+            </main>
+        </div>
+
+        <!-- Screenshot Modal -->
+        <div v-if="showScreenshotModal" class="modal-overlay" style="display: none;" @click="closeScreenshotModal">
+            <div class="modal-content screenshot-modal" @click.stop>
+                <div class="modal-header">
+                    <h3>
+                        <i class="fas fa-image"></i>
+                        {{screenshotModalTitle}}
+                    </h3>
+                    <button class="btn-close" @click="closeScreenshotModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img :src="currentScreenshotUrl" alt="Screenshot" class="screenshot-image">
+                    <div class="screenshot-info" v-if="currentScreenshotInfo">
+                        <div class="info-item">
+                            <strong>Dealer:</strong> {{currentScreenshotInfo.dealer_name}}
+                        </div>
+                        <div class="info-item" v-if="currentScreenshotInfo.contact_url">
+                            <strong>Contact URL:</strong>
+                            <a :href="currentScreenshotInfo.contact_url" target="_blank">
+                                {{currentScreenshotInfo.contact_url}}
+                            </a>
+                        </div>
+                        <div class="info-item" v-if="currentScreenshotInfo.captcha_type">
+                            <strong>CAPTCHA Type:</strong> {{currentScreenshotInfo.captcha_type}}
+                        </div>
+                        <div class="info-item" v-if="currentScreenshotInfo.reason">
+                            <strong>Status:</strong> {{currentScreenshotInfo.reason}}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @click="closeScreenshotModal">
+                        Close
+                    </button>
+                    <a v-if="currentScreenshotInfo && currentScreenshotInfo.contact_url"
+                       :href="currentScreenshotInfo.contact_url"
+                       target="_blank"
+                       class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open Contact Page
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WebSocket Status Indicator -->
+        <div class="websocket-status" :class="'status-' + websocketStatus">
+            <i class="fas" :class="{
+                'fa-plug': websocketStatus === 'disconnected',
+                'fa-spinner fa-spin': websocketStatus === 'connecting',
+                'fa-check-circle': websocketStatus === 'connected'
+            }"></i>
+            <span>{{websocketStatusText}}</span>
+        </div>
+
+    </div>
+    <script src="zip_coordinates.js"></script>
+    <script src="websocket_client.js"></script>
+    <script src="websocket_integration.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -27,34 +27,33 @@ async def _capture_page(url: str, html_path: Path, screenshot_path: Path, wait: 
 
     manager = EnhancedStealthBrowserManager()
     async with async_playwright() as playwright_instance:
-        browser = await manager.create_enhanced_stealth_browser(playwright_instance)
-        context = await manager.create_enhanced_stealth_context(browser)
+        browser, context = await manager.open_context(playwright_instance)
         page = await manager.create_enhanced_stealth_page(context)
 
-        await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        if wait:
-            await asyncio.sleep(wait)
         try:
-            await page.wait_for_load_state("networkidle", timeout=60000)
-        except PlaywrightTimeoutError:
-            pass
+            await page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            if wait:
+                await asyncio.sleep(wait)
+            try:
+                await page.wait_for_load_state("networkidle", timeout=60000)
+            except PlaywrightTimeoutError:
+                pass
 
-        html = await page.content()
-        title = await page.title()
-        html_path.write_text(html, encoding="utf-8")
-        if capture_screenshot:
-            await page.screenshot(path=str(screenshot_path), full_page=True)
+            html = await page.content()
+            title = await page.title()
+            html_path.write_text(html, encoding="utf-8")
+            if capture_screenshot:
+                await page.screenshot(path=str(screenshot_path), full_page=True)
 
-        await page.close()
-        await context.close()
-        await browser.close()
-
-        return {
-            "url": url,
-            "html_path": str(html_path.relative_to(ROOT)),
-            "screenshot_path": str(screenshot_path.relative_to(ROOT)),
-            "title": title,
-        }
+            return {
+                "url": url,
+                "html_path": str(html_path.relative_to(ROOT)),
+                "screenshot_path": str(screenshot_path.relative_to(ROOT)),
+                "title": title,
+            }
+        finally:
+            await page.close()
+            await manager.close_context(browser, context)
 
 
 def _load_index() -> Dict[str, Any]:

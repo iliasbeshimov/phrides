@@ -1,0 +1,30 @@
+{
+  "dealer": "Max Curnow Chrysler Dodge Jeep Ram",
+  "url": "https://www.maxcurnowcdjr.com/contact.htm",
+  "status": "submission_failed",
+  "fields_filled": [
+    "first_name",
+    "last_name",
+    "email",
+    "zip",
+    "message",
+    "phone"
+  ],
+  "missing_fields": [],
+  "dropdown_choices": {
+    "Contact Me by*": "Phone"
+  },
+  "checkboxes_checked": [
+    "I consent to receive marketing text messages from Max Curnow Chrysler Dodge Jeep Ram. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency depends on your activity. Unsubscribe at any time by replying STOP. For more information at any time reply HELP. Privacy Policy | Terms of Service"
+  ],
+  "confirmation_text": null,
+  "artifacts": {
+    "detected": "artifacts/20250928T055718Z/max_curnow_chrysler_dodge_jeep_ram/detected.png",
+    "filled": "artifacts/20250928T055718Z/max_curnow_chrysler_dodge_jeep_ram/filled.png",
+    "submitted": "artifacts/20250928T055718Z/max_curnow_chrysler_dodge_jeep_ram/submitted.png",
+    "log": "artifacts/20250928T055718Z/max_curnow_chrysler_dodge_jeep_ram/run.log"
+  },
+  "errors": [
+    "Sorry! Unfortunately, we were unable to process your request at this time. Please try again later or contact us directly at 816-312-4294."
+  ]
+}

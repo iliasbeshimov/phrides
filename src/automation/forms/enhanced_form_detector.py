@@ -161,6 +161,13 @@ class EnhancedFormDetector:
             
             # Look for forms in main page with multiple strategies
             main_result = await self._detect_forms_in_main_page(page)
+
+            if not main_result.success:
+                activated = await self._maybe_trigger_modal_flow(page)
+                if activated:
+                    self.logger.debug("Modal flow triggered, re-running form detection")
+                    await asyncio.sleep(1.0)
+                    main_result = await self._detect_forms_in_main_page(page)
             
             self.logger.info("Enhanced form detection completed", {
                 "operation": "enhanced_form_detection_complete",
@@ -361,6 +368,175 @@ class EnhancedFormDetector:
     async def _detect_fields_in_iframe_form(self, frame, form: Locator) -> Dict[str, EnhancedFormField]:
         """Detect fields within an iframe form"""
         return await self._detect_fields_in_container(form, is_iframe=True)
+
+    async def _dismiss_cookie_banner(self, page: Page) -> None:
+        """Dismiss simple cookie consent banners when present."""
+
+        selectors = [
+            "button:has-text('Ok')",
+            "button:has-text('OK')",
+            "button:has-text('Accept')",
+            "button:has-text('Accept All')",
+            "button:has-text('I Agree')",
+            "button:has-text('Got it')",
+            "button:has-text('Allow all')",
+        ]
+
+        for selector in selectors:
+            try:
+                banner = page.locator(selector).first
+                if await banner.count() > 0:
+                    await banner.click(timeout=2000)
+                    await asyncio.sleep(0.5)
+                    return
+            except Exception:
+                continue
+
+        # Some banners use focus traps; remove via JS if button is inaccessible
+        try:
+            await page.evaluate(
+                """
+                () => {
+                    const banner = document.querySelector('[role="dialog"],[class*="cookie"],[id*="cookie"]');
+                    if (banner && banner.parentElement) {
+                        banner.parentElement.removeChild(banner);
+                    }
+                }
+                """
+            )
+        except Exception:
+            pass
+
+    async def _dismiss_chat_widgets(self, page: Page) -> None:
+        """Attempt to close floating chat widgets that block form controls."""
+
+        # Try common iframe-based chat widgets
+        try:
+            chat_iframes = page.locator("iframe[src*='livechat'], iframe[src*='webchat'], iframe[src*='salesiq']")
+            count = await chat_iframes.count()
+            for i in range(count):
+                frame = await chat_iframes.nth(i).content_frame()
+                if not frame:
+                    continue
+                try:
+                    await frame.locator("button[aria-label*='close'], button:has-text('×')").first.click(timeout=1000)
+                except Exception:
+                    try:
+                        await frame.evaluate("() => document.body.style.display='none'")
+                    except Exception:
+                        continue
+        except Exception:
+            pass
+
+        # Non-iframe overlays
+        try:
+            await page.locator("button[aria-label*='close']:visible").first.click(timeout=1000)
+        except Exception:
+            pass
+
+        # Hide any sticky chat bubbles by class
+        try:
+            await page.evaluate(
+                """
+                () => {
+                    const selectors = ['.chat-widget', '.chatbot-launcher', '.zopim', '.intercom-launcher', '.drift-open-chat'];
+                    selectors.forEach(sel => {
+                        document.querySelectorAll(sel).forEach(node => node.style.display = 'none');
+                    });
+                }
+                """
+            )
+        except Exception:
+            pass
+
+    async def _maybe_trigger_modal_flow(self, page: Page) -> bool:
+        """Attempt CTA → department modal → contact form sequence."""
+
+        await self._dismiss_cookie_banner(page)
+        await self._dismiss_chat_widgets(page)
+
+        cta_selectors = [
+            "a:has-text('Send Us A Message')",
+            "button:has-text('Send Us A Message')",
+            "a:has-text('Send a message')",
+            "button:has-text('Send a message')",
+            "a:has-text('Contact Us')",
+            "button:has-text('Contact Us')",
+        ]
+
+        cta_locator: Optional[Locator] = None
+        for selector in cta_selectors:
+            try:
+                candidate = page.locator(selector)
+                if await candidate.count() > 0:
+                    cta_locator = candidate.first
+                    break
+            except Exception:
+                continue
+
+        if cta_locator is None:
+            return False
+
+        try:
+            await cta_locator.scroll_into_view_if_needed()
+            await asyncio.sleep(0.6)
+            await cta_locator.hover()
+            await asyncio.sleep(0.5)
+            await cta_locator.click()
+        except Exception as exc:
+            self.logger.debug(f"CTA click failed: {exc}")
+            return False
+
+        await asyncio.sleep(0.8)
+
+        modal = page.locator("[id*='_modal_body_']").first
+        try:
+            await modal.wait_for(timeout=5000)
+        except Exception:
+            self.logger.debug("Modal not detected after CTA click")
+            return False
+
+        department_selectors = [
+            "a:has-text('Sales')",
+            "button:has-text('Sales')",
+            "a:has-text('New Cars')",
+            "button:has-text('New Cars')",
+        ]
+
+        department = None
+        for selector in department_selectors:
+            btn = modal.locator(selector)
+            try:
+                if await btn.count() > 0:
+                    department = btn.first
+                    break
+            except Exception:
+                continue
+
+        if department is None:
+            fallback = modal.locator("a, button").first
+            if await fallback.count() == 0:
+                return False
+            department = fallback
+
+        try:
+            await department.hover()
+            await asyncio.sleep(0.4)
+            await department.click()
+        except Exception as exc:
+            self.logger.debug(f"Department selection failed: {exc}")
+            return False
+
+        form_locator = page.locator("form.contactForm, form.lead-form-box")
+        try:
+            await form_locator.wait_for(timeout=8000)
+            await asyncio.sleep(0.8)
+        except Exception:
+            self.logger.debug("Modal contact form did not appear")
+            return False
+
+        self.logger.info("Modal contact flow activated", {"operation": "cta_modal_sales"})
+        return True
     
     async def _find_field_by_selectors(self, container: Locator, selectors: List[str], field_type: str, is_iframe: bool = False) -> Optional[EnhancedFormField]:
         """Find field using multiple selectors"""
@@ -483,7 +659,36 @@ class EnhancedFormDetector:
                 continue
 
             classes = item.get("classes", [])
-            if any("gform_validation" in cls or "honeypot" in cls or "hidden" in cls for cls in classes):
+            # Enhanced honeypot detection with modern patterns
+            honeypot_patterns = [
+                "gform_validation", "honeypot", "hidden", "invisible", "display-none",
+                "visually-hidden", "sr-only", "screen-reader", "bot-trap", "anti-spam",
+                "spam-check", "captcha-field", "security-field", "validation-field",
+                "form-trap", "robot-check", "bot-field", "fake-field", "decoy-field"
+            ]
+            if any(pattern in cls.lower() for cls in classes for pattern in honeypot_patterns):
+                continue
+
+            # Check field name and ID for honeypot patterns
+            field_name = item.get("nameAttr", "").lower()
+            field_id = item.get("idAttr", "").lower()
+            field_text = item.get("text", "").lower()
+
+            # Common honeypot field names/IDs
+            honeypot_names = [
+                "url", "website", "homepage", "link", "spam", "bot", "robot",
+                "captcha", "security", "validation", "check", "verify", "confirm",
+                "test", "fake", "decoy", "trap", "honeypot", "anti-spam"
+            ]
+            if any(pattern in field_name or pattern in field_id for pattern in honeypot_names):
+                continue
+
+            # Skip fields with suspicious text patterns
+            suspicious_text = [
+                "leave this field blank", "do not fill", "ignore this field",
+                "for bots only", "spam protection", "leave empty", "do not enter"
+            ]
+            if any(pattern in field_text for pattern in suspicious_text):
                 continue
 
             selectors = self._build_candidate_selectors(item)
@@ -552,14 +757,29 @@ class EnhancedFormDetector:
         """Derive a stable selector preference for the detected element."""
 
         try:
-            element_id = await element.get_attribute("id")
-            if element_id:
-                return f"#{element_id}"
+            # Prefer name attribute over ID for reliability with complex IDs
             name_attr = await element.get_attribute("name")
             if name_attr:
                 safe = name_attr.replace('"', '\\"')
-                tag = tag_name or await element.evaluate("el => el.tagName.toLowerCase()")
-                return f"{tag}[name=\"{safe}\"]"
+                # Use attribute selector which is more reliable
+                return f"[name=\"{safe}\"]"
+
+            # Fall back to ID only if no name attribute
+            element_id = await element.get_attribute("id")
+            if element_id:
+                # Check if ID needs escaping (starts with digit, has dots, etc)
+                needs_escaping = (element_id[0].isdigit() or
+                                '.' in element_id or
+                                ':' in element_id or
+                                ' ' in element_id)
+
+                if needs_escaping:
+                    # Use attribute selector for complex IDs
+                    safe_id = element_id.replace('"', '\\"')
+                    return f"[id=\"{safe_id}\"]"
+                else:
+                    # Simple ID, use # selector
+                    return f"#{element_id}"
         except Exception:
             pass
 
