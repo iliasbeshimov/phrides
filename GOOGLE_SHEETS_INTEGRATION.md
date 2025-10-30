@@ -16,21 +16,21 @@ The frontend now loads dealership data from **Google Sheets** as the primary sou
 
 **Google Sheet:** "Dealerships Unified Production"
 **Sheet ID:** `1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k`
-**Tab:** "Master Production List" (gid=0)
-**URL:** https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k/edit
+**Tab:** "Master Production List" (gid=826403005)
+**URL:** https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k/edit?gid=826403005
 
 **Export URL:**
 ```
-https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k/export?format=csv&gid=0
+https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k/export?format=csv&gid=826403005
 ```
 
 ---
 
 ## Current Data
 
-**Make:** Mercedes-Benz
-**Total Dealerships:** 386
-**Coverage:** All 50 US states + Puerto Rico
+**Makes:** Toyota, Acura
+**Total Dealerships:** 1,517 (1,244 Toyota + 273 Acura)
+**Coverage:** Multiple US states
 
 ---
 
@@ -38,37 +38,42 @@ https://docs.google.com/spreadsheets/d/1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J
 
 ### Current Columns (CSV Export):
 ```csv
-state,dealerName,address,phone,websiteLink,inventoryLink,serviceLink
+make,state,dealerName,address,phone,websiteLink,contactPagLink,inventoryLink,lat,long
 ```
 
-**Note:** The Google Sheet contains additional columns (like `make`, `lat`, `long`, `contactPageLink`) that are NOT currently exported in the CSV. The CSV export only includes the first 7 visible columns.
+**Total Columns:** 10
+
+**Note:** All columns are now included in the CSV export from the Master Production List tab (gid=826403005).
 
 ### Column Descriptions:
 
 | Column | Description | Example |
 |--------|-------------|---------|
-| `state` | US State | "Alabama", "California" |
-| `dealerName` | Dealership name | "Mercedes-Benz of Mobile" |
-| `address` | Full address | "3060 Dauphin Street Mobile, AL, 36606" |
-| `phone` | Phone number | "(251) 472-2369" |
-| `websiteLink` | Dealership website | "mbofmobile.com" |
-| `inventoryLink` | Inventory page URL | "https://www.mbusa.com/en/inventory/..." |
-| `serviceLink` | Service page URL | "http://www.mbofmobile.com/service/..." |
+| `make` | Vehicle make | "Toyota", "Acura" |
+| `state` | US State | "CT", "MA" |
+| `dealerName` | Dealership name | "McGee Toyota of Putnam" |
+| `address` | Full address | "88 Providence Pike, Putnam, CT, 06260" |
+| `phone` | Phone number | "860-923-4041" |
+| `websiteLink` | Dealership website URL | "https://www.mcgeetoyotaofputnam.com" |
+| `contactPagLink` | Contact form URL | (empty - to be populated) |
+| `inventoryLink` | Inventory page URL | (empty - to be populated) |
+| `lat` | Latitude coordinate | (empty - to be populated) |
+| `long` | Longitude coordinate | (empty - to be populated) |
 
-### Columns to Add to CSV Export:
+### Data Population Status:
 
-**Current Issue:** The Google Sheet has these columns, but they're not included in the CSV export:
-
-| Column | Purpose | Status | Populated By |
-|--------|---------|--------|--------------|
-| `make` | Vehicle make | Exists in sheet, NOT in CSV export | Manual (default: "Mercedes-Benz") |
-| `contactPageLink` | Contact form URL | Exists in sheet, NOT in CSV export | Automation (when detected) |
-| `lat` | Latitude | Exists in sheet, NOT in CSV export | Geocoding script |
-| `long` | Longitude | Exists in sheet, NOT in CSV export | Geocoding script |
-
-**Solution:** Reorder columns in Google Sheets so that `make`, `lat`, `long`, and `contactPageLink` are in the first 7 columns (columns A-G), OR move them before the export cutoff point.
-
-**Temporary Fix Applied:** The frontend now defaults to 'Mercedes-Benz' when `make` column is missing or set to 'Unknown' (see `app.js:156`).
+| Column | Status | Populated By |
+|--------|--------|--------------|
+| `make` | ✅ Populated | Manual entry |
+| `state` | ✅ Populated | Manual entry |
+| `dealerName` | ✅ Populated | Manual entry |
+| `address` | ✅ Populated | Manual entry |
+| `phone` | ✅ Populated | Manual entry |
+| `websiteLink` | ✅ Populated | Manual entry |
+| `contactPagLink` | ⚠️ Empty (to be populated) | Automation (when detected) |
+| `inventoryLink` | ⚠️ Empty (to be populated) | Manual entry or automation |
+| `lat` | ⚠️ Empty (to be populated) | Geocoding script |
+| `long` | ⚠️ Empty (to be populated) | Geocoding script |
 
 ---
 
@@ -99,30 +104,33 @@ Google Sheets data is automatically normalized to match the expected format:
 **Input (Google Sheets):**
 ```javascript
 {
-    state: "Alabama",
-    dealerName: "Mercedes-Benz of Mobile",
-    address: "3060 Dauphin Street Mobile, AL, 36606",
-    phone: "(251) 472-2369",
-    websiteLink: "mbofmobile.com",
-    inventoryLink: "https://...",
-    serviceLink: "http://..."
+    make: "Toyota",
+    state: "CT",
+    dealerName: "McGee Toyota of Putnam",
+    address: "88 Providence Pike, Putnam, CT, 06260",
+    phone: "860-923-4041",
+    websiteLink: "https://www.mcgeetoyotaofputnam.com",
+    contactPagLink: "",
+    inventoryLink: "",
+    lat: "",
+    long: ""
 }
 ```
 
 **Output (Normalized):**
 ```javascript
 {
-    make: "Mercedes-Benz",
-    dealer_name: "Mercedes-Benz of Mobile",
-    state: "Alabama",
-    city: "Mobile",
-    zip_code: "36606",
-    address_line1: "3060 Dauphin Street",
-    full_address: "3060 Dauphin Street Mobile, AL, 36606",
-    phone: "(251) 472-2369",
-    website: "mbofmobile.com",
-    inventory_link: "https://...",
-    service_link: "http://...",
+    make: "Toyota",
+    dealer_name: "McGee Toyota of Putnam",
+    state: "CT",
+    city: "Putnam",
+    zip_code: "06260",
+    address_line1: "88 Providence Pike",
+    full_address: "88 Providence Pike, Putnam, CT, 06260",
+    phone: "860-923-4041",
+    website: "https://www.mcgeetoyotaofputnam.com",
+    inventory_link: "",
+    service_link: "",
     contact_page_link: "",  // To be populated
     latitude: null,  // To be populated
     longitude: null,  // To be populated

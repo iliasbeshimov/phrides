@@ -63,7 +63,8 @@ const app = createApp({
         async loadInitialData() {
             // Google Sheets source (always up-to-date)
             const GOOGLE_SHEET_ID = '1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k';
-            const GOOGLE_SHEETS_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=csv&gid=0`;
+            const GOOGLE_SHEET_GID = '826403005';  // Master Production List tab
+            const GOOGLE_SHEETS_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=csv&gid=${GOOGLE_SHEET_GID}`;
 
             // Fallback sources (local CSV files)
             const sources = [
@@ -143,7 +144,8 @@ const app = createApp({
             /**
              * Normalize Google Sheets column format to match expected format.
              *
-             * Google Sheets columns: state, dealerName, address, phone, websiteLink, inventoryLink, serviceLink
+             * Master Production List columns: make, state, dealerName, address, phone, websiteLink,
+             *                                 contactPagLink, inventoryLink, lat, long
              * Expected format: make, dealer_name, website, latitude, longitude, zip_code, city, state, etc.
              */
 
@@ -153,7 +155,7 @@ const app = createApp({
 
             return {
                 // Basic info
-                make: (dealer.make && dealer.make !== 'Unknown') ? dealer.make : 'Mercedes-Benz',  // Default to Mercedes-Benz
+                make: dealer.make || 'Unknown',  // Use make from sheet
                 dealer_name: dealer.dealerName || dealer.dealer_name,
                 state: dealer.state,
                 city: addressParts.city || '',
@@ -170,11 +172,11 @@ const app = createApp({
                 // URLs
                 inventory_link: dealer.inventoryLink || '',
                 service_link: dealer.serviceLink || '',
-                contact_page_link: dealer.contactPageLink || '',  // To be populated
+                contact_page_link: dealer.contactPagLink || dealer.contactPageLink || '',  // Note: typo in sheet (contactPagLink)
 
-                // Geographic coordinates (to be populated)
-                latitude: dealer.lat || dealer.latitude || null,
-                longitude: dealer.long || dealer.longitude || null,
+                // Geographic coordinates
+                latitude: parseFloat(dealer.lat || dealer.latitude) || null,
+                longitude: parseFloat(dealer.long || dealer.longitude) || null,
 
                 // Additional fields
                 country: 'USA',
