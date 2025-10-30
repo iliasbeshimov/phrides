@@ -61,59 +61,168 @@ const app = createApp({
 
     methods: {
         async loadInitialData() {
-            // Try both possible CSV file locations
-            const possiblePaths = ['./Dealerships.csv', '../Dealerships.csv', '../Dealerships - Jeep.csv'];
+            // Google Sheets source (always up-to-date)
+            const GOOGLE_SHEET_ID = '1rvZN95GJgmf3Jiv5LWUYJETPE42P1iZE88UTLV_J94k';
+            const GOOGLE_SHEETS_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=csv&gid=0`;
 
-            for (const path of possiblePaths) {
+            // Fallback sources (local CSV files)
+            const sources = [
+                { url: GOOGLE_SHEETS_URL, name: 'Google Sheets (Production)', isGoogleSheets: true },
+                { url: './Dealerships.csv', name: 'Local CSV (Backup)', isGoogleSheets: false },
+                { url: '../Dealerships.csv', name: 'Root CSV (Backup)', isGoogleSheets: false }
+            ];
+
+            for (const source of sources) {
                 try {
-                    console.log(`Attempting to load dealership data from: ${path}`);
-                    const response = await fetch(path);
+                    console.log(`Attempting to load dealership data from: ${source.name}`);
+                    const response = await fetch(source.url);
                     if (!response.ok) {
-                        console.warn(`Failed to load ${path}: ${response.status}`);
+                        console.warn(`Failed to load ${source.name}: ${response.status}`);
                         continue;
                     }
 
                     const csvText = await response.text();
                     if (!csvText || csvText.trim().length === 0) {
-                        console.warn(`Empty CSV file: ${path}`);
+                        console.warn(`Empty CSV file: ${source.name}`);
                         continue;
                     }
 
                     const parser = new CSVDataParser();
-                    this.masterDealerships = parser.parseCSV(csvText);
+                    let dealerships = parser.parseCSV(csvText);
 
-                    if (this.masterDealerships.length === 0) {
-                        console.warn(`No dealerships parsed from: ${path}`);
+                    if (dealerships.length === 0) {
+                        console.warn(`No dealerships parsed from: ${source.name}`);
                         continue;
                     }
 
-                    // Validate required fields
-                    const invalidDealerships = this.masterDealerships.filter(d =>
-                        !d.dealer_name || !d.website || !d.latitude || !d.longitude || !d.zip_code
-                    );
+                    // Normalize Google Sheets format to match expected format
+                    if (source.isGoogleSheets) {
+                        console.log('Normalizing Google Sheets data format...');
+                        dealerships = dealerships.map(d => this.normalizeGoogleSheetsData(d));
+                    }
+
+                    // Validate required fields (relaxed validation for Google Sheets)
+                    const requiredFields = source.isGoogleSheets
+                        ? ['dealer_name', 'website']  // Minimal requirements for Google Sheets
+                        : ['dealer_name', 'website', 'latitude', 'longitude', 'zip_code'];
+
+                    const invalidDealerships = dealerships.filter(d => {
+                        return !requiredFields.every(field => d[field]);
+                    });
+
                     if (invalidDealerships.length > 0) {
                         console.warn(`Found ${invalidDealerships.length} dealerships with missing required fields`);
                         // Filter out invalid entries
-                        this.masterDealerships = this.masterDealerships.filter(d =>
-                            d.dealer_name && d.website && d.latitude && d.longitude && d.zip_code
-                        );
+                        dealerships = dealerships.filter(d => {
+                            return requiredFields.every(field => d[field]);
+                        });
                     }
+
+                    this.masterDealerships = dealerships;
 
                     const makeManager = new MakeManager(this.masterDealerships);
                     this.availableMakes = makeManager.availableMakes;
 
-                    console.log(`Successfully loaded ${this.masterDealerships.length} dealerships from ${path}`);
+                    console.log(`✅ Successfully loaded ${this.masterDealerships.length} dealerships from ${source.name}`);
                     console.log(`Available makes: ${this.availableMakes.join(', ')}`);
                     return; // Success, exit the loop
 
                 } catch (error) {
-                    console.error(`Error loading ${path}:`, error);
+                    console.error(`Error loading ${source.name}:`, error);
                 }
             }
 
             // If we get here, all attempts failed
             console.error("Failed to load dealership data from any source");
             alert("Could not load dealership data. Please check that the CSV file exists and is accessible.");
+        },
+
+        normalizeGoogleSheetsData(dealer) {
+            /**
+             * Normalize Google Sheets column format to match expected format.
+             *
+             * Google Sheets columns: state, dealerName, address, phone, websiteLink, inventoryLink, serviceLink
+             * Expected format: make, dealer_name, website, latitude, longitude, zip_code, city, state, etc.
+             */
+
+            // Extract zip code and city from address field
+            // Address format: "Street Address City, ST, ZIP"
+            const addressParts = this.parseAddress(dealer.address || '');
+
+            return {
+                // Basic info
+                make: dealer.make || 'Mercedes-Benz',  // Default to Mercedes-Benz
+                dealer_name: dealer.dealerName || dealer.dealer_name,
+                state: dealer.state,
+                city: addressParts.city || '',
+                zip_code: addressParts.zip || '',
+                address_line1: addressParts.street || dealer.address,
+                address_line2: '',
+                full_address: dealer.address,
+
+                // Contact info
+                phone: dealer.phone,
+                website: dealer.websiteLink || dealer.website,
+                email: dealer.email || '',
+
+                // URLs
+                inventory_link: dealer.inventoryLink || '',
+                service_link: dealer.serviceLink || '',
+                contact_page_link: dealer.contactPageLink || '',  // To be populated
+
+                // Geographic coordinates (to be populated)
+                latitude: dealer.lat || dealer.latitude || null,
+                longitude: dealer.long || dealer.longitude || null,
+
+                // Additional fields
+                country: 'USA',
+                has_quote: dealer.has_quote || 'N',
+                sales_available: 'Y',
+                service_available: dealer.serviceLink ? 'Y' : 'N',
+                parts_available: 'Y',
+
+                // Source tracking
+                data_source: 'google_sheets',
+                last_updated: new Date().toISOString()
+            };
+        },
+
+        parseAddress(addressString) {
+            /**
+             * Parse address string to extract street, city, state, zip.
+             * Expected format: "Street Address City, ST, ZIP"
+             * Examples:
+             *   "3060 Dauphin Street Mobile, AL, 36606"
+             *   "217 Eastern Blvd. Montgomery, AL, 36124"
+             */
+            const result = {
+                street: '',
+                city: '',
+                state: '',
+                zip: ''
+            };
+
+            if (!addressString) return result;
+
+            // Match pattern: "Street City, ST, ZIP"
+            const pattern = /^(.+?)\s+([A-Za-z\s]+),\s*([A-Z]{2}),?\s*(\d{5}(?:-\d{4})?)$/;
+            const match = addressString.match(pattern);
+
+            if (match) {
+                result.street = match[1].trim();
+                result.city = match[2].trim();
+                result.state = match[3].trim();
+                result.zip = match[4].trim();
+            } else {
+                // Fallback: try to extract zip code at least
+                const zipMatch = addressString.match(/\b(\d{5}(?:-\d{4})?)\b/);
+                if (zipMatch) {
+                    result.zip = zipMatch[1];
+                }
+                result.street = addressString;
+            }
+
+            return result;
         },
 
         async saveState() {
