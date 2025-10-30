@@ -28,6 +28,12 @@ venv/
 env/
 ENV/
 
+# Node.js
+node_modules/
+frontend/node_modules/
+package-lock.json
+frontend/package-lock.json
+
 # IDE
 .vscode/
 .idea/
