@@ -602,6 +602,19 @@ const app = createApp({
             });
             this.saveState();
         },
+        /**
+         * Select only dealerships where contact attempts failed.
+         * Includes both 'failed' (automation error) and 'manual' (CAPTCHA/intervention needed).
+         * Use case: Quick retry workflow after initial contact batch.
+         * Added: Oct 31, 2024
+         */
+        selectFailed() {
+            if (!this.currentSearch) return;
+            this.currentSearch.dealerships.forEach(dealer => {
+                dealer.selected = dealer.contactStatus === 'failed' || dealer.contactStatus === 'manual';
+            });
+            this.saveState();
+        },
 
         // Sorting Methods
         sortDealerships() {

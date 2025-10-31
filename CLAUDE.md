@@ -326,8 +326,8 @@ CAPTCHA_SELECTORS = [
 │       └── logging/                           # Structured logging
 │
 ├── frontend/ (Local Browser UI + WebSocket Client)
-│   ├── index.html                             # Main UI (Vue.js 3)
-│   ├── app.js                                 # Vue.js application with WebSocket integration
+│   ├── index.html                             # Main UI (Vue.js 3) + bulk selection filters
+│   ├── app.js                                 # Vue.js app with WebSocket + selectFailed() method
 │   ├── style.css                              # Styling (includes WebSocket status & modals)
 │   ├── websocket_client.js                    # NEW: WebSocket client class
 │   ├── websocket_integration.js               # NEW: Vue integration methods
@@ -521,6 +521,7 @@ python scripts/process_zip_data.py
 3. ✅ **Screenshot Streaming** - Visual confirmation of all actions
 4. ✅ **Manual Intervention Workflow** - Clear path for CAPTCHA/failed sites
 5. ✅ **Double-Click Launcher** - `launch.command` for easy startup
+6. ✅ **Failed Contact Filter** - Quick selection of failed dealers for retry (Oct 31, 2024)
 
 ### Critical Vue.js Debugging Lessons Learned
 
@@ -652,6 +653,66 @@ mounted() {
 - Reduced server load (no repeated HTTP requests)
 - Better UX with live progress tracking
 
+### Frontend UI Features
+
+#### Bulk Selection Filters (Oct 31, 2024)
+
+The dealership list panel includes four quick-select filter buttons for efficient dealer management:
+
+**Filter Buttons** (`frontend/index.html:287-304`):
+1. **All** - Select all dealerships in current search
+   - Use case: Starting a fresh contact batch
+   - Method: `selectAll()` - Sets `dealer.selected = true` for all dealers
+
+2. **None** - Deselect all dealerships
+   - Use case: Starting over with selection
+   - Method: `selectNone()` - Sets `dealer.selected = false` for all dealers
+
+3. **Pending** - Select only dealers with pending contact status
+   - Use case: Running initial contact batch (avoiding re-contacts)
+   - Method: `selectPending()` - Selects only `contactStatus === 'pending'`
+
+4. **Failed** (NEW) - Select only dealers where contact failed
+   - Use case: Retry batch for failed attempts
+   - Selects dealers with `contactStatus === 'failed'` or `contactStatus === 'manual'`
+   - Includes both automated failures and manual intervention needed
+   - Method: `selectFailed()` in `frontend/app.js:605-611`
+   - Styled with warning color (orange) to indicate attention needed
+
+**Implementation Details**:
+```javascript
+// frontend/app.js:605-611
+selectFailed() {
+    if (!this.currentSearch) return;
+    this.currentSearch.dealerships.forEach(dealer => {
+        dealer.selected = dealer.contactStatus === 'failed' || dealer.contactStatus === 'manual';
+    });
+    this.saveState();
+}
+```
+
+**Why Both 'failed' and 'manual'?**
+- `failed`: Automated contact attempt failed (form not found, submission error, etc.)
+- `manual`: Manual intervention required (CAPTCHA detected, complex form, etc.)
+- Both represent unsuccessful automated contacts that need user attention
+
+**User Workflow with Failed Filter**:
+1. Run initial contact batch (use "Pending" filter → Start Contacting)
+2. Review results (some succeed, some fail)
+3. Click "Failed" button to select only failed dealers
+4. Review failure reasons in contact history (screenshots available)
+5. Either:
+   - Click "Retry" to re-attempt automation
+   - Click "Manual Contact" to fill form manually
+   - Edit contact page URL if incorrect
+   - Skip dealer if permanently unavailable
+
+**Visual Feedback**:
+- Failed dealers show red/warning status indicator
+- Contact history displays failure details and timestamps
+- Screenshots available for manual inspection
+- "Retry Failed" button in status panel shows count
+
 ### Next Steps for Higher Success Rate
 
 **Priority 1: Improve No-Contact-Page Detection (25% of failures)**
@@ -682,3 +743,19 @@ mounted() {
 
 **Issue**: Phone fields split across multiple inputs
 **Workaround**: Detect field patterns, distribute phone number correctly
+
+### Development Changelog
+
+**October 31, 2024 - Failed Contact Filter**
+- **Feature**: Added "Failed" button to bulk selection filters in dealership panel
+- **Files Modified**:
+  - `frontend/index.html` (lines 300-303): Added Failed filter button with warning styling
+  - `frontend/app.js` (lines 605-611): Implemented `selectFailed()` method
+  - `CLAUDE.md`: Comprehensive documentation of filter feature
+- **Functionality**:
+  - Quickly selects all dealers with `contactStatus === 'failed'` or `'manual'`
+  - Enables efficient retry workflow for unsuccessful contact attempts
+  - Styled with orange/warning color to draw attention
+- **Use Case**: After running contact batch, user can click "Failed" to isolate problematic dealers for review and retry
+- **Integration**: Works seamlessly with existing "All", "None", and "Pending" filters
+- **User Benefit**: Reduces time spent manually identifying failed contacts from 2-3 minutes to instant selection

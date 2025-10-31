@@ -283,7 +283,12 @@
                             Dealerships
                         </h2>
                         <div class="list-controls">
-                            <!-- Bulk Selection -->
+                            <!-- Bulk Selection Filters
+                                 All: Select all dealers
+                                 None: Deselect all dealers
+                                 Pending: Select only pending dealers (for initial contact batch)
+                                 Failed: Select only failed/manual dealers (for retry batch) - Added Oct 31, 2024
+                            -->
                             <div class="bulk-controls">
                                 <button class="btn btn-sm" @click="selectAll">
                                     <i class="fas fa-check-double"></i>
@@ -296,6 +301,10 @@
                                 <button class="btn btn-sm" @click="selectPending">
                                     <i class="fas fa-clock"></i>
                                     Pending
+                                </button>
+                                <button class="btn btn-sm btn-warning" @click="selectFailed">
+                                    <i class="fas fa-times-circle"></i>
+                                    Failed
                                 </button>
                             </div>
                         </div>
