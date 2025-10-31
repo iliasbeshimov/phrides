@@ -1,0 +1,1406 @@
+{
+  "entries": [
+    {
+      "website": "https://www.gettelacura.com",
+      "contact_url": "https://www.gettelacura.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-30 19:17:13",
+      "last_verified": "2025-10-30 22:56:59",
+      "success_count": 25,
+      "form_type": null
+    },
+    {
+      "website": "https://www.crownacura.com",
+      "contact_url": "https://www.crownacura.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-30 22:57:22",
+      "last_verified": "2025-10-30 22:57:22",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.mausacura.com",
+      "contact_url": "https://www.mausacura.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-30 22:58:23",
+      "last_verified": "2025-10-30 22:58:23",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.regalacura.com",
+      "contact_url": "https://www.regalacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 22:58:50",
+      "last_verified": "2025-10-30 22:58:50",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.acuraoffortmyers.com",
+      "contact_url": "https://www.acuraoffortmyers.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-30 22:59:19",
+      "last_verified": "2025-10-30 22:59:19",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.naplesacura.com",
+      "contact_url": "https://www.naplesacura.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 22:59:57",
+      "last_verified": "2025-10-30 22:59:57",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.fountainacura.com",
+      "contact_url": "https://www.fountainacura.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-30 23:01:20",
+      "last_verified": "2025-10-30 23:01:20",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.autonationacuranorthorlando.com",
+      "contact_url": "https://www.autonationacuranorthorlando.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:01:43",
+      "last_verified": "2025-10-30 23:01:43",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.acuraofmelbourne.com",
+      "contact_url": "https://www.acuraofmelbourne.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:02:25",
+      "last_verified": "2025-10-30 23:02:25",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.jenkinsacura.com",
+      "contact_url": "https://www.jenkinsacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:03:20",
+      "last_verified": "2025-10-30 23:03:20",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginacura.com",
+      "contact_url": "https://www.cogginacura.com/contact-us.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:03:43",
+      "last_verified": "2025-10-30 23:03:43",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.acuraofpalmbeach.com",
+      "contact_url": "https://www.acuraofpalmbeach.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:04:10",
+      "last_verified": "2025-10-30 23:04:10",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.acuraofpembrokepines.com",
+      "contact_url": "https://www.acuraofpembrokepines.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:04:42",
+      "last_verified": "2025-10-30 23:04:42",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.delrayacura.com",
+      "contact_url": "https://www.delrayacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:05:05",
+      "last_verified": "2025-10-30 23:05:05",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.rickcaseacura.com",
+      "contact_url": "https://www.rickcaseacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:05:28",
+      "last_verified": "2025-10-30 23:05:28",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.keyacuragainesville.com",
+      "contact_url": "https://www.keyacuragainesville.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:05:51",
+      "last_verified": "2025-10-30 23:05:51",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.philsmithacura.com",
+      "contact_url": "https://www.philsmithacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:06:14",
+      "last_verified": "2025-10-30 23:06:14",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.doralacura.com",
+      "contact_url": "https://www.doralacura.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:06:38",
+      "last_verified": "2025-10-30 23:06:38",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.miamiacura.com",
+      "contact_url": "https://www.miamiacura.com/contact-us/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip"
+      ],
+      "discovered_date": "2025-10-30 23:07:31",
+      "last_verified": "2025-10-30 23:07:31",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.acuraoforangepark.com",
+      "contact_url": "https://www.hananiaacuraoforangepark.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-30 23:08:31",
+      "last_verified": "2025-10-30 23:08:31",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.duvalacura.com",
+      "contact_url": "https://www.duvalacura.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:09:32",
+      "last_verified": "2025-10-30 23:09:32",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaofsarasota.com",
+      "contact_url": "https://www.hondaofsarasota.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-30 23:34:31",
+      "last_verified": "2025-10-30 23:34:31",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hendrickhondabradenton.com",
+      "contact_url": "https://www.hendrickhondabradenton.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-30 23:35:26",
+      "last_verified": "2025-10-30 23:35:26",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.venicehonda.com",
+      "contact_url": "https://www.venicehonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-30 23:36:00",
+      "last_verified": "2025-10-30 23:36:00",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.portcharlottehonda.com",
+      "contact_url": "https://www.portcharlottehonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-30 23:36:58",
+      "last_verified": "2025-10-30 23:36:58",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.crownhonda.com",
+      "contact_url": "https://www.crownhonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-30 23:37:26",
+      "last_verified": "2025-10-30 23:37:26",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.brandonhonda.com",
+      "contact_url": "https://brandonhonda.com/contact-brandon-honda/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-30 23:38:19",
+      "last_verified": "2025-10-30 23:52:50",
+      "success_count": 16,
+      "form_type": null
+    },
+    {
+      "website": "https://www.westshorehonda.com",
+      "contact_url": "https://www.westshorehonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:07:17",
+      "last_verified": "2025-10-31 00:12:44",
+      "success_count": 6,
+      "form_type": null
+    },
+    {
+      "website": "https://www.autonationhondaclearwater.com",
+      "contact_url": "https://www.autonationhondaclearwater.com/contact/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:14:39",
+      "last_verified": "2025-10-31 00:14:39",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.tampahonda.com",
+      "contact_url": "https://www.tampahonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:15:23",
+      "last_verified": "2025-10-31 00:15:23",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.palmharborhonda.com",
+      "contact_url": "https://www.palmharborhonda.com/contact-us.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:17:05",
+      "last_verified": "2025-10-31 00:17:05",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://regalhonda.com",
+      "contact_url": "https://regalhonda.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:17:33",
+      "last_verified": "2025-10-31 00:17:33",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.wesleychapelhonda.com",
+      "contact_url": "https://www.wesleychapelhonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:18:19",
+      "last_verified": "2025-10-31 00:18:19",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaoffortmyers.com",
+      "contact_url": "https://www.hondaoffortmyers.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-31 00:19:36",
+      "last_verified": "2025-10-31 00:19:36",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.winterhavenhonda.com",
+      "contact_url": "https://www.winterhavenhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:20:54",
+      "last_verified": "2025-10-31 00:39:09",
+      "success_count": 14,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaofportrichey.com",
+      "contact_url": "https://www.hondaofportrichey.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:41:25",
+      "last_verified": "2025-10-31 00:41:25",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.coconutpointhonda.com",
+      "contact_url": "https://coconutpointhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:42:31",
+      "last_verified": "2025-10-31 00:45:22",
+      "success_count": 4,
+      "form_type": null
+    },
+    {
+      "website": "https://www.germainhonda.com",
+      "contact_url": "https://www.germainhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:50:20",
+      "last_verified": "2025-10-31 00:50:20",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.headquarterhonda.com",
+      "contact_url": "https://www.headquarterhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-31 00:51:13",
+      "last_verified": "2025-10-31 00:51:13",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginhondaorlando.com",
+      "contact_url": "https://www.cogginhondaorlando.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:51:38",
+      "last_verified": "2025-10-31 00:51:38",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.lovehonda.com",
+      "contact_url": "https://www.lovehonda.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:52:00",
+      "last_verified": "2025-10-31 00:52:00",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.classichonda.com",
+      "contact_url": "https://www.classichonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:52:21",
+      "last_verified": "2025-10-31 00:52:21",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hollerhonda.com",
+      "contact_url": "https://www.hollerhonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 00:53:00",
+      "last_verified": "2025-10-31 00:53:00",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.jenkinshondaofleesburg.com",
+      "contact_url": "https://www.jenkinshondaofleesburg.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:53:44",
+      "last_verified": "2025-10-31 00:53:44",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.autonationhondasanford.com",
+      "contact_url": "http://www.autonationhondasanford.com/contact/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:54:38",
+      "last_verified": "2025-10-31 00:54:38",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.southeasternhonda.com",
+      "contact_url": "https://www.southeasternhonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:55:19",
+      "last_verified": "2025-10-31 00:55:19",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.spacecoasthonda.com",
+      "contact_url": "https://www.spacecoasthonda.com/about-us#contact-form-department",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 00:56:27",
+      "last_verified": "2025-10-31 03:30:58",
+      "success_count": 114,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaofocala.com",
+      "contact_url": "https://www.hondaofocala.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:32:18",
+      "last_verified": "2025-10-31 03:32:18",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.vatlandhonda.com",
+      "contact_url": "https://www.vatlandhonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:33:11",
+      "last_verified": "2025-10-31 03:33:11",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginhondaftpierce.com",
+      "contact_url": "https://www.cogginhondaftpierce.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:33:52",
+      "last_verified": "2025-10-31 03:33:52",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginhondadeland.com",
+      "contact_url": "https://www.cogginhondadeland.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:34:15",
+      "last_verified": "2025-10-31 03:34:15",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.starling-honda.com",
+      "contact_url": "https://www.starling-honda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:34:56",
+      "last_verified": "2025-10-31 03:34:56",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.johnsonhondaofstuart.com",
+      "contact_url": "https://www.johnsonhondaofstuart.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:35:19",
+      "last_verified": "2025-10-31 03:35:19",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.edmorsehonda.com",
+      "contact_url": "http://www.edmorsehonda.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:35:40",
+      "last_verified": "2025-10-31 03:35:40",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.bramanhondapb.com",
+      "contact_url": "https://www.bramanhondapb.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:36:55",
+      "last_verified": "2025-10-31 03:36:55",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.garyyeomanshonda.com",
+      "contact_url": "https://www.garyyeomanshonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:37:33",
+      "last_verified": "2025-10-31 03:37:33",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.coralspringshonda.com",
+      "contact_url": "https://www.coralspringshonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:38:48",
+      "last_verified": "2025-10-31 03:38:48",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://rickcasehonda.com",
+      "contact_url": "https://rickcasehonda.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:39:40",
+      "last_verified": "2025-10-31 03:39:40",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.delrayhonda.com",
+      "contact_url": "https://www.delrayhonda.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:40:04",
+      "last_verified": "2025-10-31 03:40:04",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.hendrickhondapompanobeach.com",
+      "contact_url": "http://www.hendrickhondapompanobeach.com/contact.htm",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:40:27",
+      "last_verified": "2025-10-31 03:40:27",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaofgainesville.com",
+      "contact_url": "https://www.hondaofgainesville.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-31 03:41:17",
+      "last_verified": "2025-10-31 03:41:17",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.autonationhondamiamilakes.com",
+      "contact_url": "https://www.autonationhondamiamilakes.com/contact/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:42:11",
+      "last_verified": "2025-10-31 03:42:11",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.holmanhonda.com",
+      "contact_url": "https://www.holmanhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 5,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name"
+      ],
+      "discovered_date": "2025-10-31 03:42:56",
+      "last_verified": "2025-10-31 03:42:56",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.autonationhondahollywood.com",
+      "contact_url": "https://www.autonationhondahollywood.com/contact/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:43:49",
+      "last_verified": "2025-10-31 03:43:49",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.bramanhonda.com",
+      "contact_url": "https://www.bramanhonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:44:39",
+      "last_verified": "2025-10-31 03:44:39",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://www.hondaofaventura.com",
+      "contact_url": "http://www.hondaofaventura.com/contactus.aspx",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:45:00",
+      "last_verified": "2025-10-31 03:45:00",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaofsouthmiami.com",
+      "contact_url": "https://www.hondaofsouthmiami.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:46:05",
+      "last_verified": "2025-10-31 03:46:05",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.brickellhonda.com",
+      "contact_url": "https://www.brickellhonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:47:17",
+      "last_verified": "2025-10-31 03:47:17",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.largohonda.com",
+      "contact_url": "https://www.largohonda.com/contactus",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "zip",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:48:31",
+      "last_verified": "2025-10-31 03:48:31",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginhondastaugustine.com",
+      "contact_url": "https://www.cogginhondastaugustine.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:49:23",
+      "last_verified": "2025-10-31 03:49:23",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaoflakecity.com",
+      "contact_url": "https://www.hondaoflakecity.com/service/contact-service/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-31 03:50:09",
+      "last_verified": "2025-10-31 03:50:09",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "http://lucashonda.com",
+      "contact_url": "https://www.lucashonda.com/contact-us/",
+      "has_form": true,
+      "field_count": 8,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent",
+        "name"
+      ],
+      "discovered_date": "2025-10-31 03:51:29",
+      "last_verified": "2025-10-31 03:51:29",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.hondaoftheavenues.com",
+      "contact_url": "https://www.hondaoftheavenues.com/contact-us/",
+      "has_form": true,
+      "field_count": 7,
+      "field_types": [
+        "email",
+        "phone",
+        "message",
+        "first_name",
+        "last_name",
+        "zip",
+        "consent"
+      ],
+      "discovered_date": "2025-10-31 03:52:47",
+      "last_verified": "2025-10-31 03:52:47",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.atlanticcoasthonda.com",
+      "contact_url": "https://www.atlanticcoasthonda.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:53:14",
+      "last_verified": "2025-10-31 03:53:14",
+      "success_count": 1,
+      "form_type": null
+    },
+    {
+      "website": "https://www.cogginhondajacksonville.com",
+      "contact_url": "https://www.cogginhondajacksonville.com/contact.htm",
+      "has_form": true,
+      "field_count": 6,
+      "field_types": [
+        "first_name",
+        "last_name",
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "discovered_date": "2025-10-31 03:53:36",
+      "last_verified": "2025-10-31 03:53:36",
+      "success_count": 1,
+      "form_type": null
+    }
+  ],
+  "stats": {
+    "total": 75
+  }
+}

@@ -65,6 +65,7 @@ class SubmissionStatus:
     fields_filled: List[str] = field(default_factory=list)
     missing_fields: List[str] = field(default_factory=list)
     dropdown_choices: Dict[str, str] = field(default_factory=dict)
+    radio_choices: Dict[str, str] = field(default_factory=dict)
     checkboxes_checked: List[str] = field(default_factory=list)
     confirmation_text: Optional[str] = None
     artifacts: Dict[str, str] = field(default_factory=dict)
@@ -80,6 +81,7 @@ class SubmissionStatus:
             "fields_filled": self.fields_filled,
             "missing_fields": self.missing_fields,
             "dropdown_choices": self.dropdown_choices,
+            "radio_choices": self.radio_choices,
             "checkboxes_checked": self.checkboxes_checked,
             "confirmation_text": self.confirmation_text,
             "artifacts": self.artifacts,
@@ -317,6 +319,10 @@ class FormSubmissionRunner:
             "zip": payload.zip_code,
             "message": payload.message,
         }
+
+        radio_decisions = await self._handle_radio_groups(page, detection, log_lines)
+        if radio_decisions:
+            status.radio_choices.update(radio_decisions)
 
         for field_type, value in field_map.items():
             if not value:
@@ -664,6 +670,182 @@ class FormSubmissionRunner:
         custom_results = await self._handle_custom_contact_dropdowns(page, log_lines)
         dropdowns.update(custom_results)
         return dropdowns
+
+    async def _handle_radio_groups(
+        self,
+        page: Page,
+        detection: EnhancedFormResult,
+        log_lines: List[str],
+    ) -> Dict[str, str]:
+        script = """
+            () => {
+                const esc = (value) => {
+                    if (!value) return null;
+                    if (window.CSS && CSS.escape) {
+                        return CSS.escape(value);
+                    }
+                    return value.replace(/([ #.;?+*~'":!^$\\[\\]()=>|\\\\\\/])/g, '\\\\$1');
+                };
+                const results = [];
+                const groups = new Map();
+                const radios = Array.from(document.querySelectorAll('input[type="radio"]'));
+                radios.forEach(radio => {
+                    if (radio.disabled) return;
+                    const name = radio.getAttribute('name');
+                    if (!name) return;
+                    if (!groups.has(name)) {
+                        let labelText = '';
+                        const container = radio.closest('.wpforms-field, .gfield, fieldset, .form-group, .field, .control-group');
+                        if (container) {
+                            const labelCandidate = container.querySelector('legend, .wpforms-field-label, .gfield_label, label');
+                            if (labelCandidate && labelCandidate.textContent) {
+                                labelText = labelCandidate.textContent.trim();
+                            }
+                        }
+                        if (!labelText && radio.getAttribute('aria-label')) {
+                            labelText = radio.getAttribute('aria-label');
+                        }
+                        groups.set(name, {
+                            name,
+                            label: labelText,
+                            options: []
+                        });
+                    }
+                    const group = groups.get(name);
+                    let optionText = '';
+                    const id = radio.id;
+                    if (id) {
+                        const escaped = esc(id);
+                        if (escaped) {
+                            const label = document.querySelector(`label[for="${escaped}"]`);
+                            if (label && label.textContent) {
+                                optionText = label.textContent.trim();
+                            }
+                        }
+                    }
+                    if (!optionText) {
+                        const parentLabel = radio.closest('label');
+                        if (parentLabel && parentLabel.textContent) {
+                            optionText = parentLabel.textContent.trim();
+                        }
+                    }
+                    if (!optionText && radio.value) {
+                        optionText = radio.value.trim();
+                    }
+                    const escapedName = esc(name);
+                    let selector = null;
+                    if (id) {
+                        const escapedId = esc(id);
+                        selector = `#${escapedId}`;
+                    } else if (escapedName && radio.value !== undefined && radio.value !== null) {
+                        const valueStr = String(radio.value);
+                        const safeValue = valueStr.replace(/"/g, '\\"');
+                        selector = `[name="${escapedName}"][value="${safeValue}"]`;
+                    } else if (escapedName) {
+                        selector = `[name="${escapedName}"]`;
+                    }
+                    group.options.push({
+                        text: optionText || radio.value || '',
+                        selector,
+                        value: radio.value || ''
+                    });
+                });
+                return Array.from(groups.values());
+            }
+        """
+
+        try:
+            groups = await page.evaluate(script)
+        except Exception:
+            return {}
+
+        selections: Dict[str, str] = {}
+        for group in groups or []:
+            options = group.get("options") or []
+            if not options:
+                continue
+            label = (group.get("label") or "").strip()
+            choice = self._choose_radio_option(label, options)
+            if not choice:
+                continue
+            option_entry = next((opt for opt in options if opt.get("text") == choice), None)
+            if not option_entry:
+                continue
+            selector = option_entry.get("selector")
+            if not selector:
+                continue
+            try:
+                locator = page.locator(selector).first
+                if await locator.count() > 0:
+                    await locator.scroll_into_view_if_needed()
+                    try:
+                        await locator.check()
+                    except Exception:
+                        await locator.click()
+                    key = label or group.get("name") or selector
+                    selections[key] = choice
+                    log_lines.append(f"[info] Selected radio '{choice}' for '{key}'")
+                    if self.cloudflare_stealth:
+                        await asyncio.sleep(random.uniform(0.3, 0.7))
+                    continue
+            except Exception:
+                pass
+
+            # Fallback: click label text
+            try:
+                locator = page.locator(f"label:has-text('{choice}')").first
+                if await locator.count() > 0:
+                    await locator.scroll_into_view_if_needed()
+                    await locator.click()
+                    key = label or group.get("name") or selector
+                    selections[key] = choice
+                    log_lines.append(f"[info] Selected radio '{choice}' via label click")
+                    if self.cloudflare_stealth:
+                        await asyncio.sleep(random.uniform(0.3, 0.7))
+            except Exception:
+                log_lines.append(f"[warn] Failed to select radio option '{choice}'")
+
+        return selections
+
+    def _choose_radio_option(self, label: str, options: List[Dict[str, str]]) -> Optional[str]:
+        normalized_label = (label or "").lower()
+        option_texts = [opt.get("text", "") for opt in options]
+        normalized_options = [text.lower() for text in option_texts]
+
+        if not option_texts:
+            return None
+
+        contact_keywords = ["contact", "prefer", "reach", "method", "communicat", "respond", "reply"]
+        department_keywords = ["department", "who", "team", "reason", "interest", "type", "concern", "inquiry", "question", "sales"]
+
+        if any(keyword in normalized_label for keyword in contact_keywords):
+            priority = ["text", "sms", "message", "phone", "call", "email"]
+            for keyword in priority:
+                for original, norm in zip(option_texts, normalized_options):
+                    if keyword in norm:
+                        return original
+            return option_texts[0]
+
+        if any(keyword in normalized_label for keyword in department_keywords):
+            priority = ["sales", "internet", "new", "vehicle", "lease"]
+            for keyword in priority:
+                for original, norm in zip(option_texts, normalized_options):
+                    if keyword in norm:
+                        return original
+            return option_texts[0]
+
+        # If label does not provide clues, look at options themselves
+        for keyword in ["sales", "internet", "new", "vehicle"]:
+            for original, norm in zip(option_texts, normalized_options):
+                if keyword in norm:
+                    return original
+
+        for keyword in ["text", "sms", "call", "phone", "email"]:
+            for original, norm in zip(option_texts, normalized_options):
+                if keyword in norm:
+                    return original
+
+        return option_texts[0]
 
     async def _collect_selects(self, detection: EnhancedFormResult, page: Page) -> List[Dict[str, str]]:
         base = detection.form_element or page

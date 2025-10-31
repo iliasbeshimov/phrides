@@ -122,6 +122,7 @@ const app = createApp({
                     }
 
                     this.masterDealerships = dealerships;
+                    this.applyContactPageOverridesToMaster();
 
                     const makeManager = new MakeManager(this.masterDealerships);
                     this.availableMakes = makeManager.availableMakes;
@@ -251,6 +252,18 @@ const app = createApp({
                 // Try loading from server first, fallback to localStorage
                 await this.loadStateFromServer();
                 await this.loadSavedSearches();
+
+                if (this.currentSearch && Array.isArray(this.currentSearch.dealerships)) {
+                    this.applyContactOverridesToDealers(this.currentSearch.dealerships);
+                }
+
+                if (Array.isArray(this.savedSearches)) {
+                    this.savedSearches.forEach(search => {
+                        if (search && Array.isArray(search.dealerships)) {
+                            this.applyContactOverridesToDealers(search.dealerships);
+                        }
+                    });
+                }
             } catch (e) {
                 console.error("Error loading state:", e);
                 // Fallback to localStorage
@@ -269,6 +282,10 @@ const app = createApp({
                             message: ''
                         };
                         this.searchParams = state.searchParams || { title: '', make: '', distance: '100', customDistance: '' };
+
+                        if (this.currentSearch && Array.isArray(this.currentSearch.dealerships)) {
+                            this.applyContactOverridesToDealers(this.currentSearch.dealerships);
+                        }
                     }
                 } catch (localError) {
                     console.error("Error loading from localStorage:", localError);
@@ -300,6 +317,11 @@ const app = createApp({
                     if (savedSearches) {
                         this.savedSearches = JSON.parse(savedSearches);
                         console.log(`📖 Loaded ${this.savedSearches.length} saved searches from localStorage`);
+                        this.savedSearches.forEach(search => {
+                            if (search && Array.isArray(search.dealerships)) {
+                                this.applyContactOverridesToDealers(search.dealerships);
+                            }
+                        });
                     } else {
                         console.log('No saved searches found in localStorage');
                         this.savedSearches = [];
@@ -404,7 +426,10 @@ const app = createApp({
                             contactStatus: dealer.contactStatus || 'pending',
                             selected: dealer.selected !== undefined ? dealer.selected : true,
                             contactHistory: dealer.contactHistory || [],
-                            addedAt: dealer.addedAt || new Date().toISOString()
+                            addedAt: dealer.addedAt || new Date().toISOString(),
+                            contact_page_link: dealer.contact_page_link || dealer.contactPageLink || dealer.contactPagLink || (dealer.website ? this.getContactPageUrl(dealer.website) : ''),
+                            contactPagLink: dealer.contactPagLink || dealer.contact_page_link || '',
+                            contactPageLink: dealer.contactPageLink || dealer.contact_page_link || ''
                         };
                     }),
                 createdAt: isNewSearch ? new Date().toISOString() : this.currentSearch.createdAt,
@@ -515,7 +540,7 @@ const app = createApp({
             this.contactState = 'stopped';
 
             const completedCount = this.currentSearch ?
-                this.currentSearch.dealerships.filter(d => d.contactStatus === 'contacted' || d.contactStatus === 'failed').length : 0;
+                this.currentSearch.dealerships.filter(d => ['contacted', 'failed', 'manual'].includes(d.contactStatus)).length : 0;
 
             console.log(`⏹️ Contact process stopped. Completed: ${completedCount} dealerships`);
 
@@ -610,7 +635,8 @@ const app = createApp({
                 'pending': '⏳',
                 'contacted': '✅',
                 'failed': '❌',
-                'skipped': '⏭️'
+                'skipped': '⏭️',
+                'manual': '✋'
             };
             return icons[status] || '❓';
         },
@@ -629,19 +655,12 @@ const app = createApp({
             if (!dealer) return;
             console.log(`Retrying contact for dealer: ${dealer.dealer_name}`);
             dealer.contactStatus = 'pending';
+            dealer.manualRequired = false;
             this.saveState();
         },
         showManualOptions(dealer) {
-            if (!dealer) return;
-            // Show manual contact options modal
-            const options = [
-                `📞 Call: ${dealer.phone}`,
-                `🌐 Visit: ${dealer.website}`,
-                `📧 Email: ${dealer.email || 'N/A'}`,
-                `📍 Address: ${dealer.address_line1}, ${dealer.city}, ${dealer.state}`
-            ].filter(option => !option.includes('N/A'));
-
-            alert(`Manual Contact Options for ${dealer.dealer_name}:\n\n${options.join('\n')}`);
+            // Deprecated in UI, keep for compatibility
+            this.openManualContact(dealer);
         },
         skipDealer(dealer) {
             if (!dealer) return;
@@ -649,6 +668,236 @@ const app = createApp({
             dealer.contactStatus = 'skipped';
             dealer.selected = false;
             this.saveState();
+        },
+
+        getDealerContactUrl(dealer) {
+            if (!dealer) return '';
+            return dealer.contact_page_link || dealer.contactPageLink || dealer.contactPagLink || (dealer.website ? this.getContactPageUrl(dealer.website) : '');
+        },
+        markManualContactSuccess(dealer) {
+            if (!dealer) return;
+            if (dealer.contactStatus === 'contacted') {
+                this.showNotification('info', 'Already Contacted', `${dealer.dealer_name} is already marked as contacted.`);
+                return;
+            }
+            dealer.contactStatus = 'contacted';
+            dealer.manualRequired = false;
+            dealer.lastContactedAt = new Date().toISOString();
+
+            if (!dealer.contactHistory) dealer.contactHistory = [];
+            dealer.contactHistory.push({
+                timestamp: new Date().toISOString(),
+                success: true,
+                details: 'Manually contacted',
+                method: 'manual',
+                contact_url: this.getDealerContactUrl(dealer),
+                screenshots: []
+            });
+
+            this.showNotification('success', `Manual Contact Saved`, `${dealer.dealer_name} marked as contacted manually.`);
+            this.saveState();
+        },
+        openManualContact(dealer, url) {
+            const finalUrl = url || this.getDealerContactUrl(dealer);
+            if (finalUrl) {
+                window.open(finalUrl, '_blank', 'noopener');
+            }
+
+            const payload = this.buildPrefillPayload(dealer);
+            if (payload) {
+                navigator.clipboard.writeText(payload).then(() => {
+                    this.showNotification('info', 'Prefill Copied', 'Contact details copied to clipboard for quick paste.');
+                }).catch(() => {
+                    console.warn('Clipboard write failed');
+                });
+            }
+        },
+        buildPrefillPayload(dealer) {
+            if (!dealer) return '';
+            const fields = {
+                firstName: this.customerInfo.firstName,
+                lastName: this.customerInfo.lastName,
+                email: this.customerInfo.email,
+                phone: this.customerInfo.phone,
+                message: this.customerInfo.message,
+                dealership: dealer.dealer_name,
+                contactUrl: this.getDealerContactUrl(dealer)
+            };
+            return Object.entries(fields)
+                .filter(([, value]) => value)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join('\n');
+        },
+        editContactPageUrl(dealer) {
+            if (!dealer) return;
+            dealer.editingContactUrl = true;
+            dealer.tempContactUrl = this.getDealerContactUrl(dealer) || '';
+        },
+        cancelContactPageEdit(dealer) {
+            if (!dealer) return;
+            dealer.editingContactUrl = false;
+            delete dealer.tempContactUrl;
+        },
+        saveContactPageUrl(dealer) {
+            if (!dealer || !dealer.editingContactUrl) return;
+            const url = (dealer.tempContactUrl || '').trim();
+            if (url) {
+                this.updateContactPageLink(dealer, url, 'manual_edit');
+            }
+            dealer.editingContactUrl = false;
+            delete dealer.tempContactUrl;
+        },
+        updateContactPageLink(dealer, url, source = 'automated', persist = true) {
+            if (!dealer || !url) return;
+
+            dealer.contact_page_link = url;
+            dealer.contactPagLink = url;
+            dealer.contactPageLink = url;
+            dealer.contact_url_source = source;
+
+            const masterList = Array.isArray(this.masterDealerships) ? this.masterDealerships : [];
+            const master = masterList.find(d => {
+                if (!d) return false;
+                if (d.dealer_name && dealer.dealer_name && d.dealer_name.toLowerCase() === dealer.dealer_name.toLowerCase()) {
+                    if (d.website && dealer.website) {
+                        return d.website.toLowerCase() === dealer.website.toLowerCase();
+                    }
+                    return true;
+                }
+                return false;
+            });
+
+            if (master) {
+                master.contact_page_link = url;
+                master.contactPagLink = url;
+                master.contactPageLink = url;
+            }
+
+            let baseUrl = '';
+            try {
+                const parsed = new URL(url);
+                baseUrl = parsed.origin + '/';
+            } catch (error) {
+                baseUrl = '';
+            }
+
+            if (baseUrl) {
+                this.updateWebsiteLinkInternal(dealer, baseUrl, false);
+            }
+
+            const overrideKey = this.getContactOverrideKey(dealer);
+            if (overrideKey) {
+                const overrides = this.loadContactPageOverrides();
+                const existing = overrides[overrideKey] && typeof overrides[overrideKey] === 'object' ? overrides[overrideKey] : {};
+                overrides[overrideKey] = {
+                    ...existing,
+                    url,
+                    dealerName: dealer.dealer_name,
+                    updatedAt: new Date().toISOString(),
+                    website: dealer.website || existing.website || ''
+                };
+                localStorage.setItem('contact_page_overrides', JSON.stringify(overrides));
+            }
+
+            if (persist) {
+                this.saveState();
+            }
+        },
+        updateWebsiteLinkInternal(dealer, baseUrl, persist = true) {
+            if (!dealer || !baseUrl) return;
+
+            dealer.website = baseUrl;
+            dealer.websiteLink = baseUrl;
+
+            const masterList = Array.isArray(this.masterDealerships) ? this.masterDealerships : [];
+            const master = masterList.find(d => {
+                if (!d) return false;
+                if (d.dealer_name && dealer.dealer_name && d.dealer_name.toLowerCase() === dealer.dealer_name.toLowerCase()) {
+                    return true;
+                }
+                return false;
+            });
+
+            if (master) {
+                master.website = baseUrl;
+                master.websiteLink = baseUrl;
+            }
+
+            const overrideKey = this.getContactOverrideKey(dealer);
+            if (overrideKey) {
+                const overrides = this.loadContactPageOverrides();
+                const existing = overrides[overrideKey] && typeof overrides[overrideKey] === 'object' ? overrides[overrideKey] : {};
+                overrides[overrideKey] = {
+                    ...existing,
+                    website: baseUrl,
+                    dealerName: dealer.dealer_name,
+                    updatedAt: new Date().toISOString()
+                };
+                localStorage.setItem('contact_page_overrides', JSON.stringify(overrides));
+            }
+
+            if (persist) {
+                this.saveState();
+            }
+        },
+        getContactOverrideKey(dealer) {
+            if (!dealer) return null;
+            if (dealer.id) return dealer.id;
+            if (dealer.dealer_name) return dealer.dealer_name.toLowerCase();
+            return null;
+        },
+        loadContactPageOverrides() {
+            try {
+                const raw = localStorage.getItem('contact_page_overrides');
+                if (!raw) return {};
+                const parsed = JSON.parse(raw);
+                return parsed && typeof parsed === 'object' ? parsed : {};
+            } catch (error) {
+                console.error('Failed to load contact page overrides:', error);
+                return {};
+            }
+        },
+        applyContactPageOverridesToMaster() {
+            if (!Array.isArray(this.masterDealerships) || this.masterDealerships.length === 0) return;
+            const overrides = this.loadContactPageOverrides();
+            if (!Object.keys(overrides).length) return;
+
+            this.masterDealerships.forEach(dealer => {
+                const key = this.getContactOverrideKey(dealer);
+                if (!key || !overrides[key]) return;
+                const data = overrides[key];
+                const url = typeof data === 'string' ? data : data.url;
+                if (url) {
+                    dealer.contact_page_link = url;
+                    dealer.contactPagLink = url;
+                    dealer.contactPageLink = url;
+                }
+                if (data && data.website) {
+                    dealer.website = data.website;
+                    dealer.websiteLink = data.website;
+                }
+            });
+        },
+        applyContactOverridesToDealers(dealers) {
+            if (!Array.isArray(dealers) || dealers.length === 0) return;
+            const overrides = this.loadContactPageOverrides();
+            if (!Object.keys(overrides).length) return;
+
+            dealers.forEach(dealer => {
+                const key = this.getContactOverrideKey(dealer);
+                if (!key || !overrides[key]) return;
+                const data = overrides[key];
+                const url = typeof data === 'string' ? data : data.url;
+                if (url) {
+                    dealer.contact_page_link = url;
+                    dealer.contactPagLink = url;
+                    dealer.contactPageLink = url;
+                }
+                if (data && data.website) {
+                    dealer.website = data.website;
+                    dealer.websiteLink = data.website;
+                }
+            });
         },
 
         // Message Templates
@@ -664,12 +913,13 @@ const app = createApp({
         // Retry Failed Contacts
         retryFailedContacts() {
             if (!this.currentSearch) return;
-            console.log('Retrying all failed contacts');
+            console.log('Retrying all failed/manual contacts');
             this.currentSearch.dealerships
-                .filter(d => d.contactStatus === 'failed')
+                .filter(d => d.contactStatus === 'failed' || d.contactStatus === 'manual')
                 .forEach(dealer => {
                     dealer.contactStatus = 'pending';
                     dealer.selected = true;
+                    dealer.manualRequired = false;
                 });
             this.saveState();
         },
@@ -932,7 +1182,7 @@ const app = createApp({
         },
         getSearchFailedCount(search) {
             if (!search || !search.dealerships) return 0;
-            return search.dealerships.filter(d => d.contactStatus === 'failed').length;
+            return search.dealerships.filter(d => d.contactStatus === 'failed' || d.contactStatus === 'manual').length;
         },
         getSearchPendingCount(search) {
             if (!search || !search.dealerships) return 0;
@@ -1140,6 +1390,11 @@ const app = createApp({
                 if (result.success) {
                     this.savedSearches = result.searches || [];
                     console.log(`📖 Server load: Loaded ${this.savedSearches.length} searches`);
+                    this.savedSearches.forEach(search => {
+                        if (search && Array.isArray(search.dealerships)) {
+                            this.applyContactOverridesToDealers(search.dealerships);
+                        }
+                    });
                 } else {
                     throw new Error(result.error);
                 }
@@ -1202,6 +1457,10 @@ const app = createApp({
                     };
                     this.searchParams = state.searchParams || { title: '', make: '', distance: '100', customDistance: '' };
                     console.log(`📖 Server state load: Loaded application state`);
+
+                    if (this.currentSearch && Array.isArray(this.currentSearch.dealerships)) {
+                        this.applyContactOverridesToDealers(this.currentSearch.dealerships);
+                    }
                 } else {
                     console.log('No state found on server, using defaults');
                 }
@@ -1291,7 +1550,7 @@ const app = createApp({
         },
         failedCount() {
             if (!this.currentSearch) return 0;
-            return this.currentSearch.dealerships.filter(d => d.contactStatus === 'failed').length;
+            return this.currentSearch.dealerships.filter(d => d.contactStatus === 'failed' || d.contactStatus === 'manual').length;
         },
         pendingCount() {
             if (!this.currentSearch) return 0;
@@ -1308,14 +1567,14 @@ const app = createApp({
         progressPercentage() {
             if (!this.currentSearch || this.selectedCount === 0) return 0;
             const completed = this.currentSearch.dealerships.filter(d =>
-                d.selected && (d.contactStatus === 'contacted' || d.contactStatus === 'failed')
+                d.selected && ['contacted', 'failed', 'manual'].includes(d.contactStatus)
             ).length;
             return Math.round((completed / this.selectedCount) * 100);
         },
         estimatedTimeRemaining() {
             if (this.contactState !== 'running' || this.selectedCount === 0) return 'N/A';
             const completed = this.currentSearch.dealerships.filter(d =>
-                d.selected && (d.contactStatus === 'contacted' || d.contactStatus === 'failed')
+                d.selected && ['contacted', 'failed', 'manual'].includes(d.contactStatus)
             ).length;
             const remaining = this.selectedCount - completed;
             if (remaining <= 0) return '0 minutes';

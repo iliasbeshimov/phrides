@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dealership Contact Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20251030">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
@@ -328,7 +328,8 @@
                                                 'fa-clock': dealer.contactStatus === 'pending',
                                                 'fa-check-circle': dealer.contactStatus === 'contacted',
                                                 'fa-times-circle': dealer.contactStatus === 'failed',
-                                                'fa-forward': dealer.contactStatus === 'skipped'
+                                                'fa-forward': dealer.contactStatus === 'skipped',
+                                                'fa-hand-paper': dealer.contactStatus === 'manual'
                                             }"></i>
                                         </div>
                                     </div>
@@ -345,11 +346,38 @@
                                                 ~{{dealer.distanceMiles}} miles
                                             </span>
                                         </div>
-                                        <div class="website-row" v-if="dealer.website">
-                                            <a :href="getContactPageUrl(dealer.website)" target="_blank" class="website-compact">
-                                                <i class="fas fa-globe"></i>
-                                                {{dealer.website}}
-                                            </a>
+                                        <div class="contact-url-row">
+                                            <template v-if="dealer.editingContactUrl">
+                                                <div class="contact-url-edit">
+                                                    <input type="url"
+                                                           v-model="dealer.tempContactUrl"
+                                                           placeholder="https://dealer.com/contact"
+                                                           @keyup.enter="saveContactPageUrl(dealer)"
+                                                           @blur="saveContactPageUrl(dealer)"
+                                                           autofocus>
+                                                    <button class="btn btn-secondary btn-compact"
+                                                            @mousedown.prevent
+                                                            @click.stop="cancelContactPageEdit(dealer)">
+                                                        Cancel
+                                                    </button>
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <a :href="getDealerContactUrl(dealer)"
+                                                   target="_blank"
+                                                   class="contact-url-link"
+                                                   v-if="getDealerContactUrl(dealer)">
+                                                    <i class="fas fa-envelope-open-text"></i>
+                                                    {{getDealerContactUrl(dealer)}}
+                                                </a>
+                                                <span class="missing-contact-url" v-else>
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    Contact page unknown
+                                                </span>
+                                                <button class="btn btn-icon btn-compact" @click.stop="editContactPageUrl(dealer)" title="Edit contact page URL">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </template>
                                         </div>
                                     </div>
                                 </div>
@@ -362,14 +390,18 @@
                                     <i class="fas fa-phone"></i>
                                     Contact Now
                                 </button>
-                                <button v-if="dealer.contactStatus === 'failed'"
+                                <button v-if="dealer.contactStatus === 'failed' || dealer.contactStatus === 'manual'"
                                         class="btn btn-warning btn-sm" @click="retryContact(dealer)">
                                     <i class="fas fa-redo"></i>
                                     Retry
                                 </button>
-                                <button class="btn btn-secondary btn-sm" @click="showManualOptions(dealer)">
+                                <button class="btn btn-secondary btn-sm" @click="openManualContact(dealer)">
                                     <i class="fas fa-hand-paper"></i>
-                                    Manual
+                                    Manual Contact
+                                </button>
+                                <button class="btn btn-success btn-sm" @click="markManualContactSuccess(dealer)" v-if="dealer.contactStatus !== 'contacted'">
+                                    <i class="fas fa-check"></i>
+                                    Mark Done
                                 </button>
                                 <button class="btn btn-outline btn-sm" @click="skipDealer(dealer)">
                                     <i class="fas fa-forward"></i>
@@ -408,11 +440,18 @@
                                             </div>
 
                                             <!-- Contact URL for failed attempts -->
-                                            <div class="manual-contact-link" v-if="!attempt.success && attempt.contact_url">
-                                                <a :href="attempt.contact_url" target="_blank" class="btn btn-sm btn-warning">
+                                            <div class="manual-contact-link" v-if="!attempt.success && (attempt.contact_url || getDealerContactUrl(dealer))">
+                                                <a :href="attempt.contact_url || getDealerContactUrl(dealer)"
+                                                   target="_blank"
+                                                   class="btn btn-sm btn-warning"
+                                                   @click.prevent="openManualContact(dealer, attempt.contact_url || getDealerContactUrl(dealer))">
                                                     <i class="fas fa-external-link-alt"></i>
                                                     Fill Manually
                                                 </a>
+                                                <button class="btn btn-success btn-sm" @click="markManualContactSuccess(dealer)">
+                                                    <i class="fas fa-check"></i>
+                                                    Mark as Done
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -560,7 +599,7 @@
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body wide-modal">
                     <img :src="currentScreenshotUrl" alt="Screenshot" class="screenshot-image">
                     <div class="screenshot-info" v-if="currentScreenshotInfo">
                         <div class="info-item">
@@ -606,9 +645,9 @@
         </div>
 
     </div>
-    <script src="zip_coordinates.js"></script>
-    <script src="websocket_client.js"></script>
-    <script src="websocket_integration.js"></script>
-    <script src="app.js"></script>
+    <script src="zip_coordinates.js?v=20251030"></script>
+    <script src="websocket_client.js?v=20251030"></script>
+    <script src="websocket_integration.js?v=20251030"></script>
+    <script src="app.js?v=20251030"></script>
 </body>
 </html>

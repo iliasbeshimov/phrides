@@ -260,6 +260,12 @@ h3 { font-size: 1.25rem; }
     color: var(--danger-color);
 }
 
+.btn-compact {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
 /* Search List View */
 .search-list-view {
     flex: 1;
@@ -485,6 +491,16 @@ h3 { font-size: 1.25rem; }
     padding: var(--spacing-xl);
 }
 
+.dealership-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.dealership-panel .dealership-list {
+    max-height: none !important;
+    overflow: visible !important;
+}
+
 /* Modern Panels */
 .modern-panel {
     background: var(--surface);
@@ -638,27 +654,8 @@ h3 { font-size: 1.25rem; }
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    max-height: calc(100vh - 300px);
-    overflow-y: auto;
-    padding-right: var(--spacing-sm);
-}
-
-.dealership-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.dealership-list::-webkit-scrollbar-track {
-    background: var(--border-light);
-    border-radius: var(--radius-sm);
-}
-
-.dealership-list::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: var(--radius-sm);
-}
-
-.dealership-list::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
+    overflow: visible;
+    padding-right: 0;
 }
 
 /* Modern Cards */
@@ -788,6 +785,47 @@ h3 { font-size: 1.25rem; }
     text-decoration: underline;
 }
 
+.contact-url-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.contact-url-link {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    word-break: break-all;
+}
+
+.contact-url-edit {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+}
+
+.contact-url-edit input,
+.contact-url-edit input[type="url"] {
+    flex: 1;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+}
+
+.missing-contact-url {
+    font-size: 0.8rem;
+    color: var(--warning-color);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
 .modern-card .card-header {
     display: flex;
     align-items: flex-start;
@@ -891,6 +929,11 @@ h3 { font-size: 1.25rem; }
 .status-failed {
     background: #fee2e2;
     color: #dc2626;
+}
+
+.status-manual {
+    background: #fef3c7;
+    color: #b45309;
 }
 
 .status-skipped {
@@ -1457,18 +1500,38 @@ h3 { font-size: 1.25rem; }
     padding: 24px;
 }
 
+.modal-body.wide-modal {
+    width: 80vw;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
 .screenshot-image {
     width: 100%;
     height: auto;
+    max-height: 70vh;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.modal-body.wide-modal .screenshot-image {
+    flex: 1;
+    max-width: 70%;
+    margin-bottom: 0;
 }
 
 .screenshot-info {
     background: #f8f9fa;
     border-radius: 8px;
     padding: 16px;
+}
+
+.modal-body.wide-modal .screenshot-info {
+    flex: 1;
 }
 
 .screenshot-info .info-item {
@@ -1541,6 +1604,10 @@ h3 { font-size: 1.25rem; }
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
 }
 
 /* ==========================================================================

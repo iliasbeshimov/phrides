@@ -1,0 +1,459 @@
+{
+  "sites": [
+    {
+      "dealer_name": "Gettel Acura",
+      "website": "https://www.gettelacura.com/",
+      "contact_url": "https://www.gettelacura.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 22:57:02",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Maus Acura of North Tampa",
+      "website": "http://www.mausacura.com/",
+      "contact_url": "https://www.mausacura.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 22:58:26",
+      "status": "pending",
+      "notes": "Early detection: [id*='captcha']",
+      "captcha_type": "Unknown CAPTCHA"
+    },
+    {
+      "dealer_name": "Regal Acura",
+      "website": "https://www.regalacura.com/",
+      "contact_url": "https://www.regalacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 22:58:53",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Acura of Fort Myers",
+      "website": "https://www.acuraoffortmyers.com/",
+      "contact_url": "https://www.acuraoffortmyers.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 22:59:22",
+      "status": "pending",
+      "notes": "Early detection: [id*='captcha']",
+      "captcha_type": "Unknown CAPTCHA"
+    },
+    {
+      "dealer_name": "Fountain Acura",
+      "website": "https://www.fountainacura.com/",
+      "contact_url": "https://www.fountainacura.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:01:23",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "AutoNation Acura North Orlando",
+      "website": "https://www.autonationacuranorthorlando.com/",
+      "contact_url": "https://www.autonationacuranorthorlando.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:01:46",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Jenkins Acura",
+      "website": "https://www.jenkinsacura.com/",
+      "contact_url": "https://www.jenkinsacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:03:23",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Acura",
+      "website": "https://www.cogginacura.com/",
+      "contact_url": "https://www.cogginacura.com/contact-us.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:03:45",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Acura of Palm Beach",
+      "website": "https://www.acuraofpalmbeach.com/",
+      "contact_url": "https://www.acuraofpalmbeach.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:04:13",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Acura of Pembroke Pines",
+      "website": "https://www.acuraofpembrokepines.com/",
+      "contact_url": "https://www.acuraofpembrokepines.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:04:45",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Delray Acura",
+      "website": "https://www.delrayacura.com/",
+      "contact_url": "https://www.delrayacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:05:08",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Rick Case Acura",
+      "website": "https://www.rickcaseacura.com/",
+      "contact_url": "https://www.rickcaseacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:05:31",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Key Acura of Gainesville",
+      "website": "https://www.keyacuragainesville.com/",
+      "contact_url": "https://www.keyacuragainesville.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:05:54",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Phil Smith Acura",
+      "website": "https://www.philsmithacura.com/",
+      "contact_url": "https://www.philsmithacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:06:17",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Miami Acura",
+      "website": "https://www.miamiacura.com/",
+      "contact_url": "https://www.miamiacura.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:07:34",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Atlantic Coast Acura",
+      "website": "https://www.duvalacura.com/",
+      "contact_url": "https://www.duvalacura.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:09:35",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Hendrick Honda Bradenton",
+      "website": "https://www.hendrickhondabradenton.com/",
+      "contact_url": "https://www.hendrickhondabradenton.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:35:29",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Venice Honda",
+      "website": "https://www.venicehonda.com/",
+      "contact_url": "https://www.venicehonda.com/contactus.aspx",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:36:02",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Norm Reeves Honda Superstore Port Charlo",
+      "website": "https://www.portcharlottehonda.com/",
+      "contact_url": "https://www.portcharlottehonda.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-30 23:37:01",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "AutoNation Honda Clearwater",
+      "website": "https://www.autonationhondaclearwater.com/",
+      "contact_url": "https://www.autonationhondaclearwater.com/contact/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:14:42",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Courtesy Palm Harbor Honda",
+      "website": "https://www.palmharborhonda.com/",
+      "contact_url": "https://www.palmharborhonda.com/contact-us.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:17:08",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Regal Honda",
+      "website": "https://regalhonda.com/",
+      "contact_url": "https://regalhonda.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:17:36",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Germain Honda of Naples",
+      "website": "https://www.germainhonda.com/",
+      "contact_url": "https://www.germainhonda.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:50:23",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Headquarter Honda",
+      "website": "http://www.headquarterhonda.com/",
+      "contact_url": "https://www.headquarterhonda.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:51:16",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Honda of Orlando",
+      "website": "https://www.cogginhondaorlando.com/",
+      "contact_url": "https://www.cogginhondaorlando.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:51:40",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Love Honda",
+      "website": "https://www.lovehonda.com/",
+      "contact_url": "https://www.lovehonda.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:52:03",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Jenkins Honda of Leesburg",
+      "website": "https://www.jenkinshondaofleesburg.com/",
+      "contact_url": "https://www.jenkinshondaofleesburg.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:53:47",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "AutoNation Honda Sanford",
+      "website": "http://www.autonationhondasanford.com/",
+      "contact_url": "http://www.autonationhondasanford.com/contact/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 00:54:40",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Honda of Ft. Pierce",
+      "website": "https://www.cogginhondaftpierce.com/",
+      "contact_url": "https://www.cogginhondaftpierce.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:33:55",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Deland Honda",
+      "website": "https://www.cogginhondadeland.com/",
+      "contact_url": "https://www.cogginhondadeland.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:34:17",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Starling Honda",
+      "website": "https://www.starling-honda.com/",
+      "contact_url": "https://www.starling-honda.com/contactus",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:34:59",
+      "status": "pending",
+      "notes": "Early detection: [id*='captcha']",
+      "captcha_type": "Unknown CAPTCHA"
+    },
+    {
+      "dealer_name": "Johnson Honda of Stuart",
+      "website": "https://www.johnsonhondaofstuart.com/",
+      "contact_url": "https://www.johnsonhondaofstuart.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:35:22",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Braman Honda of Palm Beach",
+      "website": "https://www.bramanhondapb.com/",
+      "contact_url": "https://www.bramanhondapb.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:36:58",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Rick Case Honda",
+      "website": "https://rickcasehonda.com/",
+      "contact_url": "https://rickcasehonda.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:39:42",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Delray Honda",
+      "website": "https://www.delrayhonda.com/",
+      "contact_url": "https://www.delrayhonda.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:40:07",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Hendrick Honda Pompano Beach",
+      "website": "http://www.hendrickhondapompanobeach.com/",
+      "contact_url": "http://www.hendrickhondapompanobeach.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:40:29",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Honda of Gainesville",
+      "website": "https://www.hondaofgainesville.com/",
+      "contact_url": "https://www.hondaofgainesville.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:41:20",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "AutoNation Honda Miami Lakes",
+      "website": "https://www.autonationhondamiamilakes.com/",
+      "contact_url": "https://www.autonationhondamiamilakes.com/contact/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:42:13",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Holman Honda of Ft. Lauderdale",
+      "website": "http://www.holmanhonda.com/",
+      "contact_url": "https://www.holmanhonda.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:42:58",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "AutoNation Honda Hollywood",
+      "website": "https://www.autonationhondahollywood.com/",
+      "contact_url": "https://www.autonationhondahollywood.com/contact/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:43:52",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Braman Honda",
+      "website": "https://www.bramanhonda.com/",
+      "contact_url": "https://www.bramanhonda.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:44:42",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Honda of St. Augustine",
+      "website": "https://www.cogginhondastaugustine.com/",
+      "contact_url": "https://www.cogginhondastaugustine.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:49:26",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Honda of The Avenues",
+      "website": "https://www.hondaoftheavenues.com/",
+      "contact_url": "https://www.hondaoftheavenues.com/contact-us/",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:52:50",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Atlantic Coast Honda",
+      "website": "https://www.atlanticcoasthonda.com/",
+      "contact_url": "https://www.atlanticcoasthonda.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:53:17",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    },
+    {
+      "dealer_name": "Coggin Honda",
+      "website": "https://www.cogginhondajacksonville.com/",
+      "contact_url": "https://www.cogginhondajacksonville.com/contact.htm",
+      "reason": "CAPTCHA",
+      "detected_date": "2025-10-31 03:53:39",
+      "status": "pending",
+      "notes": "Early detection: iframe[src*='recaptcha']",
+      "captcha_type": "reCAPTCHA"
+    }
+  ],
+  "summary": {
+    "total": 45,
+    "pending": 45,
+    "completed": 0
+  }
+}

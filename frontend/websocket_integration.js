@@ -433,9 +433,28 @@ const websocketMethods = {
         );
 
         if (!nextDealer) {
-            // All done
+            const total = this.dealersToContact.length;
+            const successCount = this.dealersToContact.filter(d => d.contactStatus === 'contacted').length;
+            const manualCount = this.dealersToContact.filter(d => d.contactStatus === 'manual').length;
+            const failedCount = this.dealersToContact.filter(d => d.contactStatus === 'failed').length;
+
             this.stopContacting();
-            this.showNotification('success', 'Batch Complete', `Contacted ${this.dealersToContact.length} dealerships`);
+
+            if (manualCount > 0) {
+                this.showNotification(
+                    'warning',
+                    'Batch Complete (Manual Follow-up)',
+                    `${successCount} succeeded, ${manualCount} need manual follow-up, ${failedCount} hard failures`
+                );
+            } else if (failedCount > 0) {
+                this.showNotification(
+                    'warning',
+                    'Batch Complete (Check Failures)',
+                    `${successCount} succeeded, ${failedCount} failed`
+                );
+            } else {
+                this.showNotification('success', 'Batch Complete', `Contacted ${total} dealerships successfully`);
+            }
             return;
         }
 
@@ -484,7 +503,8 @@ const websocketMethods = {
             'pending': 0,
             'contacting': 1,
             'contacted': 10,  // Final success state
-            'failed': 10      // Final failure state
+            'failed': 10,     // Final failure state
+            'manual': 10      // Manual intervention required
         };
 
         const currentPriority = statusPriority[dealer.contactStatus] || 0;
@@ -506,7 +526,8 @@ const websocketMethods = {
         const dealer = this.currentSearch.dealerships.find(d => d.dealer_name === dealerName);
         if (!dealer) return;
 
-        dealer.contactStatus = result.success ? 'contacted' : 'failed';
+        const requiresManual = result.reason === 'captcha_detected';
+        dealer.contactStatus = result.success ? 'contacted' : (requiresManual ? 'manual' : 'failed');
         dealer.lastContactedAt = new Date().toISOString();
 
         // Clear timeout since contact completed (success or failure)
@@ -520,12 +541,21 @@ const websocketMethods = {
         dealer.contactHistory.push({
             timestamp: new Date().toISOString(),
             success: result.success,
-            details: result.details,
+            details: result.details || (result.success ? 'Contact successful' : 'Contact failed'),
             method: 'automated_websocket',
             contact_url: result.contact_url,
             captcha_type: result.captcha_type,
-            screenshots: result.screenshots
+            screenshots: result.screenshots || [],
+            requiresManual
         });
+
+        if (requiresManual) {
+            dealer.manualRequired = true;
+        }
+
+        if (result.contact_url) {
+            this.updateContactPageLink(dealer, result.contact_url, result.reason || 'automated', false);
+        }
 
         this.saveState();
     },
@@ -550,14 +580,33 @@ const websocketMethods = {
 
     // ========== Screenshot Methods ==========
 
+    getAutomationBaseUrl() {
+        const wsUrl = this.websocketUrl || (this.websocketClient && this.websocketClient.url) || '';
+        if (!wsUrl) {
+            return `${window.location.protocol}//${window.location.host}`;
+        }
+
+        try {
+            const url = new URL(wsUrl);
+            const protocol = url.protocol === 'wss:' ? 'https:' : 'http:';
+            return `${protocol}//${url.host}`;
+        } catch (error) {
+            console.warn('[Screenshot] Failed to parse websocket URL, falling back to page origin', error);
+            return `${window.location.protocol}//${window.location.host}`;
+        }
+    },
+
     getScreenshotUrl(screenshot) {
         if (screenshot.startsWith('http')) {
             return screenshot;
         }
-        // Use same host and protocol as page is served from
-        const protocol = window.location.protocol; // http: or https:
-        const host = window.location.host; // includes port
-        return `${protocol}//${host}/screenshots/${screenshot}`;
+        const base = this.getAutomationBaseUrl();
+
+        if (screenshot.startsWith('/')) {
+            return `${base}${screenshot}`;
+        }
+
+        return `${base}/screenshots/${screenshot}`;
     },
 
     viewScreenshot(screenshot, dealer, attempt) {
