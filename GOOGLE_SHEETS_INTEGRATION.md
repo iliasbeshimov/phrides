@@ -72,8 +72,12 @@ make,state,dealerName,address,phone,websiteLink,contactPagLink,inventoryLink,lat
 | `websiteLink` | ✅ Populated | Manual entry |
 | `contactPagLink` | ⚠️ Empty (to be populated) | Automation (when detected) |
 | `inventoryLink` | ⚠️ Empty (to be populated) | Manual entry or automation |
-| `lat` | ⚠️ Empty (to be populated) | Geocoding script |
-| `long` | ⚠️ Empty (to be populated) | Geocoding script |
+| `lat` | ✅ Populated for Acura (100%), ⚠️ Empty for Toyota | Geocoding script |
+| `long` | ✅ Populated for Acura (100%), ⚠️ Empty for Toyota | Geocoding script |
+
+**Coordinate Statistics:**
+- **Acura:** 273/273 dealerships have lat/long (100% complete)
+- **Toyota:** 0/1,244 dealerships have lat/long (needs geocoding)
 
 ---
 
